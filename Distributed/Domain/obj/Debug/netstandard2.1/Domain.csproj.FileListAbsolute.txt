@@ -1,0 +1,8 @@
+C:\Users\Simo\icd0009-2019s\Distributed\Domain\bin\Debug\netstandard2.1\Domain.deps.json
+C:\Users\Simo\icd0009-2019s\Distributed\Domain\bin\Debug\netstandard2.1\Domain.dll
+C:\Users\Simo\icd0009-2019s\Distributed\Domain\bin\Debug\netstandard2.1\Domain.pdb
+C:\Users\Simo\icd0009-2019s\Distributed\Domain\obj\Debug\netstandard2.1\Domain.csprojAssemblyReference.cache
+C:\Users\Simo\icd0009-2019s\Distributed\Domain\obj\Debug\netstandard2.1\Domain.AssemblyInfoInputs.cache
+C:\Users\Simo\icd0009-2019s\Distributed\Domain\obj\Debug\netstandard2.1\Domain.AssemblyInfo.cs
+C:\Users\Simo\icd0009-2019s\Distributed\Domain\obj\Debug\netstandard2.1\Domain.dll
+C:\Users\Simo\icd0009-2019s\Distributed\Domain\obj\Debug\netstandard2.1\Domain.pdb
