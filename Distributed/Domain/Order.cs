@@ -1,9 +1,10 @@
-﻿namespace Domain
+﻿using DAL.Base;
+
+namespace Domain
 {
-    public class Order
+    public class Order : DomainEntity
     {
-        public int OrderId { get; set; }
-        
+
         public int AccountId { get; set; }
         
         public Account? Account { get; set; }

@@ -14,7 +14,11 @@
     },
     "frameworks": {
       "netstandard2.1": {
-        "projectReferences": {}
+        "projectReferences": {
+          "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\DAL.Base\\DAL.Base.csproj": {
+            "projectPath": "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\DAL.Base\\DAL.Base.csproj"
+          }
+        }
       }
     },
     "warningProperties": {
@@ -26,6 +30,10 @@
   "frameworks": {
     "netstandard2.1": {
       "dependencies": {
+        "Microsoft.Extensions.Identity.Stores": {
+          "target": "Package",
+          "version": "[3.1.2, )"
+        },
         "System.ComponentModel.Annotations": {
           "target": "Package",
           "version": "[4.7.0, )"

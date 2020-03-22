@@ -1,10 +1,11 @@
 ﻿using System.Collections.Generic;
+using DAL.Base;
 
 namespace Domain
 {
-    public class Warehouse
+    public class Warehouse : DomainEntity
     {
-        public int WarehouseId { get; set; }
+        
         
         public string WarehouseCode { get; set; } = default!;
         

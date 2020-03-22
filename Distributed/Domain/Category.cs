@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
+using DAL.Base;
 
 namespace Domain
 {
-    public class Category
+    public class Category : DomainEntity
     {
-        public int CategoryId { get; set; }
 
         public string CategoryName { get; set; } = default!;
         

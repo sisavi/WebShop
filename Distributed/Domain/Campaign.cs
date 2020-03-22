@@ -1,15 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using DAL.Base;
 
 namespace Domain
 {
-    public class Campaign
+    public class Campaign : DomainEntity
     {
-        public int CampaignId { get; set; }
-
-        public decimal Discount { get; set; }
+        public double Discount { get; set; }
         
-
         public DateTime StartTime { get; set; }
         public DateTime EndTime { get; set; }
         

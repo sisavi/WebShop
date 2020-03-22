@@ -7,18 +7,88 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.1.0" />
-        <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.0" />
-        <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.0" />
+        <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.1.2" />
+        <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.2" />
+        <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.2" />
         <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.2" />
         <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.2" />
         <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.2" />
-        <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.0" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.2" />
         <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.1" />
+        <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="3.1.1" />
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\DAL.App.EF\DAL.App.EF.csproj" />
       <ProjectReference Include="..\Domain\Domain.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="Views\Accounts\Create.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Accounts\Delete.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Accounts\Details.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Accounts\Edit.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Accounts\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Basket\Create.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Basket\Delete.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Basket\Details.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Basket\Edit.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Basket\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Campaigns\Create.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Campaigns\Delete.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Campaigns\Details.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Campaigns\Edit.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Campaigns\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Categories\Create.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Categories\Delete.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Categories\Details.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Categories\Edit.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Categories\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Comments\Create.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Comments\Delete.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Comments\Details.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Comments\Edit.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Comments\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Orders\Create.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Orders\Delete.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Orders\Details.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Orders\Edit.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Orders\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Payments\Create.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Payments\Delete.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Payments\Details.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Payments\Edit.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Payments\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Pictures\Create.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Pictures\Delete.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Pictures\Details.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Pictures\Edit.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Pictures\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Prices\Create.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Prices\Delete.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Prices\Details.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Prices\Edit.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Prices\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\ProductInBaskets\Create.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\ProductInBaskets\Delete.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\ProductInBaskets\Details.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\ProductInBaskets\Edit.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\ProductInBaskets\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\ProductInWarehouses\Create.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\ProductInWarehouses\Delete.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\ProductInWarehouses\Details.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\ProductInWarehouses\Edit.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\ProductInWarehouses\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Products\Create.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Products\Delete.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Products\Details.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Products\Edit.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Products\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Warehouses\Create.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Warehouses\Delete.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Warehouses\Details.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Warehouses\Edit.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Warehouses\Index.cshtml" />
     </ItemGroup>
 
 </Project>

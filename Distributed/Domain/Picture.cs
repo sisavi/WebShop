@@ -1,8 +1,9 @@
-﻿namespace Domain
+﻿using DAL.Base;
+
+namespace Domain
 {
-    public class Picture
+    public class Picture : DomainEntity
     {
-        public int PictureId { get; set; }
 
         public int ProductId { get; set; }
         public Product? Product { get; set; }

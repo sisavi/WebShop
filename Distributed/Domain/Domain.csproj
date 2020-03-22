@@ -6,7 +6,12 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="System.ComponentModel.Annotations" Version="4.7.0" />
+        <PackageReference Include="Microsoft.Extensions.Identity.Stores" Version="3.1.2" />
+        <PackageReference Include="System.ComponentModel.Annotations" Version="4.7.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\DAL.Base\DAL.Base.csproj" />
     </ItemGroup>
 
 </Project>

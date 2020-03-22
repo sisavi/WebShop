@@ -1,11 +1,11 @@
 ﻿using System;
+using DAL.Base;
 
 namespace Domain
 {
-    public class Price
+    public class Price : DomainEntity
     {
-        public int PriceId { get; set; }
-        
+
         public int ProductId { get; set; }
         
         public Product? Product { get; set; }
@@ -14,7 +14,7 @@ namespace Domain
         
         public Campaign? Campaign { get; set; }
         
-        public decimal ProductPrice { get; set; } = default!;
+        public double ProductPrice { get; set; } = default!;
         
         public DateTime StartTime { get; set; } = default!;
         

@@ -1,10 +1,10 @@
 ﻿using System;
+using DAL.Base;
 
 namespace Domain
 {
-    public class Payment
+    public class Payment : DomainEntity
     {
-        public int PaymentId { get; set; }
         public int AccountId { get; set; }
         public Account? Account { get; set; }
 

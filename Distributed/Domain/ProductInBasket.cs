@@ -1,10 +1,11 @@
 ﻿using System.Collections.Generic;
+using DAL.Base;
 
 namespace Domain
 {
-    public class ProductInBasket
+    public class ProductInBasket : DomainEntity
     {
-        public int ProductInBasketId { get; set; }
+        
         public int BasketId { get; set; }
         public Basket? Basket { get; set; }
         public int ProductId { get; set; }

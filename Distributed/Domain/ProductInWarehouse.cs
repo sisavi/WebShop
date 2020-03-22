@@ -1,9 +1,10 @@
-﻿namespace Domain
+﻿using DAL.Base;
+
+namespace Domain
 {
-    public class ProductInWarehouse
+    public class ProductInWarehouse : DomainEntity
     {
-        public int ProductInWarehouseId { get; set; }
-        
+
         public int ProductId { get; set; }
 
         public Product? Product { get; set; }
