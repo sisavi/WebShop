@@ -43,7 +43,7 @@ namespace WebApp
             services.AddRazorPages();
 
             services.AddDbContext<ApplicationDbContext>(options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("ApplicationDbContext")));
+                    options.UseSqlServer(Configuration.GetConnectionString("MsSqlConnection")));
         }
         
 
