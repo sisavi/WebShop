@@ -15,20 +15,19 @@ namespace WebApp.Controllers
 {
     public class AccountsController : Controller
     {
-        private readonly AppDbContext _context;
+        
         private readonly IAppUnitOfWork _uow;
 
-        public AccountsController(AppDbContext context, IAppUnitOfWork uow)
+        public AccountsController(IAppUnitOfWork uow)
         {
-            _context = context;
             _uow = uow;
         }
 
         // GET: Accounts
         public async Task<IActionResult> Index()
         {
-            var appDbContext = _context.Accounts;
-            return View(await appDbContext.ToListAsync());
+            var appDbContext = _uow.Accounts;
+            return View(await appDbContext.AllAsync());
         }
 
         // GET: Accounts/Details/5
@@ -39,9 +38,7 @@ namespace WebApp.Controllers
                 return NotFound();
             }
 
-            var account = await _context.Accounts
-                .Include(a => a.AppUser)
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var account = await _uow.Accounts.FindAsync(id);
             if (account == null)
             {
                 return NotFound();
@@ -54,7 +51,7 @@ namespace WebApp.Controllers
         public IActionResult Create()
         {
             var vm = new AccountEditCreateViewModels();
-            vm.AppUsersSelectList = new SelectList(_context.Accounts, nameof(Account.Id), nameof(Account.FirstName));
+            vm.AppUsersSelectList = new SelectList(_uow.Accounts.All(), nameof(Account.Id), nameof(Account.FirstName));
             return View(vm);
         }
 
@@ -68,12 +65,12 @@ namespace WebApp.Controllers
             if (ModelState.IsValid)
             {
                 vm.Account.Id = Guid.NewGuid();
-                _context.Add(vm.Account);
-                await _context.SaveChangesAsync();
+                _uow.Accounts.Add(vm.Account);
+                await _uow.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
             //ViewData["AppUserId"] = new SelectList(_context.Set<AppUser>(), "Id", "FirstName", vm.Account.AppUserId);
-            vm.AppUsersSelectList = new SelectList(_context.Accounts, nameof(Account.Id), nameof(Account.FirstName),  vm.Account.Id);
+            vm.AppUsersSelectList = new SelectList(_uow.Accounts.All(), nameof(Account.Id), nameof(Account.FirstName),  vm.Account.Id);
             return View(vm);
         }
 
@@ -85,12 +82,12 @@ namespace WebApp.Controllers
                 return NotFound();
             }
 
-            var account = await _context.Accounts.FindAsync(id);
+            var account = await _uow.Accounts.FindAsync(id);
             if (account == null)
             {
                 return NotFound();
             }
-            ViewData["AppUserId"] = new SelectList(_context.Set<AppUser>(), "Id", "FirstName", account.AppUserId);
+            ViewData["AppUserId"] = new SelectList(_uow.Accounts.All(), nameof(account.AppUserId), nameof(AppUser.FirstName), account.AppUserId);
             return View(account);
         }
 
@@ -110,8 +107,8 @@ namespace WebApp.Controllers
             {
                 try
                 {
-                    _context.Update(account);
-                    await _context.SaveChangesAsync();
+                    _uow.Accounts.Update(account);
+                    await _uow.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -126,7 +123,7 @@ namespace WebApp.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["AppUserId"] = new SelectList(_context.Set<AppUser>(), "Id", "FirstName", account.AppUserId);
+            ViewData["AppUserId"] = new SelectList(_uow.Accounts.All(), nameof(account.AppUserId), nameof(AppUser.FirstName), account.AppUserId);
             return View(account);
         }
 
@@ -138,9 +135,7 @@ namespace WebApp.Controllers
                 return NotFound();
             }
 
-            var account = await _context.Accounts
-                .Include(a => a.AppUser)
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var account = await _uow.Accounts.FindAsync(id);
             if (account == null)
             {
                 return NotFound();
@@ -154,15 +149,15 @@ namespace WebApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(Guid id)
         {
-            var account = await _context.Accounts.FindAsync(id);
-            _context.Accounts.Remove(account);
-            await _context.SaveChangesAsync();
+            var account = await _uow.Accounts.FindAsync(id);
+            _uow.Accounts.Remove(account);
+            await _uow.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool AccountExists(Guid id)
         {
-            return _context.Accounts.Any(e => e.Id == id);
+            return _uow.Accounts.Equals(_uow.Accounts.All().Where(a => a.Id == id));
         }
     }
 }

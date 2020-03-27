@@ -1,0 +1,32 @@
+﻿@model CommentCreateEditViewModel
+<div asp-validation-summary="All" class="text-danger"></div>
+<div class="form-group">
+    <label asp-for="Comment.CommentText" class="control-label"></label>
+    <input asp-for="Comment.CommentText" class="form-control" />
+    <span asp-validation-for="Comment.CommentText" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="Comment.ProductId" class="control-label"></label>
+    <input asp-for="Comment.ProductId" class="form-control" />
+    <span asp-validation-for="Comment.ProductId" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="Comment.CreatedBy" class="control-label"></label>
+    <input asp-for="Comment.CreatedBy" class="form-control" />
+    <span asp-validation-for="Comment.CreatedBy" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="Comment.CreatedAt" class="control-label"></label>
+    <input asp-for="Comment.CreatedAt" class="form-control" />
+    <span asp-validation-for="Comment.CreatedAt" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="Comment.DeletedBy" class="control-label"></label>
+    <input asp-for="Comment.DeletedBy" class="form-control" />
+    <span asp-validation-for="Comment.DeletedBy" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="Comment.DeletedAt" class="control-label"></label>
+    <input asp-for="Comment.DeletedAt" class="form-control" />
+    <span asp-validation-for="Comment.DeletedAt" class="text-danger"></span>
+</div>

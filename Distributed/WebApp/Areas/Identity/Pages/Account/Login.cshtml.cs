@@ -45,14 +45,14 @@ namespace WebApp.Areas.Identity.Pages.Account
         {
             [Required]
             [EmailAddress]
-            public string Email { get; set; }
+            public string Email { get; set; }  = default!;
 
             [Required]
-            [DataType(DataType.Password)]
-            public string Password { get; set; }
+            [DataType(DataType.Password)] 
+            public string Password { get; set; }  = default!;
 
             [Display(Name = "Remember me?")]
-            public bool RememberMe { get; set; }
+            public bool RememberMe { get; set; }  = default!;
         }
 
         public async Task OnGetAsync(string returnUrl = null)

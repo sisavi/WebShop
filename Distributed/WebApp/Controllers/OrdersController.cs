@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Contracts.DAL.App;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -11,17 +12,17 @@ namespace WebApp.Controllers
 {
     public class OrdersController : Controller
     {
-        private readonly ApplicationDbContext _context;
+        private readonly IAppUnitOfWork _uow;
 
-        public OrdersController(ApplicationDbContext context)
+        public OrdersController(IAppUnitOfWork uow)
         {
-            _context = context;
+            _uow = uow;
         }
 
         // GET: Orders
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Order.ToListAsync());
+            return View(await _uow.Orders.AllAsync());
         }
 
         // GET: Orders/Details/5
@@ -32,8 +33,7 @@ namespace WebApp.Controllers
                 return NotFound();
             }
 
-            var order = await _context.Order
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var order = await _uow.Orders.FindAsync(id);
             if (order == null)
             {
                 return NotFound();
@@ -53,13 +53,13 @@ namespace WebApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("AccountId,ProductInBasketId,OrderNumber,Id,CreatedBy,CreatedAt,DeletedBy,DeletedAt")] Order order)
+        public async Task<IActionResult> Create(Order order)
         {
             if (ModelState.IsValid)
             {
                 order.Id = Guid.NewGuid();
-                _context.Add(order);
-                await _context.SaveChangesAsync();
+                _uow.Orders.Add(order);
+                await _uow.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
             return View(order);
@@ -73,7 +73,7 @@ namespace WebApp.Controllers
                 return NotFound();
             }
 
-            var order = await _context.Order.FindAsync(id);
+            var order = await _uow.Orders.FindAsync(id);
             if (order == null)
             {
                 return NotFound();
@@ -86,7 +86,7 @@ namespace WebApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Guid id, [Bind("AccountId,ProductInBasketId,OrderNumber,Id,CreatedBy,CreatedAt,DeletedBy,DeletedAt")] Order order)
+        public async Task<IActionResult> Edit(Guid id, Order order)
         {
             if (id != order.Id)
             {
@@ -97,8 +97,8 @@ namespace WebApp.Controllers
             {
                 try
                 {
-                    _context.Update(order);
-                    await _context.SaveChangesAsync();
+                    _uow.Orders.Update(order);
+                    await _uow.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -124,8 +124,7 @@ namespace WebApp.Controllers
                 return NotFound();
             }
 
-            var order = await _context.Order
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var order = await _uow.Orders.FindAsync(id);
             if (order == null)
             {
                 return NotFound();
@@ -139,15 +138,16 @@ namespace WebApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(Guid id)
         {
-            var order = await _context.Order.FindAsync(id);
-            _context.Order.Remove(order);
-            await _context.SaveChangesAsync();
+            var order = await _uow.Orders.FindAsync(id);
+            _uow.Orders.Remove(order);
+            await _uow.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool OrderExists(Guid id)
         {
-            return _context.Order.Any(e => e.Id == id);
+            var contains = _uow.Orders.Find(id);
+            return contains != null;
         }
     }
 }

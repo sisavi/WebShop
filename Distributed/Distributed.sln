@@ -9,6 +9,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL.App.EF", "DAL.App.EF\DAL.App.EF.csproj", "{DC704855-A24A-488D-8E65-CDC920FF1855}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionFolder1", "SolutionFolder1", "{4A7DFBFF-F196-4740-AD22-1554778EF1DA}"
+ProjectSection(SolutionItems) = preProject
+	..\..\Desktop\Directory.Build .props = ..\..\Desktop\Directory.Build .props
+EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL.Base", "DAL.Base\DAL.Base.csproj", "{F5DC122C-8569-4C23-8EE3-6CB1BE0F1252}"
 EndProject

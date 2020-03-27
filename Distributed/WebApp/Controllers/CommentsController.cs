@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Contracts.DAL.App;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -11,17 +12,17 @@ namespace WebApp.Controllers
 {
     public class CommentsController : Controller
     {
-        private readonly ApplicationDbContext _context;
+        private readonly IAppUnitOfWork _uow;
 
-        public CommentsController(ApplicationDbContext context)
+        public CommentsController(IAppUnitOfWork uow)
         {
-            _context = context;
+            _uow = uow;
         }
 
         // GET: Comments
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Comment.ToListAsync());
+            return View(await _uow.Comments.AllAsync());
         }
 
         // GET: Comments/Details/5
@@ -32,8 +33,7 @@ namespace WebApp.Controllers
                 return NotFound();
             }
 
-            var comment = await _context.Comment
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var comment = await _uow.Comments.FindAsync(id);
             if (comment == null)
             {
                 return NotFound();
@@ -53,13 +53,13 @@ namespace WebApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("CommentText,ProductId,Id,CreatedBy,CreatedAt,DeletedBy,DeletedAt")] Comment comment)
+        public async Task<IActionResult> Create(Comment comment)
         {
             if (ModelState.IsValid)
             {
                 comment.Id = Guid.NewGuid();
-                _context.Add(comment);
-                await _context.SaveChangesAsync();
+                _uow.Comments.Add(comment);
+                await _uow.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
             return View(comment);
@@ -73,7 +73,7 @@ namespace WebApp.Controllers
                 return NotFound();
             }
 
-            var comment = await _context.Comment.FindAsync(id);
+            var comment = await _uow.Comments.FindAsync(id);
             if (comment == null)
             {
                 return NotFound();
@@ -86,7 +86,7 @@ namespace WebApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Guid id, [Bind("CommentText,ProductId,Id,CreatedBy,CreatedAt,DeletedBy,DeletedAt")] Comment comment)
+        public async Task<IActionResult> Edit(Guid id, Comment comment)
         {
             if (id != comment.Id)
             {
@@ -97,8 +97,8 @@ namespace WebApp.Controllers
             {
                 try
                 {
-                    _context.Update(comment);
-                    await _context.SaveChangesAsync();
+                    _uow.Comments.Update(comment);
+                    await _uow.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -124,8 +124,8 @@ namespace WebApp.Controllers
                 return NotFound();
             }
 
-            var comment = await _context.Comment
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var comment = await _uow.Comments.FindAsync(id);
+                
             if (comment == null)
             {
                 return NotFound();
@@ -139,15 +139,16 @@ namespace WebApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(Guid id)
         {
-            var comment = await _context.Comment.FindAsync(id);
-            _context.Comment.Remove(comment);
-            await _context.SaveChangesAsync();
+            var comment = await _uow.Comments.FindAsync(id);
+            _uow.Comments.Remove(comment);
+            await _uow.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool CommentExists(Guid id)
         {
-            return _context.Comment.Any(e => e.Id == id);
+            var contains = _uow.Comments.Find(id);
+            return contains != null;
         }
     }
 }

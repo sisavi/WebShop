@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Contracts.DAL.App;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -11,17 +12,17 @@ namespace WebApp.Controllers
 {
     public class BasketController : Controller
     {
-        private readonly ApplicationDbContext _context;
+        private readonly IAppUnitOfWork _uow;
 
-        public BasketController(ApplicationDbContext context)
+        public BasketController(IAppUnitOfWork uow)
         {
-            _context = context;
+            _uow = uow;
         }
 
         // GET: Basket
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Basket.ToListAsync());
+            return View(await _uow.Baskets.AllAsync());
         }
 
         // GET: Basket/Details/5
@@ -32,8 +33,7 @@ namespace WebApp.Controllers
                 return NotFound();
             }
 
-            var basket = await _context.Basket
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var basket = await _uow.Baskets.FindAsync(id);
             if (basket == null)
             {
                 return NotFound();
@@ -53,15 +53,16 @@ namespace WebApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("AccountId,Id,CreatedBy,CreatedAt,DeletedBy,DeletedAt")] Basket basket)
+        public async Task<IActionResult> Create(Basket basket)
         {
             if (ModelState.IsValid)
             {
                 basket.Id = Guid.NewGuid();
-                _context.Add(basket);
-                await _context.SaveChangesAsync();
+                _uow.Baskets.Add(basket);
+                await _uow.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+
             return View(basket);
         }
 
@@ -73,11 +74,12 @@ namespace WebApp.Controllers
                 return NotFound();
             }
 
-            var basket = await _context.Basket.FindAsync(id);
+            var basket = await _uow.Baskets.FindAsync(id);
             if (basket == null)
             {
                 return NotFound();
             }
+
             return View(basket);
         }
 
@@ -86,7 +88,8 @@ namespace WebApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Guid id, [Bind("AccountId,Id,CreatedBy,CreatedAt,DeletedBy,DeletedAt")] Basket basket)
+        public async Task<IActionResult> Edit(Guid id, [Bind("AccountId,Id,CreatedBy,CreatedAt,DeletedBy,DeletedAt")]
+            Basket basket)
         {
             if (id != basket.Id)
             {
@@ -97,8 +100,8 @@ namespace WebApp.Controllers
             {
                 try
                 {
-                    _context.Update(basket);
-                    await _context.SaveChangesAsync();
+                    _uow.Baskets.Update(basket);
+                    await _uow.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -111,8 +114,10 @@ namespace WebApp.Controllers
                         throw;
                     }
                 }
+
                 return RedirectToAction(nameof(Index));
             }
+
             return View(basket);
         }
 
@@ -124,8 +129,7 @@ namespace WebApp.Controllers
                 return NotFound();
             }
 
-            var basket = await _context.Basket
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var basket = await _uow.Baskets.FindAsync(id);
             if (basket == null)
             {
                 return NotFound();
@@ -139,15 +143,17 @@ namespace WebApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(Guid id)
         {
-            var basket = await _context.Basket.FindAsync(id);
-            _context.Basket.Remove(basket);
-            await _context.SaveChangesAsync();
+            var basket = await _uow.Baskets.FindAsync(id);
+            _uow.Baskets.Remove(basket);
+            await _uow.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool BasketExists(Guid id)
         {
-            return _context.Basket.Any(e => e.Id == id);
+
+            var contains = _uow.Baskets.Find(id);
+            return contains != null;
         }
     }
 }

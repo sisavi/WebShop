@@ -1,0 +1,47 @@
+﻿@model PriceCreateEditViewModel
+<div asp-validation-summary="All" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Price.ProductId" class="control-label"></label>
+                <input asp-for="Price.ProductId" class="form-control" />
+                <span asp-validation-for="Price.ProductId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Price.CampaignId" class="control-label"></label>
+                <input asp-for="Price.CampaignId" class="form-control" />
+                <span asp-validation-for="Price.CampaignId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Price.ProductPrice" class="control-label"></label>
+                <input asp-for="Price.ProductPrice" class="form-control" />
+                <span asp-validation-for="Price.ProductPrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Price.StartTime" class="control-label"></label>
+                <input asp-for="Price.StartTime" class="form-control" />
+                <span asp-validation-for="Price.StartTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Price.EndTime" class="control-label"></label>
+                <input asp-for="Price.EndTime" class="form-control" />
+                <span asp-validation-for="Price.EndTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Price.CreatedBy" class="control-label"></label>
+                <input asp-for="Price.CreatedBy" class="form-control" />
+                <span asp-validation-for="Price.CreatedBy" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Price.CreatedAt" class="control-label"></label>
+                <input asp-for="Price.CreatedAt" class="form-control" />
+                <span asp-validation-for="Price.CreatedAt" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Price.DeletedBy" class="control-label"></label>
+                <input asp-for="Price.DeletedBy" class="form-control" />
+                <span asp-validation-for="Price.DeletedBy" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Price.DeletedAt" class="control-label"></label>
+                <input asp-for="Price.DeletedAt" class="form-control" />
+                <span asp-validation-for="Price.DeletedAt" class="text-danger"></span>
+            </div>

@@ -1,0 +1,38 @@
+﻿@model WebApp.ViewModels.CampaignCreateEditViewModel
+
+<div asp-validation-summary="All" class="text-danger"></div>
+<div class="form-group">
+    <label asp-for="Campaign.Discount" class="control-label"></label>
+    <input asp-for="Campaign.Discount" class="form-control" />
+    <span asp-validation-for="Campaign.Discount" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="Campaign.StartTime" class="control-label"></label>
+    <input asp-for="Campaign.StartTime" class="form-control" />
+    <span asp-validation-for="Campaign.StartTime" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="Campaign.EndTime" class="control-label"></label>
+    <input asp-for="Campaign.EndTime" class="form-control" />
+    <span asp-validation-for="Campaign.EndTime" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="Campaign.CreatedBy" class="control-label"></label>
+    <input asp-for="Campaign.CreatedBy" class="form-control" />
+    <span asp-validation-for="Campaign.CreatedBy" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="Campaign.CreatedAt" class="control-label"></label>
+    <input asp-for="Campaign.CreatedAt" class="form-control" />
+    <span asp-validation-for="Campaign.CreatedAt" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="Campaign.DeletedBy" class="control-label"></label>
+    <input asp-for="Campaign.DeletedBy" class="form-control" />
+    <span asp-validation-for="Campaign.DeletedBy" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="Campaign.DeletedAt" class="control-label"></label>
+    <input asp-for="Campaign.DeletedAt" class="form-control" />
+    <span asp-validation-for="Campaign.DeletedAt" class="text-danger"></span>
+</div>

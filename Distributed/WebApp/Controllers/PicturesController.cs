@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Contracts.DAL.App;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -11,17 +12,17 @@ namespace WebApp.Controllers
 {
     public class PicturesController : Controller
     {
-        private readonly ApplicationDbContext _context;
+        private readonly IAppUnitOfWork _uow;
 
-        public PicturesController(ApplicationDbContext context)
+        public PicturesController(IAppUnitOfWork uow)
         {
-            _context = context;
+            _uow = uow;
         }
 
         // GET: Pictures
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Picture.ToListAsync());
+            return View(await _uow.Pictures.AllAsync());
         }
 
         // GET: Pictures/Details/5
@@ -32,8 +33,7 @@ namespace WebApp.Controllers
                 return NotFound();
             }
 
-            var picture = await _context.Picture
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var picture = await _uow.Pictures.FindAsync(id);
             if (picture == null)
             {
                 return NotFound();
@@ -53,13 +53,13 @@ namespace WebApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ProductId,ProductPicture,Id,CreatedBy,CreatedAt,DeletedBy,DeletedAt")] Picture picture)
+        public async Task<IActionResult> Create(Picture picture)
         {
             if (ModelState.IsValid)
             {
                 picture.Id = Guid.NewGuid();
-                _context.Add(picture);
-                await _context.SaveChangesAsync();
+                _uow.Pictures.Add(picture);
+                await _uow.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
             return View(picture);
@@ -73,7 +73,7 @@ namespace WebApp.Controllers
                 return NotFound();
             }
 
-            var picture = await _context.Picture.FindAsync(id);
+            var picture = await _uow.Pictures.FindAsync(id);
             if (picture == null)
             {
                 return NotFound();
@@ -86,7 +86,7 @@ namespace WebApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Guid id, [Bind("ProductId,ProductPicture,Id,CreatedBy,CreatedAt,DeletedBy,DeletedAt")] Picture picture)
+        public async Task<IActionResult> Edit(Guid id, Picture picture)
         {
             if (id != picture.Id)
             {
@@ -97,8 +97,8 @@ namespace WebApp.Controllers
             {
                 try
                 {
-                    _context.Update(picture);
-                    await _context.SaveChangesAsync();
+                    _uow.Pictures.Update(picture);
+                    await _uow.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -124,8 +124,7 @@ namespace WebApp.Controllers
                 return NotFound();
             }
 
-            var picture = await _context.Picture
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var picture = await _uow.Pictures.FindAsync(id);
             if (picture == null)
             {
                 return NotFound();
@@ -139,15 +138,16 @@ namespace WebApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(Guid id)
         {
-            var picture = await _context.Picture.FindAsync(id);
-            _context.Picture.Remove(picture);
-            await _context.SaveChangesAsync();
+            var picture = await _uow.Pictures.FindAsync(id);
+            _uow.Pictures.Remove(picture);
+            await _uow.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool PictureExists(Guid id)
         {
-            return _context.Picture.Any(e => e.Id == id);
+            var contains = _uow.Pictures.Find(id);
+            return contains != null;
         }
     }
 }

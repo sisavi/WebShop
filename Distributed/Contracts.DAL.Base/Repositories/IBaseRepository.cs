@@ -20,7 +20,6 @@ namespace Contracts.DAL.Base.Repositories
         TEntity Update(TEntity entity);
         TEntity Remove(TEntity entity);
         TEntity Remove(params object[] id);
-
     }
     
 }

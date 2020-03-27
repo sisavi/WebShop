@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Contracts.DAL.App;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -11,17 +12,17 @@ namespace WebApp.Controllers
 {
     public class PricesController : Controller
     {
-        private readonly ApplicationDbContext _context;
+        private readonly IAppUnitOfWork _uow;
 
-        public PricesController(ApplicationDbContext context)
+        public PricesController(IAppUnitOfWork uow)
         {
-            _context = context;
+            _uow = uow;
         }
 
         // GET: Prices
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Price.ToListAsync());
+            return View(await _uow.Prices.AllAsync());
         }
 
         // GET: Prices/Details/5
@@ -32,8 +33,7 @@ namespace WebApp.Controllers
                 return NotFound();
             }
 
-            var price = await _context.Price
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var price = await _uow.Prices.FindAsync(id);
             if (price == null)
             {
                 return NotFound();
@@ -53,13 +53,13 @@ namespace WebApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ProductId,CampaignId,ProductPrice,StartTime,EndTime,Id,CreatedBy,CreatedAt,DeletedBy,DeletedAt")] Price price)
+        public async Task<IActionResult> Create(Price price)
         {
             if (ModelState.IsValid)
             {
                 price.Id = Guid.NewGuid();
-                _context.Add(price);
-                await _context.SaveChangesAsync();
+                _uow.Prices.Add(price);
+                await _uow.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
             return View(price);
@@ -73,7 +73,7 @@ namespace WebApp.Controllers
                 return NotFound();
             }
 
-            var price = await _context.Price.FindAsync(id);
+            var price = await _uow.Prices.FindAsync(id);
             if (price == null)
             {
                 return NotFound();
@@ -97,8 +97,8 @@ namespace WebApp.Controllers
             {
                 try
                 {
-                    _context.Update(price);
-                    await _context.SaveChangesAsync();
+                    _uow.Prices.Update(price);
+                    await _uow.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -124,8 +124,7 @@ namespace WebApp.Controllers
                 return NotFound();
             }
 
-            var price = await _context.Price
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var price = await _uow.Prices.FindAsync(id);
             if (price == null)
             {
                 return NotFound();
@@ -139,15 +138,16 @@ namespace WebApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(Guid id)
         {
-            var price = await _context.Price.FindAsync(id);
-            _context.Price.Remove(price);
-            await _context.SaveChangesAsync();
+            var price = await _uow.Prices.FindAsync(id);
+            _uow.Prices.Remove(price);
+            await _uow.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool PriceExists(Guid id)
         {
-            return _context.Price.Any(e => e.Id == id);
+            var contains = _uow.Prices.Find(id);
+            return contains != null;
         }
     }
 }

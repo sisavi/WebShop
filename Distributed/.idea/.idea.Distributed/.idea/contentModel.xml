@@ -6,6 +6,7 @@
     <e p="C:\Users\Simo\.Rider2019.2\config\scratches" t="IncludeRecursive" />
     <e p="C:\Users\Simo\.Rider2019.2\system\extResources" t="IncludeRecursive" />
     <e p="C:\Users\Simo\.Rider2019.2\system\resharper-host\local\Transient\ReSharperHost\v192\SolutionCaches\_Distributed.2075329642.00" t="ExcludeRecursive" />
+    <e p="C:\Users\Simo\Desktop\Directory.Build .props" t="Include" />
     <e p="C:\Users\Simo\icd0009-2019s\Distributed" t="IncludeFlat">
       <e p="Contracts.DAL.App" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
@@ -58,8 +59,8 @@
         <e p="bin" t="ExcludeRecursive" />
         <e p="DAL.App.EF.csproj" t="IncludeRecursive" />
         <e p="Migrations" t="Include">
-          <e p="20200320220528_InitialDbCreation.cs" t="Include" />
-          <e p="20200320220528_InitialDbCreation.Designer.cs" t="Include" />
+          <e p="20200326204352_InitialDbCreation.cs" t="Include" />
+          <e p="20200326204352_InitialDbCreation.Designer.cs" t="Include" />
           <e p="AppDbContextModelSnapshot.cs" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive">
@@ -278,12 +279,26 @@
         <e p="Startup.cs" t="Include" />
         <e p="ViewModels" t="Include">
           <e p="AccountEditCreateViewModels.cs" t="Include" />
+          <e p="BasketEditCreateViewModel.cs" t="Include" />
+          <e p="CampaignCreateEditViewModel.cs" t="Include" />
+          <e p="CategoriesCreateEditViewModel.cs" t="Include" />
+          <e p="CommentCreateEditViewModel.cs" t="Include" />
           <e p="ErrorViewModel.cs" t="Include" />
+          <e p="OrderCreateEditViewModel.cs" t="Include" />
+          <e p="PaymentCreateEditViewModel.cs" t="Include" />
+          <e p="PictureCreateEditViewModel.cs" t="Include" />
+          <e p="PriceCreateEditViewModel.cs" t="Include" />
+          <e p="ProductCreateEditViewModel.cs" t="Include" />
+          <e p="ProductInBasketCreateEditViewModel.cs" t="Include" />
+          <e p="ProductInWarehouseCreateEditViewModel.cs" t="Include" />
+          <e p="WarehouseCreateEditViewModel.cs" t="Include" />
         </e>
         <e p="Views" t="Include">
           <e p="_ViewImports.cshtml" t="Include" />
           <e p="_ViewStart.cshtml" t="Include" />
           <e p="Accounts" t="Include">
+            <e p="_CreateEdit.cshtml" t="Include" />
+            <e p="_DeleteDetails.cshtml" t="Include" />
             <e p="Create.cshtml" t="Include" />
             <e p="Delete.cshtml" t="Include" />
             <e p="Details.cshtml" t="Include" />
@@ -291,6 +306,8 @@
             <e p="Index.cshtml" t="Include" />
           </e>
           <e p="Basket" t="Include">
+            <e p="_CreateEdit.cshtml" t="Include" />
+            <e p="_DetailsDelete.cshtml" t="Include" />
             <e p="Create.cshtml" t="Include" />
             <e p="Delete.cshtml" t="Include" />
             <e p="Details.cshtml" t="Include" />
@@ -298,6 +315,8 @@
             <e p="Index.cshtml" t="Include" />
           </e>
           <e p="Campaigns" t="Include">
+            <e p="_CreateEdit.cshtml" t="Include" />
+            <e p="_DeleteDetails.cshtml" t="Include" />
             <e p="Create.cshtml" t="Include" />
             <e p="Delete.cshtml" t="Include" />
             <e p="Details.cshtml" t="Include" />
@@ -305,6 +324,8 @@
             <e p="Index.cshtml" t="Include" />
           </e>
           <e p="Categories" t="Include">
+            <e p="_CreateEdit.cshtml" t="Include" />
+            <e p="_DeleteDetails.cshtml" t="Include" />
             <e p="Create.cshtml" t="Include" />
             <e p="Delete.cshtml" t="Include" />
             <e p="Details.cshtml" t="Include" />
@@ -312,6 +333,8 @@
             <e p="Index.cshtml" t="Include" />
           </e>
           <e p="Comments" t="Include">
+            <e p="_CreateEdit.cshtml" t="Include" />
+            <e p="_DetailsDelete.cshtml" t="Include" />
             <e p="Create.cshtml" t="Include" />
             <e p="Delete.cshtml" t="Include" />
             <e p="Details.cshtml" t="Include" />
@@ -323,6 +346,8 @@
             <e p="Privacy.cshtml" t="Include" />
           </e>
           <e p="Orders" t="Include">
+            <e p="_CreateEdit.cshtml" t="Include" />
+            <e p="_DetailsDelete.cshtml" t="Include" />
             <e p="Create.cshtml" t="Include" />
             <e p="Delete.cshtml" t="Include" />
             <e p="Details.cshtml" t="Include" />
@@ -330,6 +355,8 @@
             <e p="Index.cshtml" t="Include" />
           </e>
           <e p="Payments" t="Include">
+            <e p="_CreateEdit.cshtml" t="Include" />
+            <e p="_DetailsDelete.cshtml" t="Include" />
             <e p="Create.cshtml" t="Include" />
             <e p="Delete.cshtml" t="Include" />
             <e p="Details.cshtml" t="Include" />
@@ -337,6 +364,8 @@
             <e p="Index.cshtml" t="Include" />
           </e>
           <e p="Pictures" t="Include">
+            <e p="_CreateEdit.cshtml" t="Include" />
+            <e p="_DetailsDelete.cshtml" t="Include" />
             <e p="Create.cshtml" t="Include" />
             <e p="Delete.cshtml" t="Include" />
             <e p="Details.cshtml" t="Include" />
@@ -344,6 +373,8 @@
             <e p="Index.cshtml" t="Include" />
           </e>
           <e p="Prices" t="Include">
+            <e p="_CreateEdit.cshtml" t="Include" />
+            <e p="_DetailsDelete.cshtml" t="Include" />
             <e p="Create.cshtml" t="Include" />
             <e p="Delete.cshtml" t="Include" />
             <e p="Details.cshtml" t="Include" />
@@ -351,6 +382,8 @@
             <e p="Index.cshtml" t="Include" />
           </e>
           <e p="ProductInBaskets" t="Include">
+            <e p="_CreateEdit.cshtml" t="Include" />
+            <e p="_DetailsDelete.cshtml" t="Include" />
             <e p="Create.cshtml" t="Include" />
             <e p="Delete.cshtml" t="Include" />
             <e p="Details.cshtml" t="Include" />
@@ -358,6 +391,8 @@
             <e p="Index.cshtml" t="Include" />
           </e>
           <e p="ProductInWarehouses" t="Include">
+            <e p="_CreateEdit.cshtml" t="Include" />
+            <e p="_DetailsDelete.cshtml" t="Include" />
             <e p="Create.cshtml" t="Include" />
             <e p="Delete.cshtml" t="Include" />
             <e p="Details.cshtml" t="Include" />
@@ -365,6 +400,8 @@
             <e p="Index.cshtml" t="Include" />
           </e>
           <e p="Products" t="Include">
+            <e p="_CreateEdit.cshtml" t="Include" />
+            <e p="_DetailsDelete.cshtml" t="Include" />
             <e p="Create.cshtml" t="Include" />
             <e p="Delete.cshtml" t="Include" />
             <e p="Details.cshtml" t="Include" />
@@ -378,6 +415,8 @@
             <e p="Error.cshtml" t="Include" />
           </e>
           <e p="Warehouses" t="Include">
+            <e p="_CreateEdit.cshtml" t="Include" />
+            <e p="_DetailsDelete.cshtml" t="Include" />
             <e p="Create.cshtml" t="Include" />
             <e p="Delete.cshtml" t="Include" />
             <e p="Details.cshtml" t="Include" />

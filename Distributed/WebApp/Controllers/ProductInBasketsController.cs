@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Contracts.DAL.App;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -11,17 +12,17 @@ namespace WebApp.Controllers
 {
     public class ProductInBasketsController : Controller
     {
-        private readonly ApplicationDbContext _context;
+        private readonly IAppUnitOfWork _uow;
 
-        public ProductInBasketsController(ApplicationDbContext context)
+        public ProductInBasketsController(IAppUnitOfWork uow)
         {
-            _context = context;
+            _uow = uow;
         }
 
         // GET: ProductInBaskets
         public async Task<IActionResult> Index()
         {
-            return View(await _context.ProductInBasket.ToListAsync());
+            return View(await _uow.ProductsInBaskets.AllAsync());
         }
 
         // GET: ProductInBaskets/Details/5
@@ -32,8 +33,7 @@ namespace WebApp.Controllers
                 return NotFound();
             }
 
-            var productInBasket = await _context.ProductInBasket
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var productInBasket = await _uow.ProductsInBaskets.FindAsync(id);
             if (productInBasket == null)
             {
                 return NotFound();
@@ -58,8 +58,8 @@ namespace WebApp.Controllers
             if (ModelState.IsValid)
             {
                 productInBasket.Id = Guid.NewGuid();
-                _context.Add(productInBasket);
-                await _context.SaveChangesAsync();
+                _uow.ProductsInBaskets.Add(productInBasket);
+                await _uow.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
             return View(productInBasket);
@@ -73,7 +73,7 @@ namespace WebApp.Controllers
                 return NotFound();
             }
 
-            var productInBasket = await _context.ProductInBasket.FindAsync(id);
+            var productInBasket = await _uow.ProductsInBaskets.FindAsync(id);
             if (productInBasket == null)
             {
                 return NotFound();
@@ -97,8 +97,8 @@ namespace WebApp.Controllers
             {
                 try
                 {
-                    _context.Update(productInBasket);
-                    await _context.SaveChangesAsync();
+                    _uow.ProductsInBaskets.Update(productInBasket);
+                    await _uow.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -124,8 +124,7 @@ namespace WebApp.Controllers
                 return NotFound();
             }
 
-            var productInBasket = await _context.ProductInBasket
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var productInBasket = await _uow.ProductsInBaskets.FindAsync(id);
             if (productInBasket == null)
             {
                 return NotFound();
@@ -139,15 +138,16 @@ namespace WebApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(Guid id)
         {
-            var productInBasket = await _context.ProductInBasket.FindAsync(id);
-            _context.ProductInBasket.Remove(productInBasket);
-            await _context.SaveChangesAsync();
+            var productInBasket = await _uow.ProductsInBaskets.FindAsync(id);
+            _uow.ProductsInBaskets.Remove(productInBasket);
+            await _uow.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool ProductInBasketExists(Guid id)
         {
-            return _context.ProductInBasket.Any(e => e.Id == id);
+            var contains = _uow.ProductsInBaskets.Find(id);
+            return contains != null;
         }
     }
 }

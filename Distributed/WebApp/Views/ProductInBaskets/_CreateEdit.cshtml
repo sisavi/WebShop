@@ -1,0 +1,38 @@
+﻿@model ProductInBasketCreateEditViewModel
+
+<div asp-validation-summary="All" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="ProductInBasket.BasketId" class="control-label"></label>
+                <input asp-for="ProductInBasket.BasketId" class="form-control" />
+                <span asp-validation-for="ProductInBasket.BasketId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProductInBasket.ProductId" class="control-label"></label>
+                <input asp-for="ProductInBasket.ProductId" class="form-control" />
+                <span asp-validation-for="ProductInBasket.ProductId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProductInBasket.Quantity" class="control-label"></label>
+                <input asp-for="ProductInBasket.Quantity" class="form-control" />
+                <span asp-validation-for="ProductInBasket.Quantity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProductInBasket.CreatedBy" class="control-label"></label>
+                <input asp-for="ProductInBasket.CreatedBy" class="form-control" />
+                <span asp-validation-for="ProductInBasket.CreatedBy" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProductInBasket.CreatedAt" class="control-label"></label>
+                <input asp-for="ProductInBasket.CreatedAt" class="form-control" />
+                <span asp-validation-for="ProductInBasket.CreatedAt" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProductInBasket.DeletedBy" class="control-label"></label>
+                <input asp-for="ProductInBasket.DeletedBy" class="form-control" />
+                <span asp-validation-for="ProductInBasket.DeletedBy" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProductInBasket.DeletedAt" class="control-label"></label>
+                <input asp-for="ProductInBasket.DeletedAt" class="form-control" />
+                <span asp-validation-for="ProductInBasket.DeletedAt" class="text-danger"></span>
+            </div>
