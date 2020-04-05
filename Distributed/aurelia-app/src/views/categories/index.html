@@ -1,0 +1,28 @@
+<template>
+    <h1>Index</h1>
+
+<p>
+    <a route-href="route: categories-create; params.bind: {}">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                CategoryName
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr repeat.for="category of _categories"></tr>
+        <td>
+            ${category.categoryName}
+        </td>
+        <td>
+            <a route-href="route: categories-edit; params.bind: { id: category.id }">Edit</a> |
+            <a route-href="route: categories-details; params.bind: { id: category.id }">Details</a> |
+            <a route-href="route: categories-delete; params.bind: { id: category.id }">Delete</a>
+        </td>
+    </tbody>
+</table>
+</template>

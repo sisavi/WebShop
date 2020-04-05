@@ -1,0 +1,49 @@
+<template>
+    <h1>Index</h1>
+
+<p>
+    <a href="/Accounts/Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                FirstName
+            </th>
+            <th>
+                LastName
+            </th>
+            <th>
+                Email
+            </th>
+            <th>
+                AppUser
+            </th>
+            <th>
+                CreatedBy
+            </th>
+            <th>
+                CreatedAt
+            </th>
+            <th>
+                DeletedBy
+            </th>
+            <th>
+                DeletedAt
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody repeat.for="account of _accounts">
+        <td>
+            ${account.firstName}
+        </td>
+        <td>
+            ${account.lastName}
+        </td>
+        <td>
+            ${account.eMail}
+        </td>
+    </tbody>
+</table>
+</template>

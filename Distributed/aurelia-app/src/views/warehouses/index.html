@@ -1,0 +1,28 @@
+<template>
+    <h1>Index</h1>
+
+<p>
+    <a route-href="route: warehouses-create; params.bind: {}">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                warehouse code
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr repeat.for="warehouse of _warehouses"></tr>
+        <td>
+            ${category.categoryName}
+        </td>
+        <td>
+            <a route-href="route: warehouses-edit; params.bind: { id: warehouse.id }">Edit</a> |
+            <a route-href="route: warehouses-details; params.bind: { id: warehouse.id }">Details</a> |
+            <a route-href="route: warehouses-delete; params.bind: { id: warehouse.id }">Delete</a>
+        </td>
+    </tbody>
+</table>
+</template>
