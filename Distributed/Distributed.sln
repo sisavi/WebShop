@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contracts.DAL.App", "Contra
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Extensions", "Extensions\Extensions.csproj", "{B8F965B1-BBF6-4914-8E91-4211D85A96C7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PublicApi.DTO.v1", "PublicApi.DTO.v1\PublicApi.DTO.v1.csproj", "{2EF57513-4E01-4FD3-A205-22D5EC8AEF45}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -59,6 +61,10 @@ Global
 		{B8F965B1-BBF6-4914-8E91-4211D85A96C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B8F965B1-BBF6-4914-8E91-4211D85A96C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B8F965B1-BBF6-4914-8E91-4211D85A96C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2EF57513-4E01-4FD3-A205-22D5EC8AEF45}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2EF57513-4E01-4FD3-A205-22D5EC8AEF45}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2EF57513-4E01-4FD3-A205-22D5EC8AEF45}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2EF57513-4E01-4FD3-A205-22D5EC8AEF45}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 	EndGlobalSection

@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Domain;
+using WebApp.ViewModels;
 
 namespace WebApp.Controllers
 {
@@ -45,7 +46,9 @@ namespace WebApp.Controllers
         // GET: Basket/Create
         public IActionResult Create()
         {
-            return View();
+            var vm = new BasketEditCreateViewModel();
+            
+            return View(vm);
         }
 
         // POST: Basket/Create
@@ -53,12 +56,11 @@ namespace WebApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(Basket basket)
+        public async Task<IActionResult> Create(BasketEditCreateViewModel basket)
         {
             if (ModelState.IsValid)
             {
-                basket.Id = Guid.NewGuid();
-                _uow.Baskets.Add(basket);
+                _uow.Baskets.Add(basket.Basket);
                 await _uow.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
@@ -73,9 +75,10 @@ namespace WebApp.Controllers
             {
                 return NotFound();
             }
+            var basket = new BasketEditCreateViewModel();
 
-            var basket = await _uow.Baskets.FindAsync(id);
-            if (basket == null)
+            basket.Basket = await _uow.Baskets.FindAsync(id);
+            if (basket.Basket == null)
             {
                 return NotFound();
             }
@@ -88,10 +91,9 @@ namespace WebApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Guid id, [Bind("AccountId,Id,CreatedBy,CreatedAt,DeletedBy,DeletedAt")]
-            Basket basket)
+        public async Task<IActionResult> Edit(Guid id, BasketEditCreateViewModel vm)
         {
-            if (id != basket.Id)
+            if (id == null)
             {
                 return NotFound();
             }
@@ -100,12 +102,12 @@ namespace WebApp.Controllers
             {
                 try
                 {
-                    _uow.Baskets.Update(basket);
+                    _uow.Baskets.Update(vm.Basket);
                     await _uow.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!BasketExists(basket.Id))
+                    if (!BasketExists(vm.Basket.Id))
                     {
                         return NotFound();
                     }
@@ -118,7 +120,7 @@ namespace WebApp.Controllers
                 return RedirectToAction(nameof(Index));
             }
 
-            return View(basket);
+            return View(vm);
         }
 
         // GET: Basket/Delete/5

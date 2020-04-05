@@ -317,3 +317,5 @@ C:\Users\Simo\icd0009-2019s\Distributed\WebApp\obj\Debug\netcoreapp3.1\Razor\Vie
 C:\Users\Simo\icd0009-2019s\Distributed\WebApp\obj\Debug\netcoreapp3.1\Razor\Views\Products\_DetailsDelete.cshtml.g.cs
 C:\Users\Simo\icd0009-2019s\Distributed\WebApp\obj\Debug\netcoreapp3.1\Razor\Views\Warehouses\_CreateEdit.cshtml.g.cs
 C:\Users\Simo\icd0009-2019s\Distributed\WebApp\obj\Debug\netcoreapp3.1\Razor\Views\Warehouses\_DetailsDelete.cshtml.g.cs
+C:\Users\Simo\icd0009-2019s\Distributed\WebApp\bin\Debug\netcoreapp3.1\PublicApi.DTO.v1.dll
+C:\Users\Simo\icd0009-2019s\Distributed\WebApp\bin\Debug\netcoreapp3.1\PublicApi.DTO.v1.pdb

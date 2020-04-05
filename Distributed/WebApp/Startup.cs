@@ -41,6 +41,15 @@ namespace WebApp
             
             services.AddControllersWithViews();
             services.AddRazorPages();
+            services.AddCors(options =>
+            {
+                options.AddPolicy("CorsAllowAll", builder =>
+                {
+                    builder.AllowAnyOrigin();
+                    builder.AllowAnyHeader();
+                    builder.AllowAnyMethod();
+                });
+            });
 
             services.AddDbContext<ApplicationDbContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("MsSqlConnection")));
@@ -64,6 +73,7 @@ namespace WebApp
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+            app.UseCors("CorsAllowAll");
 
             app.UseRouting();
 

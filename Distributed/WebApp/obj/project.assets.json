@@ -2941,6 +2941,19 @@
         "runtime": {
           "bin/placeholder/Domain.dll": {}
         }
+      },
+      "PublicApi.DTO.v1/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.1",
+        "dependencies": {
+          "System.ComponentModel.Annotations": "4.7.0"
+        },
+        "compile": {
+          "bin/placeholder/PublicApi.DTO.v1.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/PublicApi.DTO.v1.dll": {}
+        }
       }
     }
   },
@@ -9138,6 +9151,11 @@
       "type": "project",
       "path": "../Domain/Domain.csproj",
       "msbuildProject": "../Domain/Domain.csproj"
+    },
+    "PublicApi.DTO.v1/1.0.0": {
+      "type": "project",
+      "path": "../PublicApi.DTO.v1/PublicApi.DTO.v1.csproj",
+      "msbuildProject": "../PublicApi.DTO.v1/PublicApi.DTO.v1.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -9152,7 +9170,8 @@
       "Microsoft.EntityFrameworkCore.Sqlite >= 3.1.2",
       "Microsoft.EntityFrameworkCore.Tools >= 3.1.2",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 3.1.1",
-      "Pomelo.EntityFrameworkCore.MySql >= 3.1.1"
+      "Pomelo.EntityFrameworkCore.MySql >= 3.1.1",
+      "PublicApi.DTO.v1 >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -9184,6 +9203,9 @@
             },
             "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\Domain\\Domain.csproj": {
               "projectPath": "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\Domain\\Domain.csproj"
+            },
+            "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\PublicApi.DTO.v1\\PublicApi.DTO.v1.csproj": {
+              "projectPath": "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\PublicApi.DTO.v1\\PublicApi.DTO.v1.csproj"
             }
           }
         }

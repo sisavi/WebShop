@@ -17,10 +17,12 @@ namespace WebApp.Controllers
     {
         
         private readonly IAppUnitOfWork _uow;
+        private readonly AppDbContext _context;
 
-        public AccountsController(IAppUnitOfWork uow)
+        public AccountsController(IAppUnitOfWork uow, AppDbContext context)
         {
             _uow = uow;
+            _context = context;
         }
 
         // GET: Accounts
@@ -70,7 +72,7 @@ namespace WebApp.Controllers
                 return RedirectToAction(nameof(Index));
             }
             //ViewData["AppUserId"] = new SelectList(_context.Set<AppUser>(), "Id", "FirstName", vm.Account.AppUserId);
-            vm.AppUsersSelectList = new SelectList(_uow.Accounts.All(), nameof(Account.Id), nameof(Account.FirstName),  vm.Account.Id);
+            vm.AppUsersSelectList = new SelectList(_context.Set<AppUser>(), nameof(AppUser.Id), nameof(AppUser.FirstName),  _context.Users);
             return View(vm);
         }
 
@@ -82,12 +84,13 @@ namespace WebApp.Controllers
                 return NotFound();
             }
 
-            var account = await _uow.Accounts.FindAsync(id);
+            var account = new AccountEditCreateViewModels();
+            account.Account = await _uow.Accounts.FindAsync(id);
             if (account == null)
             {
                 return NotFound();
             }
-            ViewData["AppUserId"] = new SelectList(_uow.Accounts.All(), nameof(account.AppUserId), nameof(AppUser.FirstName), account.AppUserId);
+            //ViewData["AppUserId"] = new SelectList(_uow.Accounts.All(), nameof(account.AppUserId), nameof(AppUser.FirstName), account.AppUserId);
             return View(account);
         }
 
@@ -96,9 +99,9 @@ namespace WebApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Guid id, [Bind("FirstName,LastName,Email,AppUserId,Id,CreatedBy,CreatedAt,DeletedBy,DeletedAt")] Account account)
+        public async Task<IActionResult> Edit(Guid id, AccountEditCreateViewModels account)
         {
-            if (id != account.Id)
+            if (id == null)
             {
                 return NotFound();
             }
@@ -107,12 +110,12 @@ namespace WebApp.Controllers
             {
                 try
                 {
-                    _uow.Accounts.Update(account);
+                    _uow.Accounts.Update(account.Account);
                     await _uow.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!AccountExists(account.Id))
+                    if (!AccountExists(account.Account.Id))
                     {
                         return NotFound();
                     }
@@ -123,7 +126,7 @@ namespace WebApp.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["AppUserId"] = new SelectList(_uow.Accounts.All(), nameof(account.AppUserId), nameof(AppUser.FirstName), account.AppUserId);
+            //ViewData["AppUserId"] = new SelectList(_uow.Accounts.All(), nameof(account.AppUserId), nameof(AppUser.FirstName), account.AppUserId);
             return View(account);
         }
 
