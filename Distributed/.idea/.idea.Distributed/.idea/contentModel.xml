@@ -58,9 +58,12 @@
         <e p="AppUnitOfWork.cs" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="DAL.App.EF.csproj" t="IncludeRecursive" />
+        <e p="Helpers" t="Include">
+          <e p="DataInitializer.cs" t="Include" />
+        </e>
         <e p="Migrations" t="Include">
-          <e p="20200326204352_InitialDbCreation.cs" t="Include" />
-          <e p="20200326204352_InitialDbCreation.Designer.cs" t="Include" />
+          <e p="20200412190616_InitialDbCreation.cs" t="Include" />
+          <e p="20200412190616_InitialDbCreation.Designer.cs" t="Include" />
           <e p="AppDbContextModelSnapshot.cs" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive">
@@ -160,6 +163,8 @@
       <e p="packages" t="ExcludeRecursive" />
       <e p="PublicApi.DTO.v1" t="IncludeRecursive">
         <e p="AccountDTO.cs" t="Include" />
+        <e p="BasketDTO.cs" t="Include" />
+        <e p="BasketEditDTO.cs" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="CampaignDTO.cs" t="Include" />
         <e p="CategoryDTO.cs" t="Include" />
@@ -172,6 +177,45 @@
         </e>
         <e p="PublicApi.DTO.v1.csproj" t="IncludeRecursive" />
       </e>
+      <e p="Resources" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Domain" t="Include">
+          <e p="Account.Designer.cs" t="Include" />
+          <e p="Account.en.resx" t="Include" />
+          <e p="Account.et.resx" t="Include" />
+          <e p="Account.resx" t="Include" />
+          <e p="Category.Designer.cs" t="Include" />
+          <e p="Category.en.resx" t="Include" />
+          <e p="Category.et.resx" t="Include" />
+          <e p="Category.resx" t="Include" />
+          <e p="Warehouse.Designer.cs" t="Include" />
+          <e p="Warehouse.en.resx" t="Include" />
+          <e p="Warehouse.et.resx" t="Include" />
+          <e p="Warehouse.resx" t="Include" />
+        </e>
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netstandard2.0" t="Include">
+              <e p="Resources.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Resources.csproj" t="IncludeRecursive" />
+        <e p="Views" t="Include">
+          <e p="Accounts" t="Include" />
+          <e p="Home" t="Include" />
+          <e p="Shared" t="Include">
+            <e p="_Layout.Designer.cs" t="Include" />
+            <e p="_Layout.en.resx" t="Include" />
+            <e p="_layout.et.resx" t="Include" />
+            <e p="_Layout.resx" t="Include" />
+            <e p="_LoginPartial.Designer.cs" t="Include" />
+            <e p="_LoginPartial.en.resx" t="Include" />
+            <e p="_LoginPartial.et.resx" t="Include" />
+            <e p="_LoginPartial.resx" t="Include" />
+          </e>
+        </e>
+      </e>
       <e p="SolutionFolder1" t="Include" />
       <e p="WebApp" t="IncludeRecursive">
         <e p="ApiControllers" t="Include">
@@ -180,6 +224,9 @@
           <e p="CampaignsController.cs" t="Include" />
           <e p="CategoriesController.cs" t="Include" />
           <e p="CommentsController.cs" t="Include" />
+          <e p="Identity" t="Include">
+            <e p="AccountController.cs" t="Include" />
+          </e>
           <e p="OrdersController.cs" t="Include" />
           <e p="PaymentsController.cs" t="Include" />
           <e p="PicturesController.cs" t="Include" />
@@ -276,6 +323,7 @@
         <e p="bin" t="ExcludeRecursive" />
         <e p="Controllers" t="Include">
           <e p="AccountsController.cs" t="Include" />
+          <e p="AdministrationController.cs" t="Include" />
           <e p="BasketController.cs" t="Include" />
           <e p="CampaignsController.cs" t="Include" />
           <e p="CategoriesController.cs" t="Include" />
@@ -320,6 +368,7 @@
           <e p="ProductCreateEditViewModel.cs" t="Include" />
           <e p="ProductInBasketCreateEditViewModel.cs" t="Include" />
           <e p="ProductInWarehouseCreateEditViewModel.cs" t="Include" />
+          <e p="UserRoleViewModel.cs" t="Include" />
           <e p="WarehouseCreateEditViewModel.cs" t="Include" />
         </e>
         <e p="Views" t="Include">
@@ -333,6 +382,9 @@
             <e p="Details.cshtml" t="Include" />
             <e p="Edit.cshtml" t="Include" />
             <e p="Index.cshtml" t="Include" />
+          </e>
+          <e p="Administration" t="Include">
+            <e p="ListRoles.cshtml" t="Include" />
           </e>
           <e p="Basket" t="Include">
             <e p="_CreateEdit.cshtml" t="Include" />
@@ -438,6 +490,7 @@
             <e p="Index.cshtml" t="Include" />
           </e>
           <e p="Shared" t="Include">
+            <e p="_LanguageSelection.cshtml" t="Include" />
             <e p="_Layout.cshtml" t="Include" />
             <e p="_LoginPartial.cshtml" t="Include" />
             <e p="_ValidationScriptsPartial.cshtml" t="Include" />

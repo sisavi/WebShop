@@ -14,7 +14,8 @@
           "Domain": "1.0.0",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "3.1.2",
           "Microsoft.EntityFrameworkCore": "3.1.2",
-          "Microsoft.EntityFrameworkCore.SqlServer": "3.1.2"
+          "Microsoft.EntityFrameworkCore.SqlServer": "3.1.2",
+          "PublicApi.DTO.v1": "1.0.0"
         },
         "runtime": {
           "DAL.App.EF.dll": {}
@@ -1490,7 +1491,8 @@
         "dependencies": {
           "Contracts.DAL.Base": "1.0.0",
           "Domain": "1.0.0",
-          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "3.1.2"
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "3.1.2",
+          "PublicApi.DTO.v1": "1.0.0"
         },
         "runtime": {
           "Contracts.DAL.App.dll": {}
@@ -1528,10 +1530,33 @@
         "dependencies": {
           "DAL.Base": "1.0.0",
           "Microsoft.Extensions.Identity.Stores": "3.1.2",
+          "Resources": "1.0.0",
           "System.ComponentModel.Annotations": "4.7.0"
         },
         "runtime": {
           "Domain.dll": {}
+        }
+      },
+      "PublicApi.DTO.v1/1.0.0": {
+        "dependencies": {
+          "Domain": "1.0.0",
+          "System.ComponentModel.Annotations": "4.7.0"
+        },
+        "runtime": {
+          "PublicApi.DTO.v1.dll": {}
+        }
+      },
+      "Resources/1.0.0": {
+        "runtime": {
+          "Resources.dll": {}
+        },
+        "resources": {
+          "en/Resources.resources.dll": {
+            "locale": "en"
+          },
+          "et/Resources.resources.dll": {
+            "locale": "et"
+          }
         }
       }
     }
@@ -2459,6 +2484,16 @@
       "sha512": ""
     },
     "Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "PublicApi.DTO.v1/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Resources/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

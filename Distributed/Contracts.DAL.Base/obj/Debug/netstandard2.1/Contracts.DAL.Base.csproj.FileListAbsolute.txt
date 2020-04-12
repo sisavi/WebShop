@@ -6,3 +6,4 @@ C:\Users\Simo\icd0009-2019s\Distributed\Contracts.DAL.Base\bin\Debug\netstandard
 C:\Users\Simo\icd0009-2019s\Distributed\Contracts.DAL.Base\bin\Debug\netstandard2.1\Contracts.DAL.Base.pdb
 C:\Users\Simo\icd0009-2019s\Distributed\Contracts.DAL.Base\obj\Debug\netstandard2.1\Contracts.DAL.Base.dll
 C:\Users\Simo\icd0009-2019s\Distributed\Contracts.DAL.Base\obj\Debug\netstandard2.1\Contracts.DAL.Base.pdb
+C:\Users\Simo\icd0009-2019s\Distributed\Contracts.DAL.Base\obj\Debug\netstandard2.1\Contracts.DAL.Base.csproj.CoreCompileInputs.cache

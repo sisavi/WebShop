@@ -8,8 +8,8 @@ namespace DAL.Base
     {
         [Key]
         public Guid Id { get; set; }
-        public virtual string CreatedBy { get; set; } = default!;
-        public virtual DateTime CreatedAt { get; set; }
+        public virtual string? CreatedBy { get; set; }
+        public virtual DateTime? CreatedAt { get; set; }
         public virtual string? DeletedBy { get; set; } = default!;
         public virtual DateTime? DeletedAt { get; set; }
         

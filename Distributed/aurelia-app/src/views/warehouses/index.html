@@ -16,7 +16,7 @@
     <tbody>
         <tr repeat.for="warehouse of _warehouses"></tr>
         <td>
-            ${category.categoryName}
+            ${warehouse.warehouseCode}
         </td>
         <td>
             <a route-href="route: warehouses-edit; params.bind: { id: warehouse.id }">Edit</a> |

@@ -10,6 +10,7 @@
       "netstandard2.1"
     ],
     "sources": {
+      "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
       "https://api.nuget.org/v3/index.json": {}
     },
     "frameworks": {
@@ -17,6 +18,9 @@
         "projectReferences": {
           "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\DAL.Base\\DAL.Base.csproj": {
             "projectPath": "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\DAL.Base\\DAL.Base.csproj"
+          },
+          "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\Resources\\Resources.csproj": {
+            "projectPath": "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\Resources\\Resources.csproj"
           }
         }
       }

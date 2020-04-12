@@ -9,9 +9,12 @@ namespace Domain
     public class Account : DomainEntity
     {
         [MinLength(1)][MaxLength(128)]
+        [Display(Name = nameof(FirstName), ResourceType = typeof(Resources.Domain.Account))]
         public string FirstName { get; set; } = default!;
         [MinLength(1)][MaxLength(128)]
+        [Display(Name = nameof(LastName), ResourceType = typeof(Resources.Domain.Account))]
         public string LastName { get; set; } = default!;
+        [Display(Name = nameof(Email), ResourceType = typeof(Resources.Domain.Account))]
         public string Email { get; set; } = default!;
         
         public ICollection<Order>? Orders { get; set; }

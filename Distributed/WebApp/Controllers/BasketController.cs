@@ -7,10 +7,13 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Domain;
+using Extensions;
+using Microsoft.AspNetCore.Authorization;
 using WebApp.ViewModels;
 
 namespace WebApp.Controllers
 {
+    [Authorize]
     public class BasketController : Controller
     {
         private readonly IAppUnitOfWork _uow;
@@ -23,7 +26,7 @@ namespace WebApp.Controllers
         // GET: Basket
         public async Task<IActionResult> Index()
         {
-            return View(await _uow.Baskets.AllAsync());
+            return View(await _uow.Baskets.AllAsync(User.UserGuidId()));
         }
 
         // GET: Basket/Details/5
@@ -34,7 +37,7 @@ namespace WebApp.Controllers
                 return NotFound();
             }
 
-            var basket = await _uow.Baskets.FindAsync(id);
+            var basket = await _uow.Baskets.FirstOrDefaultAsync(id.Value, User.UserGuidId());
             if (basket == null)
             {
                 return NotFound();
@@ -47,7 +50,7 @@ namespace WebApp.Controllers
         public IActionResult Create()
         {
             var vm = new BasketEditCreateViewModel();
-            
+            vm.AccountSelectList = new SelectList(_uow.Accounts.All(), nameof(Account.Id), nameof(Account.FirstName));
             return View(vm);
         }
 
@@ -58,6 +61,9 @@ namespace WebApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(BasketEditCreateViewModel basket)
         {
+            basket.Basket.CreatedAt = DateTime.Now;
+            basket.Basket.DeletedAt = DateTime.MaxValue;
+            basket.AccountSelectList = new SelectList(_uow.Accounts.All(), nameof(Account.Id), nameof(Account.FirstName));
             if (ModelState.IsValid)
             {
                 _uow.Baskets.Add(basket.Basket);
@@ -76,8 +82,9 @@ namespace WebApp.Controllers
                 return NotFound();
             }
             var basket = new BasketEditCreateViewModel();
+            basket.AccountSelectList = new SelectList(_uow.Accounts.All(), nameof(Account.Id), nameof(Account.FirstName));
 
-            basket.Basket = await _uow.Baskets.FindAsync(id);
+            basket.Basket = await _uow.Baskets.FirstOrDefaultAsync(id.Value, User.UserGuidId());
             if (basket.Basket == null)
             {
                 return NotFound();
@@ -93,7 +100,7 @@ namespace WebApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(Guid id, BasketEditCreateViewModel vm)
         {
-            if (id == null)
+            if (id != vm.Basket.Id)
             {
                 return NotFound();
             }
@@ -107,7 +114,7 @@ namespace WebApp.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!BasketExists(vm.Basket.Id))
+                    if (! await _uow.Baskets.ExistsAsync(vm.Basket.Id, User.UserGuidId()))
                     {
                         return NotFound();
                     }
@@ -131,7 +138,7 @@ namespace WebApp.Controllers
                 return NotFound();
             }
 
-            var basket = await _uow.Baskets.FindAsync(id);
+            var basket = await _uow.Baskets.FirstOrDefaultAsync(id.Value, User.UserGuidId());
             if (basket == null)
             {
                 return NotFound();
@@ -145,10 +152,10 @@ namespace WebApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(Guid id)
         {
-            var basket = await _uow.Baskets.FindAsync(id);
-            _uow.Baskets.Remove(basket);
+            await _uow.Baskets.DeleteAsync(id, User.UserGuidId());
             await _uow.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            
+            return RedirectToAction(nameof(Index));;
         }
 
         private bool BasketExists(Guid id)

@@ -17,9 +17,14 @@ export class App {
       config.map([
           { route: ['', 'home', 'home/index'], name: 'home', moduleId: PLATFORM.moduleName('views/home/index'), nav: true, title: 'Home' },
 
-          //{ route: ['account/login'], name: 'account-login', moduleId: PLATFORM.moduleName('views/account/login'), nav: false, title: 'Login' },
-          //{ route: ['account/register'], name: 'account-register', moduleId: PLATFORM.moduleName('views/account/register'), nav: false, title: 'Register' },
+          { route: ['user/login'], name: 'user-login', moduleId: PLATFORM.moduleName('views/user/login'), nav: false, title: 'Login' },
+          { route: ['user/register'], name: 'user-register', moduleId: PLATFORM.moduleName('views/user/register'), nav: false, title: 'Register' },
 
+          { route: ['accounts', 'accounts/index'], name: 'accounts-index', moduleId: PLATFORM.moduleName('views/accounts/index'), nav: true, title: 'accounts' },
+          { route: ['accounts/details/:id?'], name: 'accounts-details', moduleId: PLATFORM.moduleName('views/accounts/details'), nav: false, title: 'accounts Details' },
+          { route: ['accounts/edit/:id?'], name: 'accounts-edit', moduleId: PLATFORM.moduleName('views/accounts/edit'), nav: false, title: 'accounts Edit' },
+          { route: ['accounts/delete/:id?'], name: 'accounts-delete', moduleId: PLATFORM.moduleName('views/accounts/delete'), nav: false, title: 'accounts Delete' },
+          { route: ['accounts/create'], name: 'accounts-create', moduleId: PLATFORM.moduleName('views/accounts/create'), nav: false, title: 'accounts Create' },
 
           { route: ['warehouses', 'warehouses/index'], name: 'warehouses-index', moduleId: PLATFORM.moduleName('views/warehouses/index'), nav: true, title: 'warehouses' },
           { route: ['warehouses/details/:id?'], name: 'warehouses-details', moduleId: PLATFORM.moduleName('views/warehouses/details'), nav: false, title: 'warehouses Details' },
@@ -47,6 +52,6 @@ export class App {
 
   logoutOnClick(){
       this.appState.jwt = null;
-      this.router!.navigateToRoute('account-login');
+      this.router!.navigateToRoute('user-login');
   }
 }

@@ -383,6 +383,16 @@
         "runtime": {
           "bin/placeholder/DAL.Base.dll": {}
         }
+      },
+      "Resources/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "compile": {
+          "bin/placeholder/Resources.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Resources.dll": {}
+        }
       }
     }
   },
@@ -1047,12 +1057,18 @@
       "type": "project",
       "path": "../DAL.Base/DAL.Base.csproj",
       "msbuildProject": "../DAL.Base/DAL.Base.csproj"
+    },
+    "Resources/1.0.0": {
+      "type": "project",
+      "path": "../Resources/Resources.csproj",
+      "msbuildProject": "../Resources/Resources.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETStandard,Version=v2.1": [
       "DAL.Base >= 1.0.0",
       "Microsoft.Extensions.Identity.Stores >= 3.1.2",
+      "Resources >= 1.0.0",
       "System.ComponentModel.Annotations >= 4.7.0"
     ]
   },
@@ -1069,12 +1085,14 @@
       "outputPath": "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\Domain\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Simo\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\Simo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netstandard2.1"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -1082,6 +1100,9 @@
           "projectReferences": {
             "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\DAL.Base\\DAL.Base.csproj": {
               "projectPath": "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\DAL.Base\\DAL.Base.csproj"
+            },
+            "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\Resources\\Resources.csproj": {
+              "projectPath": "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\Resources\\Resources.csproj"
             }
           }
         }
@@ -1113,7 +1134,13 @@
           "net48"
         ],
         "assetTargetFallback": true,
-        "warn": true
+        "warn": true,
+        "frameworkReferences": {
+          "NETStandard.Library": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
       }
     }
   }

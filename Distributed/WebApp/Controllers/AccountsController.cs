@@ -9,27 +9,30 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Domain;
 using Domain.Identity;
+using Extensions;
+using Microsoft.AspNetCore.Authorization;
 using WebApp.ViewModels;
 
 namespace WebApp.Controllers
 {
+    [Authorize]
     public class AccountsController : Controller
     {
         
         private readonly IAppUnitOfWork _uow;
-        private readonly AppDbContext _context;
+        
 
-        public AccountsController(IAppUnitOfWork uow, AppDbContext context)
+        public AccountsController(IAppUnitOfWork uow)
         {
             _uow = uow;
-            _context = context;
+            
         }
 
         // GET: Accounts
         public async Task<IActionResult> Index()
         {
-            var appDbContext = _uow.Accounts;
-            return View(await appDbContext.AllAsync());
+            var appDbContext = await _uow.Accounts.AllAsync(User.UserGuidId());
+            return View(appDbContext);
         }
 
         // GET: Accounts/Details/5
@@ -40,7 +43,7 @@ namespace WebApp.Controllers
                 return NotFound();
             }
 
-            var account = await _uow.Accounts.FindAsync(id);
+            var account = await _uow.Accounts.FirstOrDefaultAsync(id.Value, User.UserGuidId());
             if (account == null)
             {
                 return NotFound();
@@ -52,9 +55,9 @@ namespace WebApp.Controllers
         // GET: Accounts/Create
         public IActionResult Create()
         {
-            var vm = new AccountEditCreateViewModels();
-            vm.AppUsersSelectList = new SelectList(_uow.Accounts.All(), nameof(Account.Id), nameof(Account.FirstName));
-            return View(vm);
+            //var vm = new AccountEditCreateViewModels();
+            //vm.AppUsersSelectList = new SelectList(_uow.Accounts.All(), nameof(Account.Id), nameof(Account.FirstName));
+            return View();
         }
 
         // POST: Accounts/Create
@@ -64,15 +67,17 @@ namespace WebApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(AccountEditCreateViewModels vm)
         {
+            
+            vm.Account.AppUserId = User.UserGuidId();
+            vm.Account.CreatedAt = DateTime.Now;
+            vm.Account.DeletedAt = DateTime.MaxValue;
             if (ModelState.IsValid)
             {
-                vm.Account.Id = Guid.NewGuid();
+                //vm.Account.Id = Guid.NewGuid();
                 _uow.Accounts.Add(vm.Account);
                 await _uow.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            //ViewData["AppUserId"] = new SelectList(_context.Set<AppUser>(), "Id", "FirstName", vm.Account.AppUserId);
-            vm.AppUsersSelectList = new SelectList(_context.Set<AppUser>(), nameof(AppUser.Id), nameof(AppUser.FirstName),  _context.Users);
             return View(vm);
         }
 
@@ -85,7 +90,8 @@ namespace WebApp.Controllers
             }
 
             var account = new AccountEditCreateViewModels();
-            account.Account = await _uow.Accounts.FindAsync(id);
+            account.Account =
+                await _uow.Accounts.FirstOrDefaultAsync(id.Value, User.UserGuidId());
             if (account == null)
             {
                 return NotFound();
@@ -101,7 +107,8 @@ namespace WebApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(Guid id, AccountEditCreateViewModels account)
         {
-            if (id == null)
+            account.Account.AppUserId = User.UserGuidId();
+            if (id != account.Account.Id)
             {
                 return NotFound();
             }
@@ -115,7 +122,7 @@ namespace WebApp.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!AccountExists(account.Account.Id))
+                    if (! await _uow.Accounts.ExistsAsync(account.Account.Id, User.UserGuidId()))
                     {
                         return NotFound();
                     }
@@ -138,7 +145,7 @@ namespace WebApp.Controllers
                 return NotFound();
             }
 
-            var account = await _uow.Accounts.FindAsync(id);
+            var account = await _uow.Accounts.FirstOrDefaultAsync(id.Value, User.UserGuidId()) ;
             if (account == null)
             {
                 return NotFound();
@@ -152,15 +159,16 @@ namespace WebApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(Guid id)
         {
-            var account = await _uow.Accounts.FindAsync(id);
-            _uow.Accounts.Remove(account);
+            await _uow.Accounts.DeleteAsync(id, User.UserGuidId());
             await _uow.SaveChangesAsync();
+            
             return RedirectToAction(nameof(Index));
         }
-
+/*
         private bool AccountExists(Guid id)
         {
             return _uow.Accounts.Equals(_uow.Accounts.All().Where(a => a.Id == id));
-        }
+            }
+*/
     }
 }

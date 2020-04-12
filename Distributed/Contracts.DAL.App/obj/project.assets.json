@@ -390,6 +390,7 @@
         "dependencies": {
           "DAL.Base": "1.0.0",
           "Microsoft.Extensions.Identity.Stores": "3.1.2",
+          "Resources": "1.0.0",
           "System.ComponentModel.Annotations": "4.7.0"
         },
         "compile": {
@@ -397,6 +398,30 @@
         },
         "runtime": {
           "bin/placeholder/Domain.dll": {}
+        }
+      },
+      "PublicApi.DTO.v1/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.1",
+        "dependencies": {
+          "Domain": "1.0.0",
+          "System.ComponentModel.Annotations": "4.7.0"
+        },
+        "compile": {
+          "bin/placeholder/PublicApi.DTO.v1.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/PublicApi.DTO.v1.dll": {}
+        }
+      },
+      "Resources/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "compile": {
+          "bin/placeholder/Resources.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Resources.dll": {}
         }
       }
     }
@@ -1067,13 +1092,24 @@
       "type": "project",
       "path": "../Domain/Domain.csproj",
       "msbuildProject": "../Domain/Domain.csproj"
+    },
+    "PublicApi.DTO.v1/1.0.0": {
+      "type": "project",
+      "path": "../PublicApi.DTO.v1/PublicApi.DTO.v1.csproj",
+      "msbuildProject": "../PublicApi.DTO.v1/PublicApi.DTO.v1.csproj"
+    },
+    "Resources/1.0.0": {
+      "type": "project",
+      "path": "../Resources/Resources.csproj",
+      "msbuildProject": "../Resources/Resources.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETStandard,Version=v2.1": [
       "Contracts.DAL.Base >= 1.0.0",
       "Domain >= 1.0.0",
-      "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 3.1.2"
+      "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 3.1.2",
+      "PublicApi.DTO.v1 >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -1089,12 +1125,14 @@
       "outputPath": "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\Contracts.DAL.App\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Simo\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\Simo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netstandard2.1"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -1105,6 +1143,9 @@
             },
             "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\Domain\\Domain.csproj": {
               "projectPath": "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\Domain\\Domain.csproj"
+            },
+            "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\PublicApi.DTO.v1\\PublicApi.DTO.v1.csproj": {
+              "projectPath": "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\PublicApi.DTO.v1\\PublicApi.DTO.v1.csproj"
             }
           }
         }
@@ -1132,7 +1173,13 @@
           "net48"
         ],
         "assetTargetFallback": true,
-        "warn": true
+        "warn": true,
+        "frameworkReferences": {
+          "NETStandard.Library": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
       }
     }
   }

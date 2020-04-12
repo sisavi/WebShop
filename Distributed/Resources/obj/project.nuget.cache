@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "MuSaXFk1vI/XxfoUSJ23rb7pgFEbwhP6GfbbzlqCdvTSjZ4SjG+FrBAzENX55uuZjDIvMbhO4K3F1vc1Jqc63Q==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\Resources\\Resources.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Simo\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\Simo\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

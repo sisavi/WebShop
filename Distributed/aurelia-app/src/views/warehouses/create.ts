@@ -10,7 +10,7 @@ export class WarehouseCreate {
     private _alert: IAlertData | null = null;
 
 
-    _warehouseCode = "";
+    _warehouseName = "";
 
     constructor(private warehousesService: WarehouseService, private router: Router) {
 
@@ -27,7 +27,7 @@ export class WarehouseCreate {
     onSubmit(event: Event) {
         console.log(event);
         this.warehousesService
-            .createWarehouse({ WarehouseCode: this._warehouseCode })
+            .createWarehouse({ WarehouseCode: this._warehouseName })
             .then(
                 response => {
                     if (response.statusCode >= 200 && response.statusCode < 300) {

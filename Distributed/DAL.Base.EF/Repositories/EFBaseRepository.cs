@@ -38,12 +38,14 @@ namespace DAL.Base.EF.Repositories
             return RepoDbSet.ToList();
             
         }
+        
+        
 
         public async Task<IEnumerable<TEntity>> AllAsync()
         {
             return await RepoDbSet.ToListAsync();
         }
-
+        
         public TEntity Find(params object[] id)
         {
             return RepoDbSet.Find(id);

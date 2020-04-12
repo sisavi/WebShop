@@ -4,7 +4,7 @@ export class AppState {
 
     public readonly baseUrl = 'https://localhost:5001/api/';
 
-    // JavaScript Object Notation Web Token 
+    // Json 
     // to keep track of logged in status
     // https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage
     get jwt():string | null {

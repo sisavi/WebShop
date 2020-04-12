@@ -14,12 +14,14 @@
         "outputPath": "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\Contracts.DAL.App\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Simo\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Simo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netstandard2.1"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -30,6 +32,9 @@
               },
               "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\Domain\\Domain.csproj": {
                 "projectPath": "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\Domain\\Domain.csproj"
+              },
+              "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\PublicApi.DTO.v1\\PublicApi.DTO.v1.csproj": {
+                "projectPath": "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\PublicApi.DTO.v1\\PublicApi.DTO.v1.csproj"
               }
             }
           }
@@ -57,7 +62,13 @@
             "net48"
           ],
           "assetTargetFallback": true,
-          "warn": true
+          "warn": true,
+          "frameworkReferences": {
+            "NETStandard.Library": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
         }
       }
     },
@@ -71,12 +82,14 @@
         "outputPath": "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\Contracts.DAL.Base\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Simo\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Simo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netstandard2.1"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -107,7 +120,13 @@
             "net48"
           ],
           "assetTargetFallback": true,
-          "warn": true
+          "warn": true,
+          "frameworkReferences": {
+            "NETStandard.Library": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
         }
       }
     },
@@ -121,12 +140,14 @@
         "outputPath": "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\DAL.App.EF\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Simo\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Simo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netstandard2.1"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -140,6 +161,9 @@
               },
               "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\Domain\\Domain.csproj": {
                 "projectPath": "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\Domain\\Domain.csproj"
+              },
+              "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\PublicApi.DTO.v1\\PublicApi.DTO.v1.csproj": {
+                "projectPath": "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\PublicApi.DTO.v1\\PublicApi.DTO.v1.csproj"
               }
             }
           }
@@ -175,7 +199,13 @@
             "net48"
           ],
           "assetTargetFallback": true,
-          "warn": true
+          "warn": true,
+          "frameworkReferences": {
+            "NETStandard.Library": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
         }
       }
     },
@@ -189,12 +219,14 @@
         "outputPath": "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\DAL.Base.EF\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Simo\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Simo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netstandard2.1"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -236,7 +268,13 @@
             "net48"
           ],
           "assetTargetFallback": true,
-          "warn": true
+          "warn": true,
+          "frameworkReferences": {
+            "NETStandard.Library": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
         }
       }
     },
@@ -250,12 +288,14 @@
         "outputPath": "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\DAL.Base\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Simo\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Simo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netstandard2.1"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -290,7 +330,13 @@
             "net48"
           ],
           "assetTargetFallback": true,
-          "warn": true
+          "warn": true,
+          "frameworkReferences": {
+            "NETStandard.Library": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
         }
       }
     },
@@ -304,12 +350,14 @@
         "outputPath": "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Simo\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Simo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netstandard2.1"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -317,6 +365,9 @@
             "projectReferences": {
               "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\DAL.Base\\DAL.Base.csproj": {
                 "projectPath": "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\DAL.Base\\DAL.Base.csproj"
+              },
+              "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\Resources\\Resources.csproj": {
+                "projectPath": "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\Resources\\Resources.csproj"
               }
             }
           }
@@ -348,7 +399,83 @@
             "net48"
           ],
           "assetTargetFallback": true,
-          "warn": true
+          "warn": true,
+          "frameworkReferences": {
+            "NETStandard.Library": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\Extensions\\Extensions.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\Extensions\\Extensions.csproj",
+        "projectName": "Extensions",
+        "projectPath": "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\Extensions\\Extensions.csproj",
+        "packagesPath": "C:\\Users\\Simo\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\Extensions\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Simo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.1": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.1": {
+          "dependencies": {
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.2, )"
+            },
+            "Microsoft.Extensions.DependencyInjection": {
+              "target": "Package",
+              "version": "[3.1.3, )"
+            },
+            "Microsoft.IdentityModel.Tokens": {
+              "target": "Package",
+              "version": "[6.5.0, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[6.5.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "NETStandard.Library": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
         }
       }
     },
@@ -362,17 +489,23 @@
         "outputPath": "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\PublicApi.DTO.v1\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Simo\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Simo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netstandard2.1"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "netstandard2.1": {
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\Domain\\Domain.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -398,7 +531,68 @@
             "net48"
           ],
           "assetTargetFallback": true,
-          "warn": true
+          "warn": true,
+          "frameworkReferences": {
+            "NETStandard.Library": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\Resources\\Resources.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\Resources\\Resources.csproj",
+        "projectName": "Resources",
+        "projectPath": "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\Resources\\Resources.csproj",
+        "packagesPath": "C:\\Users\\Simo\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\Resources\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Simo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "dependencies": {
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
         }
       }
     },
@@ -412,12 +606,14 @@
         "outputPath": "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\WebApp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Simo\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Simo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -429,8 +625,14 @@
               "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\Domain\\Domain.csproj": {
                 "projectPath": "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\Domain\\Domain.csproj"
               },
+              "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\Extensions\\Extensions.csproj": {
+                "projectPath": "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\Extensions\\Extensions.csproj"
+              },
               "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\PublicApi.DTO.v1\\PublicApi.DTO.v1.csproj": {
                 "projectPath": "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\PublicApi.DTO.v1\\PublicApi.DTO.v1.csproj"
+              },
+              "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\Resources\\Resources.csproj": {
+                "projectPath": "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\Resources\\Resources.csproj"
               }
             }
           }
@@ -444,6 +646,10 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[3.1.3, )"
+            },
             "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
               "target": "Package",
               "version": "[3.1.2, )"
@@ -490,7 +696,16 @@
             "net48"
           ],
           "assetTargetFallback": true,
-          "warn": true
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
         }
       }
     }
