@@ -2,7 +2,7 @@
   "version": "1.0.0",
   "restore": {
     "projectUniqueName": "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\DAL.Base.EF\\DAL.Base.EF.csproj",
-    "projectName": "DAL.Base.EF",
+    "projectName": "ee.itcollege.sisavi.DAL.Base.EF",
     "projectPath": "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\DAL.Base.EF\\DAL.Base.EF.csproj",
     "outputPath": "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\DAL.Base.EF\\obj\\",
     "projectStyle": "PackageReference",
@@ -18,6 +18,9 @@
         "projectReferences": {
           "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\Contracts.DAL.Base\\Contracts.DAL.Base.csproj": {
             "projectPath": "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\Contracts.DAL.Base\\Contracts.DAL.Base.csproj"
+          },
+          "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\Contracts.Domain\\Contracts.Domain.csproj": {
+            "projectPath": "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\Contracts.Domain\\Contracts.Domain.csproj"
           },
           "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\DAL.Base\\DAL.Base.csproj": {
             "projectPath": "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\DAL.Base\\DAL.Base.csproj"
@@ -36,11 +39,11 @@
       "dependencies": {
         "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
           "target": "Package",
-          "version": "[3.1.2, )"
+          "version": "[3.1.5, )"
         },
         "Microsoft.EntityFrameworkCore": {
           "target": "Package",
-          "version": "[3.1.2, )"
+          "version": "[3.1.5, )"
         }
       },
       "imports": [
@@ -52,7 +55,13 @@
         "net48"
       ],
       "assetTargetFallback": true,
-      "warn": true
+      "warn": true,
+      "frameworkReferences": {
+        "NETStandard.Library": {
+          "privateAssets": "all"
+        }
+      },
+      "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
     }
   }
 }

@@ -4,6 +4,6 @@ C:\Users\Simo\icd0009-2019s\Distributed\Extensions\bin\Debug\netstandard2.1\Exte
 C:\Users\Simo\icd0009-2019s\Distributed\Extensions\obj\Debug\netstandard2.1\Extensions.csprojAssemblyReference.cache
 C:\Users\Simo\icd0009-2019s\Distributed\Extensions\obj\Debug\netstandard2.1\Extensions.AssemblyInfoInputs.cache
 C:\Users\Simo\icd0009-2019s\Distributed\Extensions\obj\Debug\netstandard2.1\Extensions.AssemblyInfo.cs
+C:\Users\Simo\icd0009-2019s\Distributed\Extensions\obj\Debug\netstandard2.1\Extensions.csproj.CoreCompileInputs.cache
 C:\Users\Simo\icd0009-2019s\Distributed\Extensions\obj\Debug\netstandard2.1\Extensions.dll
 C:\Users\Simo\icd0009-2019s\Distributed\Extensions\obj\Debug\netstandard2.1\Extensions.pdb
-C:\Users\Simo\icd0009-2019s\Distributed\Extensions\obj\Debug\netstandard2.1\Extensions.csproj.CoreCompileInputs.cache

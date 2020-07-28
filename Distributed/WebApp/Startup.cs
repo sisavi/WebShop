@@ -6,7 +6,6 @@ using System.Text;
 using System.Threading.Tasks;
 using Contracts.DAL.App;
 using DAL.App.EF;
-using Domain.Identity;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI;
@@ -18,8 +17,17 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using System.Globalization;
+using BLL.App;
+using Contracts.BLL.App;
+using ee.itcollege.sisavi.Contracts.DAL.Base;
+using DAL.App.EF.Helpers;
+using Domain.App.Identity;
 using Microsoft.AspNetCore.Localization;
+using Microsoft.AspNetCore.Mvc.ApiExplorer;
+using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Swashbuckle.AspNetCore.SwaggerGen;
+using WebApp.Helpers;
 
 namespace WebApp
 {
@@ -39,27 +47,38 @@ namespace WebApp
                 options.UseSqlServer(
                     Configuration.GetConnectionString("MsSqlConnection")));
 
-            // Add as a scoped dependency
+            // add as a scoped dependency
+            services.AddScoped<IUserNameProvider, UserNameProvider>();
             services.AddScoped<IAppUnitOfWork, AppUnitOfWork>();
-            
-            services.AddIdentity<AppUser, AppRole>()
+            services.AddScoped<IAppBLL, AppBLL>();
+
+
+            services.AddIdentity<Domain.App.Identity.AppUser, Domain.App.Identity.AppRole>(options => options.SignIn.RequireConfirmedAccount = false)
                 .AddDefaultUI()
                 .AddEntityFrameworkStores<AppDbContext>()
                 .AddDefaultTokenProviders();
-            
+
+
             services.AddControllersWithViews();
             services.AddRazorPages();
+
+            // makes httpContext injectable - needed to resolve username in dal layer
+            services.AddHttpContextAccessor();
+
             services.AddCors(options =>
             {
-                options.AddPolicy("CorsAllowAll", builder =>
-                {
-                    builder.AllowAnyOrigin();
-                    builder.AllowAnyHeader();
-                    builder.AllowAnyMethod();
-                });
+                options.AddPolicy("CorsAllowAll",
+                    builder =>
+                    {
+                        builder.AllowAnyOrigin();
+                        builder.AllowAnyHeader();
+                        builder.AllowAnyMethod();
+                    });
             });
-            
-            JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
+
+
+            // =============== JWT support ===============
+            JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear(); // => remove default claims
             services
                 .AddAuthentication()
                 .AddCookie(options => { options.SlidingExpiration = true; })
@@ -71,41 +90,41 @@ namespace WebApp
                     {
                         ValidIssuer = Configuration["JWT:Issuer"],
                         ValidAudience = Configuration["JWT:Issuer"],
-                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["JWT:SigningKey"])),
+                        IssuerSigningKey =
+                            new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["JWT:SigningKey"])),
                         ClockSkew = TimeSpan.Zero // remove delay of token when expire
                     };
                 });
 
-            services.Configure<RequestLocalizationOptions>(options => {
-                var supportedCultures = new[]{
-                    new CultureInfo(name: "en"),
-                    new CultureInfo(name: "et"),
-                };
-
-                // State what the default culture for your application is. 
-                options.DefaultRequestCulture = new RequestCulture(culture: "en", uiCulture: "en");
-
-                // You must explicitly state which cultures your application supports.
+            var supportedCultures = Configuration
+                .GetSection("SupportedCultures")
+                .GetChildren()
+                .Select(x => new CultureInfo(x.Value))
+                .ToArray();
+            
+            services.Configure<RequestLocalizationOptions>(options =>
+            {
+                // datetime and currency support
                 options.SupportedCultures = supportedCultures;
-
-                // These are the cultures the app supports for UI strings
+                // UI translated strings
                 options.SupportedUICultures = supportedCultures;
+                // if nothing is found, use this
+                options.DefaultRequestCulture = new RequestCulture("et","et");
             });
 
+            services.AddApiVersioning(options => { options.ReportApiVersions = true; });
 
-
-            services.AddDbContext<ApplicationDbContext>(options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("MsSqlConnection")));
+            services.AddVersionedApiExplorer(options => options.GroupNameFormat = "'v'VVV");
+            services.AddTransient<IConfigureOptions<SwaggerGenOptions>, ConfigureSwaggerOptions>();
+            services.AddSwaggerGen();
         }
-        
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IApiVersionDescriptionProvider provider)
         {
             UpdateDatabase(app, env, Configuration);
 
-
-            if (env.IsDevelopment())
+            if (env.IsDevelopment() || env.IsStaging())
             {
                 app.UseDeveloperExceptionPage();
                 app.UseDatabaseErrorPage();
@@ -114,17 +133,14 @@ namespace WebApp
             {
                 app.UseExceptionHandler("/Home/Error");
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-                app.UseHsts();
+                //app.UseHsts();
             }
-            
-            app.UseRequestLocalization(
-                options: app.ApplicationServices
-                    .GetService<IOptions<RequestLocalizationOptions>>().Value);
 
+            app.UseRequestLocalization(options: app.ApplicationServices.GetService<IOptions<RequestLocalizationOptions>>().Value);
 
-
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
             app.UseStaticFiles();
+
             app.UseCors("CorsAllowAll");
 
             app.UseRouting();
@@ -132,11 +148,27 @@ namespace WebApp
             app.UseAuthentication();
             app.UseAuthorization();
 
+            app.UseSwagger();
+            app.UseSwaggerUI(
+                options =>
+                {
+                    foreach (var description in provider.ApiVersionDescriptions)
+                    {
+                        options.SwaggerEndpoint($"/swagger/{description.GroupName}/swagger.json",
+                            description.GroupName.ToUpperInvariant());
+                    }
+                });
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
+                    name: "area",
+                    pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
+                
+                endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+                
                 endpoints.MapRazorPages();
             });
         }
@@ -145,32 +177,34 @@ namespace WebApp
             IConfiguration configuration)
         {
             using var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope();
-            using var ctx = serviceScope.ServiceProvider.GetService<AppDbContext>();
-
+            using var context = serviceScope.ServiceProvider.GetService<AppDbContext>();
             using var userManager = serviceScope.ServiceProvider.GetService<UserManager<AppUser>>();
             using var roleManager = serviceScope.ServiceProvider.GetService<RoleManager<AppRole>>();
+            var logger = serviceScope.ServiceProvider.GetService<ILogger<Startup>>();
 
-            if (configuration["AppDataInitialization:DropDatabase"] =="True" )
+            if (configuration.GetValue<bool>("DataInitialization:DropDatabase"))
             {
-                Console.WriteLine("Drop");
-                DAL.App.EF.Helpers.DataInitializer.DeleteDatabase(ctx);
+                logger.LogInformation("DropDatabase");
+                DataInitializer.DeleteDatabase(context);
             }
-            if (configuration["AppDataInitialization:MigrateDatabase"] =="True" )
+
+            if (configuration.GetValue<bool>("DataInitialization:MigrateDatabase"))
             {
-                Console.WriteLine("Migrate");
-                DAL.App.EF.Helpers.DataInitializer.MigrateDatabase(ctx);
+                logger.LogInformation("MigrateDatabase");
+                DataInitializer.MigrateDatabase(context);
             }
-            if (configuration["AppDataInitialization:SeedIdentity"] =="True" )
+
+            if (configuration.GetValue<bool>("DataInitialization:SeedIdentity"))
             {
-                Console.WriteLine("Identity");
-                DAL.App.EF.Helpers.DataInitializer.SeedIdentity(userManager, roleManager);
+                logger.LogInformation("SeedIdentity");
+                DataInitializer.SeedIdentity(userManager, roleManager);
             }
-            if (configuration["AppDataInitialization:SeedData"] =="True" )
+
+            if (configuration.GetValue<bool>("DataInitialization:SeedData"))
             {
-                Console.WriteLine("Data");
-                DAL.App.EF.Helpers.DataInitializer.SeedData(ctx);
+                logger.LogInformation("SeedData");
+                DataInitializer.SeedData(context);
             }
-           
         }
     }
 }

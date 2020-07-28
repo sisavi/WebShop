@@ -1,0 +1,57 @@
+﻿{
+  "version": "1.0.0",
+  "restore": {
+    "projectUniqueName": "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\BLL.App.DTO\\BLL.App.DTO.csproj",
+    "projectName": "BLL.App.DTO",
+    "projectPath": "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\BLL.App.DTO\\BLL.App.DTO.csproj",
+    "outputPath": "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\BLL.App.DTO\\obj\\",
+    "projectStyle": "PackageReference",
+    "originalTargetFrameworks": [
+      "netstandard2.1"
+    ],
+    "sources": {
+      "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+      "https://api.nuget.org/v3/index.json": {}
+    },
+    "frameworks": {
+      "netstandard2.1": {
+        "projectReferences": {
+          "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\Contracts.DAL.Base\\Contracts.DAL.Base.csproj": {
+            "projectPath": "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\Contracts.DAL.Base\\Contracts.DAL.Base.csproj"
+          }
+        }
+      }
+    },
+    "warningProperties": {
+      "warnAsError": [
+        "NU1605"
+      ]
+    }
+  },
+  "frameworks": {
+    "netstandard2.1": {
+      "dependencies": {
+        "Microsoft.AspNetCore.Http.Features": {
+          "target": "Package",
+          "version": "[2.2.0, )"
+        }
+      },
+      "imports": [
+        "net461",
+        "net462",
+        "net47",
+        "net471",
+        "net472",
+        "net48"
+      ],
+      "assetTargetFallback": true,
+      "warn": true,
+      "frameworkReferences": {
+        "NETStandard.Library": {
+          "privateAssets": "all"
+        }
+      },
+      "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
+    }
+  }
+}

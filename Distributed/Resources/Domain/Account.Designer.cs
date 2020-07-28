@@ -19,7 +19,7 @@ namespace Resources.Domain {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class Account {
@@ -61,6 +61,24 @@ namespace Resources.Domain {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Eemaldamise kuupäev.
+        /// </summary>
+        public static string ChangedAt {
+            get {
+                return ResourceManager.GetString("ChangedAt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Eemaldaja.
+        /// </summary>
+        public static string ChangedBy {
+            get {
+                return ResourceManager.GetString("ChangedBy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Lisamise kuupäev.
         /// </summary>
         public static string CreatedAt {
@@ -75,24 +93,6 @@ namespace Resources.Domain {
         public static string CreatedBy {
             get {
                 return ResourceManager.GetString("CreatedBy", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Eemaldamise kuupäev.
-        /// </summary>
-        public static string DeletedAt {
-            get {
-                return ResourceManager.GetString("DeletedAt", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Eemaldaja.
-        /// </summary>
-        public static string DeletedBy {
-            get {
-                return ResourceManager.GetString("DeletedBy", resourceCulture);
             }
         }
         

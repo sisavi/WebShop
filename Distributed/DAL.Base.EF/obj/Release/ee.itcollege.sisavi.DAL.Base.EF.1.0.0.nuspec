@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>ee.itcollege.sisavi.DAL.Base.EF</id>
+    <version>1.0.0</version>
+    <authors>ee.itcollege.sisavi.DAL.Base.EF</authors>
+    <owners>ee.itcollege.sisavi.DAL.Base.EF</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Package Description</description>
+    <dependencies>
+      <group targetFramework=".NETStandard2.1">
+        <dependency id="ee.itcollege.sisavi.Contracts.DAL.Base" version="1.0.0" exclude="Build,Analyzers" />
+        <dependency id="ee.itcollege.sisavi.Contracts.Domain" version="1.0.0" exclude="Build,Analyzers" />
+        <dependency id="ee.itcollege.sisavi.DAL.Base" version="1.0.0" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.AspNetCore.Identity.EntityFrameworkCore" version="3.1.5" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.EntityFrameworkCore" version="3.1.5" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="C:\Users\Simo\icd0009-2019s\Distributed\DAL.Base.EF\bin\Release\netstandard2.1\ee.itcollege.sisavi.DAL.Base.EF.dll" target="lib\netstandard2.1\ee.itcollege.sisavi.DAL.Base.EF.dll" />
+  </files>
+</package>

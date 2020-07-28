@@ -1,10 +1,14 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 
-namespace Contracts.DAL.Base
+namespace ee.itcollege.sisavi.Contracts.DAL.Base
 {
     public interface IBaseUnitOfWork
     {
-        int SaveChanges();
         Task<int> SaveChangesAsync();
+
+        TRepository GetRepository<TRepository>(Func<TRepository> repoCreationMethod)
+            where TRepository : class;
+
     }
 }

@@ -1,0 +1,42 @@
+﻿@model Domain.App.ProductInBasket
+
+<h4>ProductInBasket</h4>
+<hr />
+<dl class="row">
+    <dt class = "col-sm-2">
+        @Html.DisplayNameFor(model => model.ProductId)
+    </dt>
+    <dd class = "col-sm-10">
+        @Html.DisplayFor(model => model.ProductId)
+    </dd>
+    <dt class = "col-sm-2">
+        @Html.DisplayNameFor(model => model.Quantity)
+    </dt>
+    <dd class = "col-sm-10">
+        @Html.DisplayFor(model => model.Quantity)
+    </dd>
+    <dt class = "col-sm-2">
+        @Html.DisplayNameFor(model => model.CreatedBy)
+    </dt>
+    <dd class = "col-sm-10">
+        @Html.DisplayFor(model => model.CreatedBy)
+    </dd>
+    <dt class = "col-sm-2">
+        @Html.DisplayNameFor(model => model.CreatedAt)
+    </dt>
+    <dd class = "col-sm-10">
+        @Html.DisplayFor(model => model.CreatedAt)
+    </dd>
+    <dt class = "col-sm-2">
+        @Html.DisplayNameFor(model => model.ChangedBy)
+    </dt>
+    <dd class = "col-sm-10">
+        @Html.DisplayFor(model => model.ChangedBy)
+    </dd>
+    <dt class = "col-sm-2">
+        @Html.DisplayNameFor(model => model.ChangedAt)
+    </dt>
+    <dd class = "col-sm-10">
+        @Html.DisplayFor(model => model.ChangedAt)
+    </dd>
+</dl>

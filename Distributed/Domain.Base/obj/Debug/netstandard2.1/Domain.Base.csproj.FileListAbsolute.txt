@@ -1,0 +1,12 @@
+C:\Users\Simo\icd0009-2019s\Distributed\Domain.Base\obj\Debug\netstandard2.1\Domain.Base.csprojAssemblyReference.cache
+C:\Users\Simo\icd0009-2019s\Distributed\Domain.Base\obj\Debug\netstandard2.1\Domain.Base.csproj.CoreCompileInputs.cache
+C:\Users\Simo\icd0009-2019s\Distributed\Domain.Base\obj\Debug\netstandard2.1\Domain.Base.AssemblyInfoInputs.cache
+C:\Users\Simo\icd0009-2019s\Distributed\Domain.Base\obj\Debug\netstandard2.1\Domain.Base.AssemblyInfo.cs
+C:\Users\Simo\icd0009-2019s\Distributed\Domain.Base\obj\Debug\netstandard2.1\Domain.Base.csproj.CopyComplete
+C:\Users\Simo\icd0009-2019s\Distributed\Domain.Base\bin\Debug\netstandard2.1\ee.itcollege.sisavi.Domain.Base.deps.json
+C:\Users\Simo\icd0009-2019s\Distributed\Domain.Base\bin\Debug\netstandard2.1\ee.itcollege.sisavi.Domain.Base.dll
+C:\Users\Simo\icd0009-2019s\Distributed\Domain.Base\bin\Debug\netstandard2.1\ee.itcollege.sisavi.Domain.Base.pdb
+C:\Users\Simo\icd0009-2019s\Distributed\Domain.Base\bin\Debug\netstandard2.1\ee.itcollege.sisavi.Contracts.Domain.dll
+C:\Users\Simo\icd0009-2019s\Distributed\Domain.Base\bin\Debug\netstandard2.1\ee.itcollege.sisavi.Contracts.Domain.pdb
+C:\Users\Simo\icd0009-2019s\Distributed\Domain.Base\obj\Debug\netstandard2.1\ee.itcollege.sisavi.Domain.Base.dll
+C:\Users\Simo\icd0009-2019s\Distributed\Domain.Base\obj\Debug\netstandard2.1\ee.itcollege.sisavi.Domain.Base.pdb

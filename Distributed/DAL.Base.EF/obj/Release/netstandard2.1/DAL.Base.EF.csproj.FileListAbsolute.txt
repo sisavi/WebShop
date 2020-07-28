@@ -1,0 +1,16 @@
+C:\Users\Simo\icd0009-2019s\Distributed\DAL.Base.EF\bin\Release\netstandard2.1\ee.itcollege.sisavi.DAL.Base.EF.deps.json
+C:\Users\Simo\icd0009-2019s\Distributed\DAL.Base.EF\bin\Release\netstandard2.1\ee.itcollege.sisavi.DAL.Base.EF.dll
+C:\Users\Simo\icd0009-2019s\Distributed\DAL.Base.EF\bin\Release\netstandard2.1\ee.itcollege.sisavi.DAL.Base.EF.pdb
+C:\Users\Simo\icd0009-2019s\Distributed\DAL.Base.EF\bin\Release\netstandard2.1\ee.itcollege.sisavi.Contracts.DAL.Base.dll
+C:\Users\Simo\icd0009-2019s\Distributed\DAL.Base.EF\bin\Release\netstandard2.1\ee.itcollege.sisavi.Contracts.Domain.dll
+C:\Users\Simo\icd0009-2019s\Distributed\DAL.Base.EF\bin\Release\netstandard2.1\ee.itcollege.sisavi.DAL.Base.dll
+C:\Users\Simo\icd0009-2019s\Distributed\DAL.Base.EF\bin\Release\netstandard2.1\ee.itcollege.sisavi.Contracts.DAL.Base.pdb
+C:\Users\Simo\icd0009-2019s\Distributed\DAL.Base.EF\bin\Release\netstandard2.1\ee.itcollege.sisavi.Contracts.Domain.pdb
+C:\Users\Simo\icd0009-2019s\Distributed\DAL.Base.EF\bin\Release\netstandard2.1\ee.itcollege.sisavi.DAL.Base.pdb
+C:\Users\Simo\icd0009-2019s\Distributed\DAL.Base.EF\obj\Release\netstandard2.1\DAL.Base.EF.csprojAssemblyReference.cache
+C:\Users\Simo\icd0009-2019s\Distributed\DAL.Base.EF\obj\Release\netstandard2.1\DAL.Base.EF.AssemblyInfoInputs.cache
+C:\Users\Simo\icd0009-2019s\Distributed\DAL.Base.EF\obj\Release\netstandard2.1\DAL.Base.EF.AssemblyInfo.cs
+C:\Users\Simo\icd0009-2019s\Distributed\DAL.Base.EF\obj\Release\netstandard2.1\DAL.Base.EF.csproj.CoreCompileInputs.cache
+C:\Users\Simo\icd0009-2019s\Distributed\DAL.Base.EF\obj\Release\netstandard2.1\DAL.Base.EF.csproj.CopyComplete
+C:\Users\Simo\icd0009-2019s\Distributed\DAL.Base.EF\obj\Release\netstandard2.1\ee.itcollege.sisavi.DAL.Base.EF.dll
+C:\Users\Simo\icd0009-2019s\Distributed\DAL.Base.EF\obj\Release\netstandard2.1\ee.itcollege.sisavi.DAL.Base.EF.pdb

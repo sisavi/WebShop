@@ -1,11 +1,12 @@
+#pragma warning disable 1591
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text.Encodings.Web;
 using System.Threading.Tasks;
+using Domain.App.Identity;
 using Microsoft.AspNetCore.Authorization;
-using Domain.Identity;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
@@ -34,12 +35,12 @@ namespace WebApp.Areas.Identity.Pages.Account
         [BindProperty]
         public InputModel Input { get; set; }
 
-        public IList<AuthenticationScheme> ExternalLogins { get; set; }
+        public IList<AuthenticationScheme>? ExternalLogins { get; set; }
 
-        public string ReturnUrl { get; set; }
+        public string? ReturnUrl { get; set; }
 
         [TempData]
-        public string ErrorMessage { get; set; }
+        public string? ErrorMessage { get; set; }
 
         public class InputModel
         {
@@ -52,7 +53,7 @@ namespace WebApp.Areas.Identity.Pages.Account
             public string Password { get; set; }  = default!;
 
             [Display(Name = "Remember me?")]
-            public bool RememberMe { get; set; }  = default!;
+            public bool RememberMe { get; set; }
         }
 
         public async Task OnGetAsync(string? returnUrl = null)
@@ -67,7 +68,7 @@ namespace WebApp.Areas.Identity.Pages.Account
             // Clear the existing external cookie to ensure a clean login process
             await HttpContext.SignOutAsync(IdentityConstants.ExternalScheme);
 
-            ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
+            ExternalLogins ??= (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
 
             ReturnUrl = returnUrl;
         }

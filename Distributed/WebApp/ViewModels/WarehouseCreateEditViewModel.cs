@@ -1,4 +1,5 @@
 ﻿using Domain;
+using Domain.App;
 
 namespace WebApp.ViewModels
 {

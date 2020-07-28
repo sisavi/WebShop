@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WebApp</name>
+    </assembly>
+    <members>
+        <member name="T:WebApp.ApiControllers._1._0.Identity.AccountController">
+            <summary>
+            Api endpoint for registering new user and user log-in (jwt token generation)
+            </summary>
+        </member>
+        <member name="M:WebApp.ApiControllers._1._0.Identity.AccountController.#ctor(Microsoft.Extensions.Configuration.IConfiguration,Microsoft.AspNetCore.Identity.UserManager{Domain.App.Identity.AppUser},Microsoft.AspNetCore.Identity.SignInManager{Domain.App.Identity.AppUser},Microsoft.Extensions.Logging.ILogger{WebApp.ApiControllers._1._0.Identity.AccountController})">
+            <summary>
+            Constructor
+            </summary>
+            <param name="configuration"></param>
+            <param name="userManager"></param>
+            <param name="signInManager"></param>
+            <param name="logger"></param>
+        </member>
+        <member name="M:WebApp.ApiControllers._1._0.Identity.AccountController.Login(PublicApi.DTO.v2.Identity.LoginDTO)">
+            <summary>
+            Endpoint for user log-in (jwt generation)
+            </summary>
+            <param name="dto">login data</param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApp.ApiControllers._1._0.Identity.AccountController.Register(PublicApi.DTO.v2.Identity.RegisterDTO)">
+            <summary>
+            Endpoint for user registration and immediate log-in (jwt generation) 
+            </summary>
+            <param name="dto">user data</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

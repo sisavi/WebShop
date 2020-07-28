@@ -4,8 +4,10 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - WebApp</title>
+    
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+    
 </head>
 <body>
     <header>
@@ -26,44 +28,27 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">@Resources.Views.Shared._Layout.Privacy</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Accounts" asp-action="Index">@Resources.Views.Shared._Layout.Account</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Campaigns" asp-action="Index">@Resources.Views.Shared._Layout.Campaings</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Basket" asp-action="Index">@Resources.Views.Shared._Layout.Basket</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Categories" asp-action="Index">@Resources.Views.Shared._Layout.Catergories</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Comments" asp-action="Index">@Resources.Views.Shared._Layout.Comments</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Orders" asp-action="Index">@Resources.Views.Shared._Layout.Orders</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Payments" asp-action="Index">@Resources.Views.Shared._Layout.Payments</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Pictures" asp-action="Index">@Resources.Views.Shared._Layout.Pics</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Prices" asp-action="Index">@Resources.Views.Shared._Layout.Prices</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="ProductInBaskets" asp-action="Index">@Resources.Views.Shared._Layout.inBasket</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="ProductInWarehouses" asp-action="Index">@Resources.Views.Shared._Layout.inWarehouse</a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Products" asp-action="Index">@Resources.Views.Shared._Layout.Products</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Warehouses" asp-action="Index">@Resources.Views.Shared._Layout.warehouses</a>
-                        </li>
+                        @if (SignInManager.IsSignedIn(User) && User.IsInRole("Admin") || User.IsInRole("admin"))
+                        {
+                            <li class="nav-item dropdown">
+                                <a class="nav-link text-dark dropdown-toggle" href="#" id="navbarDropdownAdmin" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    AdminView
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdownAdmin">
+                                    <a class="nav-link text-dark" asp-area="Admin" asp-controller="Campaigns" asp-action="Index">@Resources.Views.Shared._Layout.Campaings</a>
+                                    <a class="nav-link text-dark" asp-area="Admin" asp-controller="Categories" asp-action="Index">@Resources.Views.Shared._Layout.Catergories</a>
+                                    <a class="nav-link text-dark" asp-area="Admin" asp-controller="Categories" asp-action="Index">@Resources.Views.Shared._Layout.Comments</a>
+                                    <a class="nav-link text-dark" asp-area="Admin" asp-controller="Orders" asp-action="Index">@Resources.Views.Shared._Layout.Orders</a>
+                                    <a class="nav-link text-dark" asp-area="Admin" asp-controller="Payments" asp-action="Index">@Resources.Views.Shared._Layout.Payments</a>
+                                    <a class="nav-link text-dark" asp-area="Admin" asp-controller="Pictures" asp-action="Index">@Resources.Views.Shared._Layout.Pics</a>
+                                    <a class="nav-link text-dark" asp-area="Admin" asp-controller="ProductInBaskets" asp-action="Index">@Resources.Views.Shared._Layout.inBasket</a>
+                                    <a class="nav-link text-dark" asp-area="Admin" asp-controller="ProductInWarehouses" asp-action="Index">@Resources.Views.Shared._Layout.inWarehouse</a>
+                                    <a class="nav-link text-dark" asp-area="Admin" asp-controller="Warehouses" asp-action="Index">@Resources.Views.Shared._Layout.warehouses</a>
+                                </div>
+                            </li>
+                        }
                     </ul>
                 </div>
             </div>
@@ -81,8 +66,9 @@
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
+
     @RenderSection("Scripts", required: false)
 </body>
 </html>

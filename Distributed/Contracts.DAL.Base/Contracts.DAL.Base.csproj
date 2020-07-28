@@ -3,10 +3,16 @@
     <PropertyGroup>
         <TargetFramework>netstandard2.1</TargetFramework>
         <Nullable>enable</Nullable>
+        <AssemblyName>ee.itcollege.sisavi.Contracts.DAL.Base</AssemblyName>
+        <RootNamespace>ee.itcollege.sisavi.Contracts.DAL.Base</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.2" />
+      <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.5" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Contracts.Domain\Contracts.Domain.csproj" />
     </ItemGroup>
 
 </Project>

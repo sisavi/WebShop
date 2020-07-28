@@ -1,28 +1,26 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
-using Contracts.DAL.App;
+using Contracts.BLL.App;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
-using Domain;
 
 namespace WebApp.Controllers
 {
+    [Area("user")]
+    [Authorize(Roles = "user")]
     public class CommentsController : Controller
     {
-        private readonly IAppUnitOfWork _uow;
+        private readonly IAppBLL _bll;
 
-        public CommentsController(IAppUnitOfWork uow)
+        public CommentsController(IAppBLL bll)
         {
-            _uow = uow;
+            _bll = bll;
         }
 
         // GET: Comments
         public async Task<IActionResult> Index()
         {
-            return View(await _uow.Comments.AllAsync());
+            return View(await _bll.Comments.GetAllAsync());
         }
 
         // GET: Comments/Details/5
@@ -33,7 +31,7 @@ namespace WebApp.Controllers
                 return NotFound();
             }
 
-            var comment = await _uow.Comments.FindAsync(id);
+            var comment = await _bll.Comments.FirstOrDefaultAsync(id.Value);
             if (comment == null)
             {
                 return NotFound();
@@ -53,13 +51,12 @@ namespace WebApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(Comment comment)
+        public async Task<IActionResult> Create(BLL.App.DTO.Comment comment)
         {
             if (ModelState.IsValid)
             {
-                comment.Id = Guid.NewGuid();
-                _uow.Comments.Add(comment);
-                await _uow.SaveChangesAsync();
+                _bll.Comments.Add(comment);
+                await _bll.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
             return View(comment);
@@ -73,7 +70,7 @@ namespace WebApp.Controllers
                 return NotFound();
             }
 
-            var comment = await _uow.Comments.FindAsync(id);
+            var comment = await _bll.Comments.FirstOrDefaultAsync(id.Value);
             if (comment == null)
             {
                 return NotFound();
@@ -86,7 +83,7 @@ namespace WebApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Guid id, Comment comment)
+        public async Task<IActionResult> Edit(Guid id, BLL.App.DTO.Comment comment)
         {
             if (id != comment.Id)
             {
@@ -95,22 +92,8 @@ namespace WebApp.Controllers
 
             if (ModelState.IsValid)
             {
-                try
-                {
-                    _uow.Comments.Update(comment);
-                    await _uow.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!CommentExists(comment.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
+                await _bll.Comments.UpdateAsync(comment);
+                await _bll.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
             return View(comment);
@@ -124,7 +107,7 @@ namespace WebApp.Controllers
                 return NotFound();
             }
 
-            var comment = await _uow.Comments.FindAsync(id);
+            var comment = await _bll.Comments.FirstOrDefaultAsync(id.Value);
                 
             if (comment == null)
             {
@@ -139,16 +122,11 @@ namespace WebApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(Guid id)
         {
-            var comment = await _uow.Comments.FindAsync(id);
-            _uow.Comments.Remove(comment);
-            await _uow.SaveChangesAsync();
+            var comment = await _bll.Comments.RemoveAsync(id);
+            await _bll.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool CommentExists(Guid id)
-        {
-            var contains = _uow.Comments.Find(id);
-            return contains != null;
-        }
+       
     }
 }

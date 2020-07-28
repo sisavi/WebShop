@@ -1,0 +1,14 @@
+C:\Users\Simo\icd0009-2019s\Distributed\Contracts.BLL.Base\bin\Release\netstandard2.1\ee.itcollege.sisavi.Contracts.BLL.Base.deps.json
+C:\Users\Simo\icd0009-2019s\Distributed\Contracts.BLL.Base\bin\Release\netstandard2.1\ee.itcollege.sisavi.Contracts.BLL.Base.dll
+C:\Users\Simo\icd0009-2019s\Distributed\Contracts.BLL.Base\bin\Release\netstandard2.1\ee.itcollege.sisavi.Contracts.BLL.Base.pdb
+C:\Users\Simo\icd0009-2019s\Distributed\Contracts.BLL.Base\bin\Release\netstandard2.1\ee.itcollege.sisavi.Contracts.DAL.Base.dll
+C:\Users\Simo\icd0009-2019s\Distributed\Contracts.BLL.Base\bin\Release\netstandard2.1\ee.itcollege.sisavi.Contracts.Domain.dll
+C:\Users\Simo\icd0009-2019s\Distributed\Contracts.BLL.Base\bin\Release\netstandard2.1\ee.itcollege.sisavi.Contracts.DAL.Base.pdb
+C:\Users\Simo\icd0009-2019s\Distributed\Contracts.BLL.Base\bin\Release\netstandard2.1\ee.itcollege.sisavi.Contracts.Domain.pdb
+C:\Users\Simo\icd0009-2019s\Distributed\Contracts.BLL.Base\obj\Release\netstandard2.1\Contracts.BLL.Base.csprojAssemblyReference.cache
+C:\Users\Simo\icd0009-2019s\Distributed\Contracts.BLL.Base\obj\Release\netstandard2.1\Contracts.BLL.Base.AssemblyInfoInputs.cache
+C:\Users\Simo\icd0009-2019s\Distributed\Contracts.BLL.Base\obj\Release\netstandard2.1\Contracts.BLL.Base.AssemblyInfo.cs
+C:\Users\Simo\icd0009-2019s\Distributed\Contracts.BLL.Base\obj\Release\netstandard2.1\Contracts.BLL.Base.csproj.CoreCompileInputs.cache
+C:\Users\Simo\icd0009-2019s\Distributed\Contracts.BLL.Base\obj\Release\netstandard2.1\Contracts.BLL.Base.csproj.CopyComplete
+C:\Users\Simo\icd0009-2019s\Distributed\Contracts.BLL.Base\obj\Release\netstandard2.1\ee.itcollege.sisavi.Contracts.BLL.Base.dll
+C:\Users\Simo\icd0009-2019s\Distributed\Contracts.BLL.Base\obj\Release\netstandard2.1\ee.itcollege.sisavi.Contracts.BLL.Base.pdb

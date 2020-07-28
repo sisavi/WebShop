@@ -123,10 +123,10 @@
   <data name="CreatedBy" xml:space="preserve">
     <value>Lisaja</value>
   </data>
-  <data name="DeletedAt" xml:space="preserve">
+  <data name="ChangedAt" xml:space="preserve">
     <value>Eemaldamise kuupäev</value>
   </data>
-  <data name="DeletedBy" xml:space="preserve">
+  <data name="ChangedBy" xml:space="preserve">
     <value>Eemaldaja</value>
   </data>
   <data name="Email" xml:space="preserve">

@@ -1,0 +1,9 @@
+C:\Users\Simo\icd0009-2019s\Distributed\Contracts.Domain\bin\Release\netstandard2.1\ee.itcollege.sisavi.Contracts.Domain.deps.json
+C:\Users\Simo\icd0009-2019s\Distributed\Contracts.Domain\bin\Release\netstandard2.1\ee.itcollege.sisavi.Contracts.Domain.dll
+C:\Users\Simo\icd0009-2019s\Distributed\Contracts.Domain\bin\Release\netstandard2.1\ee.itcollege.sisavi.Contracts.Domain.pdb
+C:\Users\Simo\icd0009-2019s\Distributed\Contracts.Domain\obj\Release\netstandard2.1\Contracts.Domain.csprojAssemblyReference.cache
+C:\Users\Simo\icd0009-2019s\Distributed\Contracts.Domain\obj\Release\netstandard2.1\Contracts.Domain.AssemblyInfoInputs.cache
+C:\Users\Simo\icd0009-2019s\Distributed\Contracts.Domain\obj\Release\netstandard2.1\Contracts.Domain.AssemblyInfo.cs
+C:\Users\Simo\icd0009-2019s\Distributed\Contracts.Domain\obj\Release\netstandard2.1\Contracts.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Simo\icd0009-2019s\Distributed\Contracts.Domain\obj\Release\netstandard2.1\ee.itcollege.sisavi.Contracts.Domain.dll
+C:\Users\Simo\icd0009-2019s\Distributed\Contracts.Domain\obj\Release\netstandard2.1\ee.itcollege.sisavi.Contracts.Domain.pdb

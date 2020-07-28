@@ -1,4 +1,4 @@
-@model IEnumerable<Domain.Comment>
+@model IEnumerable<BLL.App.DTO.Comment>
 
 @{
     ViewData["Title"] = "Index";
@@ -18,18 +18,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.ProductId)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CreatedBy)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CreatedAt)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DeletedBy)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DeletedAt)
-            </th>
+            
             <th></th>
         </tr>
     </thead>
@@ -41,18 +30,6 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.ProductId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreatedBy)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreatedAt)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DeletedBy)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DeletedAt)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |

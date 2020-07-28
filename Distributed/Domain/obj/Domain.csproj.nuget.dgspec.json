@@ -8,10 +8,72 @@
       "version": "1.0.0",
       "restore": {
         "projectUniqueName": "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\Contracts.DAL.Base\\Contracts.DAL.Base.csproj",
-        "projectName": "Contracts.DAL.Base",
+        "projectName": "ee.itcollege.sisavi.Contracts.DAL.Base",
         "projectPath": "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\Contracts.DAL.Base\\Contracts.DAL.Base.csproj",
         "packagesPath": "C:\\Users\\Simo\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\Contracts.DAL.Base\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Simo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.1": {
+            "projectReferences": {
+              "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\Contracts.Domain\\Contracts.Domain.csproj": {
+                "projectPath": "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\Contracts.Domain\\Contracts.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.1": {
+          "dependencies": {
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.5, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "NETStandard.Library": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\Contracts.Domain\\Contracts.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\Contracts.Domain\\Contracts.Domain.csproj",
+        "projectName": "ee.itcollege.sisavi.Contracts.Domain",
+        "projectPath": "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\Contracts.Domain\\Contracts.Domain.csproj",
+        "packagesPath": "C:\\Users\\Simo\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\Contracts.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Simo\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -38,9 +100,9 @@
       "frameworks": {
         "netstandard2.1": {
           "dependencies": {
-            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+            "Microsoft.Extensions.Identity.Stores": {
               "target": "Package",
-              "version": "[3.1.2, )"
+              "version": "[3.1.5, )"
             }
           },
           "imports": [
@@ -58,7 +120,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
         }
       }
     },
@@ -66,7 +128,7 @@
       "version": "1.0.0",
       "restore": {
         "projectUniqueName": "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\DAL.Base\\DAL.Base.csproj",
-        "projectName": "DAL.Base",
+        "projectName": "ee.itcollege.sisavi.DAL.Base",
         "projectPath": "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\DAL.Base\\DAL.Base.csproj",
         "packagesPath": "C:\\Users\\Simo\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\DAL.Base\\obj\\",
@@ -87,6 +149,9 @@
             "projectReferences": {
               "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\Contracts.DAL.Base\\Contracts.DAL.Base.csproj": {
                 "projectPath": "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\Contracts.DAL.Base\\Contracts.DAL.Base.csproj"
+              },
+              "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\Contracts.Domain\\Contracts.Domain.csproj": {
+                "projectPath": "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\Contracts.Domain\\Contracts.Domain.csproj"
               }
             }
           }
@@ -100,9 +165,17 @@
       "frameworks": {
         "netstandard2.1": {
           "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[10.0.0, )"
+            },
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[3.1.2, )"
+              "version": "[3.1.5, )"
+            },
+            "System.Text.Json": {
+              "target": "Package",
+              "version": "[4.7.2, )"
             }
           },
           "imports": [
@@ -120,7 +193,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
         }
       }
     },
@@ -167,7 +240,7 @@
           "dependencies": {
             "Microsoft.Extensions.Identity.Stores": {
               "target": "Package",
-              "version": "[3.1.2, )"
+              "version": "[3.1.5, )"
             },
             "System.ComponentModel.Annotations": {
               "target": "Package",
@@ -189,7 +262,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
         }
       }
     },
@@ -244,7 +317,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
         }
       }
     }

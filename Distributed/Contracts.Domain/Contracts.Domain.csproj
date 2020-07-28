@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.1</TargetFramework>
+        <Nullable>enable</Nullable>
+        <AssemblyName>ee.itcollege.sisavi.Contracts.Domain</AssemblyName>
+        <RootNamespace>ee.itcollege.sisavi.Contracts.Domain</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Microsoft.Extensions.Identity.Stores" Version="3.1.5" />
+    </ItemGroup>
+
+</Project>

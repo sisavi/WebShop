@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.1</TargetFramework>
+        <Nullable>enable</Nullable>
+        <AssemblyName>ee.itcollege.sisavi.Contracts.BLL.Base</AssemblyName>
+        <RootNamespace>ee.itcollege.sisavi.Contracts.BLL.Base</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Contracts.DAL.Base\Contracts.DAL.Base.csproj" />
+    </ItemGroup>
+
+</Project>

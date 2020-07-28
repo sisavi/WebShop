@@ -1,9 +1,9 @@
-﻿using Contracts.DAL.Base.Repositories;
-using Domain;
+﻿using ee.itcollege.sisavi.Contracts.DAL.Base.Repositories;
+using DAL.App.DTO;
 
 namespace Contracts.DAL.App.Repositories
 {
-    public interface IProductRepository : IBaseRepository<Product>
+    public interface IProductRepository : IBaseRepository<Product>, IProductRepositoryCustom
     {
         
     }
