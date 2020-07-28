@@ -8,6 +8,8 @@
     <e p="C:\Users\Simo\AppData\Roaming\JetBrains\Rider2020.1\scratches" t="IncludeRecursive" />
     <e p="C:\Users\Simo\Desktop\Directory.Build .props" t="Include" />
     <e p="C:\Users\Simo\icd0009-2019s\Distributed" t="IncludeFlat">
+      <e p=".idea\.gitignore" t="Include" />
+      <e p="_Solution" t="Include" />
       <e p="BLL" t="Include" />
       <e p="BLL.App" t="IncludeRecursive">
         <e p="AppBLL.cs" t="Include" />
