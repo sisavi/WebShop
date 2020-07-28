@@ -11,6 +11,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DAL.App.EF", "DAL.App.EF\DA
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionFolder1", "SolutionFolder1", "{4A7DFBFF-F196-4740-AD22-1554778EF1DA}"
 	ProjectSection(SolutionItems) = preProject
+	README.md = README.md
+    	.gitignore = .gitignore
+    	.dockerignore = .dockerignore
+    	Directory.Build.props = Directory.Build.props
+    	.gitlab-ci.yml = .gitlab-ci.yml
+    	Dockerfile = Dockerfile
 		..\..\Desktop\Directory.Build .props = ..\..\Desktop\Directory.Build .props
 	EndProjectSection
 EndProject

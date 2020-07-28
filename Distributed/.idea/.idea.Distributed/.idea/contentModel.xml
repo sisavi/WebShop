@@ -8,6 +8,9 @@
     <e p="C:\Users\Simo\AppData\Roaming\JetBrains\Rider2020.1\scratches" t="IncludeRecursive" />
     <e p="C:\Users\Simo\Desktop\Directory.Build .props" t="Include" />
     <e p="C:\Users\Simo\icd0009-2019s\Distributed" t="IncludeFlat">
+      <e p=".dockerignore" t="Include" />
+      <e p=".gitignore" t="Include" />
+      <e p=".gitlab-ci.yml" t="Include" />
       <e p=".idea\.gitignore" t="Include" />
       <e p="_Solution" t="Include" />
       <e p="BLL" t="Include" />
@@ -327,7 +330,9 @@
           <e p="EFBaseRepository.cs" t="Include" />
         </e>
       </e>
+      <e p="Directory.Build.props" t="Include" />
       <e p="Distributed.sln" t="IncludeFlat" />
+      <e p="Dockerfile" t="Include" />
       <e p="Domain" t="Include" />
       <e p="Domain.App" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
@@ -430,6 +435,7 @@
         <e p="PublicApi.DTO.v2.csproj" t="IncludeRecursive" />
         <e p="Warehouse.cs" t="Include" />
       </e>
+      <e p="README.md" t="Include" />
       <e p="Resources" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
         <e p="Domain" t="Include">
