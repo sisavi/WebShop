@@ -1,0 +1,44 @@
+<template>
+    <body>
+    <div class="create">
+        <body>
+        <div class="row">
+            <div class="col-75">
+                <div class="orderContainer">
+                    <h2 style="text-decoration: underline;">Categories</h2>
+                    <form submit.trigger="onSubmit($event)">
+                        <div class="row">
+                            <div class="col-50">
+                                <table class="table text-black" style="font-weight: 600">
+                                    <thead>
+                                    <tr>
+                                        <th>
+                                            Category
+                                        </th>
+                                        <th></th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr repeat.for="category of _categories">
+                                        <td>
+                                            ${category.categoryName}
+                                        </td>
+                                        <td>
+                                            <a route-href="route: categories-edit; params.bind: { id: category.id }" style="color: black">Edit</a> |
+                                            <a route-href="route: categories-delete; params.bind: { id: category.id }" style="color: black">Delete</a>
+                                        </td>
+
+                                    </tr>
+                                    <a style="color: black;float: right;font-size: larger;font-weight: bold;" route-href="route: categories-create; params.bind: {}">Click here to add new Category</a>
+                                </table>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        </body>
+    </div>
+
+    </body>
+</template>
