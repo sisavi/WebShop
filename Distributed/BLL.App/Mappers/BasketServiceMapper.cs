@@ -4,7 +4,7 @@ using BLLAppDTO=BLL.App.DTO;
 using DALAppDTO=DAL.App.DTO;
 namespace BLL.App.Mappers
 {
-    public class ProductInBasketServiceMapper : BaseMapper<DALAppDTO.Basket, BLLAppDTO.Basket>, IProductInBasketServiceMapper
+    public class BasketServiceMapper : BaseMapper<DALAppDTO.Basket, BLLAppDTO.Basket>, IBasketServiceMapper
     {
         
     }

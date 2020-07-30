@@ -3,7 +3,7 @@ using BLLAppDTO=BLL.App.DTO;
 using DALAppDTO=DAL.App.DTO;
 namespace Contracts.BLL.App.Mappers
 {
-    public interface IProductInBasketServiceMapper : IBaseMapper<DALAppDTO.Basket, BLLAppDTO.Basket>
+    public interface IBasketServiceMapper : IBaseMapper<DALAppDTO.Basket, BLLAppDTO.Basket>
     {
         
     }

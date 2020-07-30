@@ -9,7 +9,7 @@ namespace PublicApi.DTO.v2
     {
         public Guid AppUserId { get; set; }
 
-        public int ProductInBasketId { get; set; }
+        public int BasketId { get; set; }
 
         public string OrderNumber { get; set; } = default!;
 

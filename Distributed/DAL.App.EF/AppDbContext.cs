@@ -19,16 +19,17 @@ namespace DAL.App.EF
         private readonly IUserNameProvider _userNameProvider;
 
         public DbSet<Campaign> Campaigns { get; set; } = default!;
+        public DbSet<DeliveryType> DeliveryTypes { get; set; } = default!;
         public DbSet<Category> Categories { get; set; } = default!;
-        public DbSet<Comment> Comments { get; set; } = default!;
         public DbSet<Order> Orders { get; set; } = default!;
         public DbSet<Payment> Payments { get; set; } = default!;
         public DbSet<Picture> Pictures { get; set; } = default!;
         public DbSet<Product> Products { get; set; } = default!;
         public DbSet<LangStr> LangStrs { get; set; } = default!;
         public DbSet<LangStrTranslation> LangStrTranslation { get; set; } = default!;
-        public DbSet<ProductInBasket> ProductInBaskets { get; set; } = default!;
+        public DbSet<Basket> Baskets { get; set; } = default!;
         public DbSet<ProductInWarehouse> ProductInWarehouses { get; set; } = default!;
+        public DbSet<ProductInBasket> ProductInBasket { get; set; } = default!;
         public DbSet<Warehouse> Warehouses { get; set; } = default!;
 
         private readonly Dictionary<IDomainEntityId<Guid>, IDomainEntityId<Guid>> _entityTracker =

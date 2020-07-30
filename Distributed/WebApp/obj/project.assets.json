@@ -3148,6 +3148,7 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.1",
         "dependencies": {
+          "BLL.App.DTO": "1.0.0",
           "DAL.App.DTO": "1.0.0",
           "Domain": "1.0.0",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "3.1.5",
@@ -3165,6 +3166,7 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.1",
         "dependencies": {
+          "Domain.App": "1.0.0",
           "Microsoft.AspNetCore.Http.Features": "2.2.0",
           "ee.itcollege.sisavi.Contracts.DAL.Base": "1.0.0",
           "ee.itcollege.sisavi.Contracts.Domain": "1.0.0",
@@ -3181,6 +3183,7 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.1",
         "dependencies": {
+          "BLL.App.DTO": "1.0.0",
           "Contracts.DAL.App": "1.0.0",
           "Domain": "1.0.0",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "3.1.5",
@@ -3369,6 +3372,7 @@
         "framework": ".NETStandard,Version=v2.1",
         "dependencies": {
           "BLL.App.DTO": "1.0.0",
+          "Domain.App": "1.0.0",
           "Microsoft.AspNetCore.Http.Features": "2.2.0",
           "System.ComponentModel.Annotations": "4.7.0",
           "ee.itcollege.sisavi.Contracts.Domain": "1.0.0",

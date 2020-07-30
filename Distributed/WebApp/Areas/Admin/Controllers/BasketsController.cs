@@ -19,7 +19,7 @@ namespace WebApp.Areas.Admin.Controllers
         // GET: Baskets
         public async Task<IActionResult> Index()
         {
-            return View(await _bll.ProductsInBaskets.GetAllAsync());
+            return View(await _bll.Baskets.GetAllAsync());
         }
 
         // GET: Baskets/Details/5
@@ -30,7 +30,7 @@ namespace WebApp.Areas.Admin.Controllers
                 return NotFound();
             }
 
-            var Basket = await _bll.ProductsInBaskets.FirstOrDefaultAsync(id.Value);
+            var Basket = await _bll.Baskets.FirstOrDefaultAsync(id.Value);
             if (Basket == null)
             {
                 return NotFound();
@@ -54,7 +54,7 @@ namespace WebApp.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                _bll.ProductsInBaskets.Add(Basket);
+                _bll.Baskets.Add(Basket);
                 await _bll.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
@@ -69,7 +69,7 @@ namespace WebApp.Areas.Admin.Controllers
                 return NotFound();
             }
 
-            var Basket = await _bll.ProductsInBaskets.FirstOrDefaultAsync(id.Value);
+            var Basket = await _bll.Baskets.FirstOrDefaultAsync(id.Value);
             if (Basket == null)
             {
                 return NotFound();
@@ -92,7 +92,7 @@ namespace WebApp.Areas.Admin.Controllers
             if (ModelState.IsValid)
             {
                
-                await _bll.ProductsInBaskets.UpdateAsync(Basket);
+                await _bll.Baskets.UpdateAsync(Basket);
                 await _bll.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
@@ -107,7 +107,7 @@ namespace WebApp.Areas.Admin.Controllers
                 return NotFound();
             }
 
-            var Basket = await _bll.ProductsInBaskets.FirstOrDefaultAsync(id.Value);
+            var Basket = await _bll.Baskets.FirstOrDefaultAsync(id.Value);
             if (Basket == null)
             {
                 return NotFound();
@@ -121,7 +121,7 @@ namespace WebApp.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(Guid id)
         {
-            var Basket = await _bll.ProductsInBaskets.RemoveAsync(id);
+            var Basket = await _bll.Baskets.RemoveAsync(id);
             await _bll.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }

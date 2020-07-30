@@ -3,8 +3,8 @@ using Domain.App;
 
 namespace WebApp.ViewModels
 {
-    public class ProductInBasketCreateEditViewModel
+    public class BasketCreateEditViewModel
     {
-        public ProductInBasket ProductInBasket { get; set; } = default!;
+        public Basket Basket { get; set; } = default!;
     }
 }

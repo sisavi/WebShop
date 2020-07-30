@@ -334,6 +334,9 @@
         "frameworks": {
           "netstandard2.1": {
             "projectReferences": {
+              "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\BLL.App.DTO\\BLL.App.DTO.csproj": {
+                "projectPath": "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\BLL.App.DTO\\BLL.App.DTO.csproj"
+              },
               "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\Contracts.DAL.Base\\Contracts.DAL.Base.csproj": {
                 "projectPath": "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\Contracts.DAL.Base\\Contracts.DAL.Base.csproj"
               },
@@ -533,6 +536,9 @@
               },
               "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\DAL.Base\\DAL.Base.csproj": {
                 "projectPath": "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\DAL.Base\\DAL.Base.csproj"
+              },
+              "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\Domain.App\\Domain.App.csproj": {
+                "projectPath": "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\Domain.App\\Domain.App.csproj"
               }
             }
           }
@@ -593,6 +599,9 @@
         "frameworks": {
           "netstandard2.1": {
             "projectReferences": {
+              "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\BLL.App.DTO\\BLL.App.DTO.csproj": {
+                "projectPath": "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\BLL.App.DTO\\BLL.App.DTO.csproj"
+              },
               "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\Contracts.DAL.App\\Contracts.DAL.App.csproj": {
                 "projectPath": "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\Contracts.DAL.App\\Contracts.DAL.App.csproj"
               },
@@ -1171,6 +1180,9 @@
               },
               "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\DAL.Base\\DAL.Base.csproj": {
                 "projectPath": "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\DAL.Base\\DAL.Base.csproj"
+              },
+              "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\Domain.App\\Domain.App.csproj": {
+                "projectPath": "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\Domain.App\\Domain.App.csproj"
               }
             }
           }

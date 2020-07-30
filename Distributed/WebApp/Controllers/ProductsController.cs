@@ -98,7 +98,6 @@ namespace WebApp.Controllers
                     ProductPrice = vm.ProductPrice,
                     CategoryId = vm.Product.CategoryId,
                     Description = vm.Product.Description,
-                    ProductCode = vm.Product.ProductCode,
                     ProductName = vm.Product.ProductName,
                     CampaignId  = vm.CampaignId,
                     

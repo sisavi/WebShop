@@ -4,6 +4,68 @@
     "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\Contracts.DAL.App\\Contracts.DAL.App.csproj": {}
   },
   "projects": {
+    "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\BLL.App.DTO\\BLL.App.DTO.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\BLL.App.DTO\\BLL.App.DTO.csproj",
+        "projectName": "BLL.App.DTO",
+        "projectPath": "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\BLL.App.DTO\\BLL.App.DTO.csproj",
+        "packagesPath": "C:\\Users\\Simo\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\BLL.App.DTO\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Simo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.1": {
+            "projectReferences": {
+              "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\Contracts.DAL.Base\\Contracts.DAL.Base.csproj": {
+                "projectPath": "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\Contracts.DAL.Base\\Contracts.DAL.Base.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.1": {
+          "dependencies": {
+            "Microsoft.AspNetCore.Http.Features": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "NETStandard.Library": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
     "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\Contracts.DAL.App\\Contracts.DAL.App.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -27,6 +89,9 @@
         "frameworks": {
           "netstandard2.1": {
             "projectReferences": {
+              "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\BLL.App.DTO\\BLL.App.DTO.csproj": {
+                "projectPath": "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\BLL.App.DTO\\BLL.App.DTO.csproj"
+              },
               "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\Contracts.DAL.Base\\Contracts.DAL.Base.csproj": {
                 "projectPath": "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\Contracts.DAL.Base\\Contracts.DAL.Base.csproj"
               },
@@ -226,6 +291,9 @@
               },
               "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\DAL.Base\\DAL.Base.csproj": {
                 "projectPath": "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\DAL.Base\\DAL.Base.csproj"
+              },
+              "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\Domain.App\\Domain.App.csproj": {
+                "projectPath": "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\Domain.App\\Domain.App.csproj"
               }
             }
           }

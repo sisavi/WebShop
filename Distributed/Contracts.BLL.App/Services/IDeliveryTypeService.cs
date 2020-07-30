@@ -4,7 +4,7 @@ using Contracts.DAL.App.Repositories;
 
 namespace Contracts.BLL.App.Services
 {
-    public interface ICommentService : IBaseEntityService<Comment>, ICommentRepositoryCustom<Comment>
+    public interface IDeliveryTypeService : IBaseEntityService<DeliveryType>, IDeliveryTypeRepositoryCustom<DeliveryType>
     {
         
     }

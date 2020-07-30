@@ -19,7 +19,7 @@ namespace BLL.App.Services
         public ProductService(IAppUnitOfWork uow) : base(uow, uow.Products, new ProductServiceMapper())
         {
         }
-        public async Task<Product> ApplyDiscount(Product product, double priceOfProduct)
+        public async Task<Product> ApplyDiscount(Product product)
         {
             DAL.App.DTO.Campaign? campaign = null;
             if (product.CampaignId != null)
@@ -32,9 +32,30 @@ namespace BLL.App.Services
                 return product;
             }
             
-            product.ProductPrice = priceOfProduct * (1 - campaign.Discount);
+            product.ProductPrice *= ((100 - campaign.Discount) / 100);
             
             return product;
+        }
+
+        
+        public async Task<IEnumerable<Product>> GetProductsByCategory(Guid id)
+        {
+            var products = await UOW.Products.GetAllAsync();
+            
+            var categoryProducts = new List<DAL.App.DTO.Product>();
+
+            foreach (var product in products)
+            {
+                if (product.CategoryId.Equals(id))
+                {
+                    categoryProducts.Add(product);
+                }
+                
+            }
+
+            var productsByCategory = categoryProducts.Select(e => Mapper.Map(e)); 
+
+            return productsByCategory;
         }
     }
 }

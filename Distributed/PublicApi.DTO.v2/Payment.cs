@@ -1,6 +1,6 @@
 ﻿using System;
-using BLL.App.DTO.Identity;
 using ee.itcollege.sisavi.Contracts.Domain;
+using PublicApi.DTO.v2.Identity;
 
 namespace PublicApi.DTO.v2
 {

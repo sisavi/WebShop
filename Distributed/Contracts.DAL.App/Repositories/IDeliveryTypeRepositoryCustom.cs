@@ -2,12 +2,12 @@
 
 namespace Contracts.DAL.App.Repositories
 {
-    public interface ICommentRepositoryCustom : ICommentRepositoryCustom<Comment>
+    public interface IDeliveryTypeRepositoryCustom : IDeliveryTypeRepositoryCustom<DeliveryType>
     {
         
     }
 
-    public interface ICommentRepositoryCustom<TComment>
+    public interface IDeliveryTypeRepositoryCustom<TDeliveryType>
     {
         
     }

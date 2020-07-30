@@ -19,6 +19,7 @@ namespace WebApp.ApiControllers._1._0
     {
         private readonly IAppBLL _bll;
         private readonly BasketMapper _mapper = new BasketMapper();
+        private readonly PublicApi.DTO.v2.Mappers.ProductMapper _mapToDomain = new PublicApi.DTO.v2.Mappers.ProductMapper();
 
         public BasketsController(IAppBLL bll)
         {
@@ -30,7 +31,7 @@ namespace WebApp.ApiControllers._1._0
         [Authorize()]
         public async Task<ActionResult<IEnumerable<V2DTO.Basket>>> GetBaskets()
         {
-            return Ok((await _bll.ProductsInBaskets.GetAllAsync()).Select(e => _mapper.Map(e)).Where(e => e.AppUserId == User.UserId()));
+            return Ok((await _bll.Baskets.GetAllAsync()).Select(e => _mapper.Map(e)).Where(e => e.AppUserId == User.UserId()));
         }
 
         // GET: api/Baskets/5
@@ -38,7 +39,7 @@ namespace WebApp.ApiControllers._1._0
         [Authorize(Roles = "user,User")]
         public async Task<ActionResult<V2DTO.Basket>> GetBasket(Guid id)
         {
-            var Basket = await _bll.ProductsInBaskets.FirstOrDefaultAsync(id);
+            var Basket = await _bll.Baskets.FirstOrDefaultAsync(id);
 
             if (Basket == null)
             {
@@ -53,13 +54,15 @@ namespace WebApp.ApiControllers._1._0
         // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPut("{id}")]
         [Authorize(Roles = "user,User")]
-        public async Task<IActionResult> PutBasket(Guid basketId, Guid ProductId, int quantity)
+        public async Task<IActionResult> PutBasket(Guid basketId, Guid productId, int quantity)
         {
-            var basket = await _bll.ProductsInBaskets.FirstOrDefaultAsync(basketId);
+            var basket = await _bll.Baskets.FirstOrDefaultAsync(basketId);
+            var product = await _bll.Products.FirstOrDefaultAsync(productId);
             
-            await _bll.ProductsInBaskets.AddProduct(ProductId, quantity);
+            //await _bll.Baskets.AddProduct(basketId, _mapToDomain.MapToDomain(product));
             
-            await _bll.ProductsInBaskets.UpdateAsync(basket);
+            
+            await _bll.Baskets.UpdateAsync(basket);
             await _bll.SaveChangesAsync();
             return NoContent();
         }
@@ -71,7 +74,7 @@ namespace WebApp.ApiControllers._1._0
         public async Task<ActionResult<V2DTO.Basket>> PostBasket(V2DTO.Basket Basket)
         {
             var bllEntity = _mapper.Map(Basket);
-            _bll.ProductsInBaskets.Add(bllEntity);
+            _bll.Baskets.Add(bllEntity);
             await _bll.SaveChangesAsync();
             Basket.Id = bllEntity.Id;
 
@@ -82,13 +85,13 @@ namespace WebApp.ApiControllers._1._0
         [HttpDelete("{id}")]
         public async Task<ActionResult<V2DTO.Basket>> DeleteBasket(Guid id)
         {
-            var Basket = await _bll.ProductsInBaskets.FirstOrDefaultAsync(id);
+            var Basket = await _bll.Baskets.FirstOrDefaultAsync(id);
             if (Basket == null)
             {
                 return NotFound();
             }
 
-            await _bll.ProductsInBaskets.RemoveAsync(Basket);
+            await _bll.Baskets.RemoveAsync(Basket);
             await _bll.SaveChangesAsync();
 
             return Ok(Basket);

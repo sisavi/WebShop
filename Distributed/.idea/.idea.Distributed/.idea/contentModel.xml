@@ -19,10 +19,11 @@
         <e p="bin" t="ExcludeRecursive" />
         <e p="BLL.App.csproj" t="IncludeRecursive" />
         <e p="Mappers" t="Include">
+          <e p="BasketServiceMapper.cs" t="Include" />
           <e p="BLLMapper.cs" t="Include" />
           <e p="CampaignServiceMapper.cs" t="Include" />
           <e p="CategoryServiceMapper.cs" t="Include" />
-          <e p="CommentServiceMapper.cs" t="Include" />
+          <e p="DeliveryTypeServiceMapper.cs" t="Include" />
           <e p="LangStrServiceMapper.cs" t="Include" />
           <e p="LangStrTranslationServiceMapper.cs" t="Include" />
           <e p="OrderServiceMapper.cs" t="Include" />
@@ -41,9 +42,10 @@
           </e>
         </e>
         <e p="Services" t="Include">
+          <e p="BasketService.cs" t="Include" />
           <e p="CampaignService.cs" t="Include" />
           <e p="CategoryService.cs" t="Include" />
-          <e p="CommentService.cs" t="Include" />
+          <e p="DeliveryTypeService.cs" t="Include" />
           <e p="LangStrService.cs" t="Include" />
           <e p="LangStrTranslationService.cs" t="Include" />
           <e p="OrderService.cs" t="Include" />
@@ -56,11 +58,12 @@
         </e>
       </e>
       <e p="BLL.App.DTO" t="IncludeRecursive">
+        <e p="Basket.cs" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="BLL.App.DTO.csproj" t="IncludeRecursive" />
         <e p="Campaign.cs" t="Include" />
         <e p="Category.cs" t="Include" />
-        <e p="Comment.cs" t="Include" />
+        <e p="DeliveryType.cs" t="Include" />
         <e p="Identity" t="Include">
           <e p="AppRole.cs" t="Include" />
           <e p="AppUser.cs" t="Include" />
@@ -107,9 +110,10 @@
         <e p="Contracts.BLL.App.csproj" t="IncludeRecursive" />
         <e p="IAppBLL.cs" t="Include" />
         <e p="Mappers" t="Include">
+          <e p="IBasketServiceMapper.cs" t="Include" />
           <e p="ICampaignServiceMapper.cs" t="Include" />
           <e p="ICategoryServiceMapper.cs" t="Include" />
-          <e p="ICommentServiceMapper.cs" t="Include" />
+          <e p="IDeliveryTypeServiceMapper.cs" t="Include" />
           <e p="ILangStrServiceMapper.cs" t="Include" />
           <e p="ILangStrTranslationServiceMapper.cs" t="Include" />
           <e p="IOrderServiceMapper.cs" t="Include" />
@@ -128,9 +132,10 @@
           </e>
         </e>
         <e p="Services" t="Include">
+          <e p="IBasketService.cs" t="Include" />
           <e p="ICampaignService.cs" t="Include" />
           <e p="ICategoryService.cs" t="Include" />
-          <e p="ICommentService.cs" t="Include" />
+          <e p="IDeliveryTypeService.cs" t="Include" />
           <e p="ILangStrService.cs" t="Include" />
           <e p="ILangStrTranslationService.cs" t="Include" />
           <e p="IOrderService.cs" t="Include" />
@@ -173,12 +178,14 @@
           </e>
         </e>
         <e p="Repositories" t="Include">
+          <e p="IBasketRepository.cs" t="Include" />
+          <e p="IBasketRepositoryCustom.cs" t="Include" />
           <e p="ICampaignRepository.cs" t="Include" />
           <e p="ICampaignRepositoryCustom.cs" t="Include" />
           <e p="ICategoryRepository.cs" t="Include" />
           <e p="ICategoryRepositoryCustom.cs" t="Include" />
-          <e p="ICommentRepository.cs" t="Include" />
-          <e p="ICommentRepositoryCustom.cs" t="Include" />
+          <e p="IDeliveryTypeRepository.cs" t="Include" />
+          <e p="IDeliveryTypeRepositoryCustom.cs" t="Include" />
           <e p="ILangStrRepository.cs" t="Include" />
           <e p="ILangStrRepositoryCustom.cs" t="Include" />
           <e p="ILangStrTranslationRepository.cs" t="Include" />
@@ -235,11 +242,12 @@
       </e>
       <e p="DAL" t="Include" />
       <e p="DAL.App.DTO" t="IncludeRecursive">
+        <e p="Basket.cs" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="Campaign.cs" t="Include" />
         <e p="Category.cs" t="Include" />
-        <e p="Comment.cs" t="Include" />
         <e p="DAL.App.DTO.csproj" t="IncludeRecursive" />
+        <e p="DeliveryType.cs" t="Include" />
         <e p="Identity" t="Include">
           <e p="AppRole.cs" t="Include" />
           <e p="AppUser.cs" t="Include" />
@@ -273,8 +281,8 @@
           <e p="DALMapper.cs" t="Include" />
         </e>
         <e p="Migrations" t="Include">
-          <e p="20200728055733_InitialDbCreation.cs" t="Include" />
-          <e p="20200728055733_InitialDbCreation.Designer.cs" t="Include" />
+          <e p="20200729223840_InitialDbCreation.cs" t="Include" />
+          <e p="20200729223840_InitialDbCreation.Designer.cs" t="Include" />
           <e p="AppDbContextModelSnapshot.cs" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive">
@@ -285,9 +293,10 @@
           </e>
         </e>
         <e p="Repositories" t="Include">
+          <e p="BasketRepository.cs" t="Include" />
           <e p="CampaignRepository.cs" t="Include" />
           <e p="CategoryRepository.cs" t="Include" />
-          <e p="CommentRepository.cs" t="Include" />
+          <e p="DeliveryTypeRepository.cs" t="Include" />
           <e p="LangStrRepository.cs" t="Include" />
           <e p="LangStrTranslationRepository.cs" t="Include" />
           <e p="OrderRepository.cs" t="Include" />
@@ -335,10 +344,11 @@
       <e p="Dockerfile" t="Include" />
       <e p="Domain" t="Include" />
       <e p="Domain.App" t="IncludeRecursive">
+        <e p="Basket.cs" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="Campaign.cs" t="Include" />
         <e p="Category.cs" t="Include" />
-        <e p="Comment.cs" t="Include" />
+        <e p="DeliveryType.cs" t="Include" />
         <e p="Domain.App.csproj" t="IncludeRecursive" />
         <e p="Identity" t="Include">
           <e p="AppRole.cs" t="Include" />
@@ -394,10 +404,11 @@
         <e p="PublicApi.DTO.v1.csproj" t="IncludeRecursive" />
       </e>
       <e p="PublicApi.DTO.v2" t="IncludeRecursive">
+        <e p="Basket.cs" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="Campaign.cs" t="Include" />
         <e p="Category.cs" t="Include" />
-        <e p="Comment.cs" t="Include" />
+        <e p="DeliveryType.cs" t="Include" />
         <e p="Identity" t="Include">
           <e p="AppRole.cs" t="Include" />
           <e p="AppUser.cs" t="Include" />
@@ -406,10 +417,12 @@
           <e p="RegisterDTO.cs" t="Include" />
         </e>
         <e p="Mappers" t="Include">
+          <e p="AppUserMapper.cs" t="Include" />
           <e p="BaseMapper.cs" t="Include" />
+          <e p="BasketMapper.cs" t="Include" />
           <e p="CampaignMapper.cs" t="Include" />
           <e p="CategoryMapper.cs" t="Include" />
-          <e p="CommentMapper.cs" t="Include" />
+          <e p="DeliveryTypeMapper.cs" t="Include" />
           <e p="OrderMapper.cs" t="Include" />
           <e p="PaymentMapper.cs" t="Include" />
           <e p="PictureMapper.cs" t="Include" />
@@ -430,7 +443,7 @@
         <e p="Payment.cs" t="Include" />
         <e p="Picture.cs" t="Include" />
         <e p="Product.cs" t="Include" />
-        <e p="ProductInBasket.cs" t="Include" />
+        <e p="ProductInBaskets.cs" t="Include" />
         <e p="ProductInWarehouse.cs" t="Include" />
         <e p="PublicApi.DTO.v2.csproj" t="IncludeRecursive" />
         <e p="Warehouse.cs" t="Include" />
@@ -479,9 +492,10 @@
       <e p="WebApp" t="IncludeRecursive">
         <e p="ApiControllers" t="Include">
           <e p="1.0" t="Include">
+            <e p="BasketsController.cs" t="Include" />
             <e p="CampaignsController.cs" t="Include" />
             <e p="CategoriesController.cs" t="Include" />
-            <e p="CommentsController.cs" t="Include" />
+            <e p="DeliveryTypeController.cs" t="Include" />
             <e p="Identity" t="Include">
               <e p="AccountController.cs" t="Include" />
             </e>
@@ -500,12 +514,12 @@
         <e p="Areas" t="Include">
           <e p="Admin" t="Include">
             <e p="Controllers" t="Include">
+              <e p="BasketsController.cs" t="Include" />
               <e p="CampaignsController.cs" t="Include" />
               <e p="CategoriesController.cs" t="Include" />
               <e p="OrdersController.cs" t="Include" />
               <e p="PaymentsController.cs" t="Include" />
               <e p="PicturesController.cs" t="Include" />
-              <e p="ProductInBasketsController.cs" t="Include" />
               <e p="ProductInWarehousesController.cs" t="Include" />
               <e p="ProductsController.cs" t="Include" />
               <e p="WarehousesController.cs" t="Include" />
@@ -517,6 +531,15 @@
             <e p="Views" t="Include">
               <e p="_ViewImports.cshtml" t="Include" />
               <e p="_ViewStart.cshtml" t="Include" />
+              <e p="Baskets" t="Include">
+                <e p="_CreateEdit.cshtml" t="Include" />
+                <e p="_DetailsDelete.cshtml" t="Include" />
+                <e p="Create.cshtml" t="Include" />
+                <e p="Delete.cshtml" t="Include" />
+                <e p="Details.cshtml" t="Include" />
+                <e p="Edit.cshtml" t="Include" />
+                <e p="Index.cshtml" t="Include" />
+              </e>
               <e p="Campaigns" t="Include">
                 <e p="_CreateEdit.cshtml" t="Include" />
                 <e p="_DeleteDetails.cshtml" t="Include" />
@@ -554,15 +577,6 @@
                 <e p="Index.cshtml" t="Include" />
               </e>
               <e p="Pictures" t="Include">
-                <e p="_CreateEdit.cshtml" t="Include" />
-                <e p="_DetailsDelete.cshtml" t="Include" />
-                <e p="Create.cshtml" t="Include" />
-                <e p="Delete.cshtml" t="Include" />
-                <e p="Details.cshtml" t="Include" />
-                <e p="Edit.cshtml" t="Include" />
-                <e p="Index.cshtml" t="Include" />
-              </e>
-              <e p="ProductInBaskets" t="Include">
                 <e p="_CreateEdit.cshtml" t="Include" />
                 <e p="_DetailsDelete.cshtml" t="Include" />
                 <e p="Create.cshtml" t="Include" />
@@ -683,8 +697,6 @@
         <e p="bin" t="ExcludeRecursive" />
         <e p="ConfigureSwaggerOptions.cs" t="Include" />
         <e p="Controllers" t="Include">
-          <e p="AdministrationController.cs" t="Include" />
-          <e p="CommentsController.cs" t="Include" />
           <e p="HomeController.cs" t="Include" />
           <e p="ProductsController.cs" t="Include" />
         </e>
@@ -708,7 +720,6 @@
         <e p="ViewModels" t="Include">
           <e p="CampaignCreateEditViewModel.cs" t="Include" />
           <e p="CategoriesCreateEditViewModel.cs" t="Include" />
-          <e p="CommentCreateEditViewModel.cs" t="Include" />
           <e p="ErrorViewModel.cs" t="Include" />
           <e p="OrderCreateEditViewModel.cs" t="Include" />
           <e p="PaymentCreateEditViewModel.cs" t="Include" />
@@ -725,15 +736,6 @@
           <e p="_ViewStart.cshtml" t="Include" />
           <e p="Administration" t="Include">
             <e p="ListRoles.cshtml" t="Include" />
-          </e>
-          <e p="Comments" t="Include">
-            <e p="_CreateEdit.cshtml" t="Include" />
-            <e p="_DetailsDelete.cshtml" t="Include" />
-            <e p="Create.cshtml" t="Include" />
-            <e p="Delete.cshtml" t="Include" />
-            <e p="Details.cshtml" t="Include" />
-            <e p="Edit.cshtml" t="Include" />
-            <e p="Index.cshtml" t="Include" />
           </e>
           <e p="Home" t="Include">
             <e p="Index.cshtml" t="Include" />
@@ -769,35 +771,6 @@
             <e p="site.js" t="Include" />
           </e>
           <e p="lib" t="Include">
-            <e p="bootstrap" t="Include">
-              <e p="dist" t="Include">
-                <e p="css" t="Include">
-                  <e p="bootstrap-grid.css" t="Include" />
-                  <e p="bootstrap-grid.css.map" t="Include" />
-                  <e p="bootstrap-grid.min.css" t="Include" />
-                  <e p="bootstrap-grid.min.css.map" t="Include" />
-                  <e p="bootstrap-reboot.css" t="Include" />
-                  <e p="bootstrap-reboot.css.map" t="Include" />
-                  <e p="bootstrap-reboot.min.css" t="Include" />
-                  <e p="bootstrap-reboot.min.css.map" t="Include" />
-                  <e p="bootstrap.css" t="Include" />
-                  <e p="bootstrap.css.map" t="Include" />
-                  <e p="bootstrap.min.css" t="Include" />
-                  <e p="bootstrap.min.css.map" t="Include" />
-                </e>
-                <e p="js" t="Include">
-                  <e p="bootstrap.bundle.js" t="Include" />
-                  <e p="bootstrap.bundle.js.map" t="Include" />
-                  <e p="bootstrap.bundle.min.js" t="Include" />
-                  <e p="bootstrap.bundle.min.js.map" t="Include" />
-                  <e p="bootstrap.js" t="Include" />
-                  <e p="bootstrap.js.map" t="Include" />
-                  <e p="bootstrap.min.js" t="Include" />
-                  <e p="bootstrap.min.js.map" t="Include" />
-                </e>
-              </e>
-              <e p="LICENSE" t="Include" />
-            </e>
             <e p="jquery" t="Include">
               <e p="dist" t="Include">
                 <e p="jquery.js" t="Include" />

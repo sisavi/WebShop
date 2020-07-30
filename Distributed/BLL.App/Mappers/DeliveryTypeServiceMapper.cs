@@ -5,7 +5,7 @@ using DALAppDTO=DAL.App.DTO;
 
 namespace BLL.App.Mappers
 {
-    public class CommentServiceMapper : BaseMapper<DALAppDTO.Comment, BLLAppDTO.Comment>, ICommentServiceMapper
+    public class DeliveryTypeServiceMapper : BaseMapper<DALAppDTO.DeliveryType, BLLAppDTO.DeliveryType>, IDeliveryTypeServiceMapper
     {
         
     }

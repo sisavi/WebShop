@@ -4,7 +4,7 @@ using DALAppDTO=DAL.App.DTO;
 
 namespace Contracts.BLL.App.Mappers
 {
-    public interface ICommentServiceMapper : IBaseMapper<DALAppDTO.Comment, BLLAppDTO.Comment>
+    public interface IDeliveryTypeServiceMapper : IBaseMapper<DALAppDTO.DeliveryType, BLLAppDTO.DeliveryType>
     {
         
     }

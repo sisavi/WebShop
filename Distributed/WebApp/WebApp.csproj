@@ -233,6 +233,13 @@
       <UpToDateCheckInput Remove="Views\Warehouses\Details.cshtml" />
       <UpToDateCheckInput Remove="Views\Warehouses\Edit.cshtml" />
       <UpToDateCheckInput Remove="Views\Warehouses\Index.cshtml" />
+      <UpToDateCheckInput Remove="Views\Comments\Create.cshtml" />
+      <UpToDateCheckInput Remove="Views\Comments\Delete.cshtml" />
+      <UpToDateCheckInput Remove="Views\Comments\Details.cshtml" />
+      <UpToDateCheckInput Remove="Views\Comments\Edit.cshtml" />
+      <UpToDateCheckInput Remove="Views\Comments\Index.cshtml" />
+      <UpToDateCheckInput Remove="Views\Comments\_CreateEdit.cshtml" />
+      <UpToDateCheckInput Remove="Views\Comments\_DetailsDelete.cshtml" />
     </ItemGroup>
 
     <ItemGroup>

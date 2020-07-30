@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Contracts.BLL.App;
-
+using DAL.App.DTO;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using PublicApi.DTO.v2.Mappers;
+using Product = BLL.App.DTO.Product;
 using V2DTO=PublicApi.DTO.v2;
 
 
@@ -27,9 +28,28 @@ namespace WebApp.ApiControllers._1._0
 
         // GET: api/Products
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<V2DTO.Product>>> GetProducts()
+        public async  Task<IEnumerable<V2DTO.Product>> GetProducts()
         {
-            return Ok((await _bll.Products.GetAllAsync()).Select(e => _mapper.Map(e)));
+            var test2 = new List<Product>();
+            var test = (await _bll.Products.GetAllAsync());
+            foreach (var item in test)
+            {
+                test2.Add(await _bll.Products.ApplyDiscount(item));
+            }
+            return test2.Select(e => _mapper.Map(e));
+        }
+        // GET: api/Categories/{id}
+        /// <summary>
+        /// Finds Specific Products from given Category
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>returns Products</returns>
+        [HttpGet("CategoryProducts/{id}")]
+        [AllowAnonymous]
+        [Produces("application/json")]
+        public async Task<ActionResult<IEnumerable<V2DTO.Product>>> GetProductsByCategory(Guid id)
+        {
+            return Ok((await _bll.Products.GetProductsByCategory(id)).Select(e => _mapper.Map(e)));
         }
 
         // GET: api/Products/5
@@ -43,7 +63,7 @@ namespace WebApp.ApiControllers._1._0
                 return NotFound();
             }
 
-            return Ok(_mapper.Map(product));
+            return Ok(_mapper.Map(await _bll.Products.ApplyDiscount(product)));
         }
 
         // PUT: api/Products/5

@@ -1,13 +1,7 @@
-﻿using System;
-using System.Threading.Tasks;
-using Contracts.DAL.App.Repositories;
+﻿using Contracts.DAL.App.Repositories;
 using DAL.App.EF.Mappers;
 using ee.itcollege.sisavi.DAL.Base.EF.Repositories;
-using ee.itcollege.sisavi.DAL.Base.Mappers;
-using Domain;
 using Domain.App;
-using Domain.App.Identity;
-using Microsoft.EntityFrameworkCore;
 
 namespace DAL.App.EF.Repositories
 {

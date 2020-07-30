@@ -32,5 +32,18 @@
             <param name="dto">user data</param>
             <returns></returns>
         </member>
+        <member name="M:WebApp.ApiControllers._1._0.ProductInWarehousesController.GetProductsInWarehouse(System.Guid)">
+            <summary>
+            Finds Specific Products from given Category
+            </summary>
+            <returns>returns Products</returns>
+        </member>
+        <member name="M:WebApp.ApiControllers._1._0.ProductsController.GetProductsByCategory(System.Guid)">
+            <summary>
+            Finds Specific Products from given Category
+            </summary>
+            <param name="id"></param>
+            <returns>returns Products</returns>
+        </member>
     </members>
 </doc>

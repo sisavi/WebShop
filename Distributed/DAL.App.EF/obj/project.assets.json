@@ -2107,10 +2107,25 @@
           "lib/netstandard1.3/System.Xml.XmlSerializer.dll": {}
         }
       },
+      "BLL.App.DTO/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.1",
+        "dependencies": {
+          "Microsoft.AspNetCore.Http.Features": "2.2.0",
+          "ee.itcollege.sisavi.Contracts.DAL.Base": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/BLL.App.DTO.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BLL.App.DTO.dll": {}
+        }
+      },
       "Contracts.DAL.App/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.1",
         "dependencies": {
+          "BLL.App.DTO": "1.0.0",
           "DAL.App.DTO": "1.0.0",
           "Domain": "1.0.0",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "3.1.5",
@@ -2128,6 +2143,7 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.1",
         "dependencies": {
+          "Domain.App": "1.0.0",
           "Microsoft.AspNetCore.Http.Features": "2.2.0",
           "ee.itcollege.sisavi.Contracts.DAL.Base": "1.0.0",
           "ee.itcollege.sisavi.Contracts.Domain": "1.0.0",
@@ -7445,6 +7461,11 @@
         "system.xml.xmlserializer.nuspec"
       ]
     },
+    "BLL.App.DTO/1.0.0": {
+      "type": "project",
+      "path": "../BLL.App.DTO/BLL.App.DTO.csproj",
+      "msbuildProject": "../BLL.App.DTO/BLL.App.DTO.csproj"
+    },
     "Contracts.DAL.App/1.0.0": {
       "type": "project",
       "path": "../Contracts.DAL.App/Contracts.DAL.App.csproj",
@@ -7503,6 +7524,7 @@
   },
   "projectFileDependencyGroups": {
     ".NETStandard,Version=v2.1": [
+      "BLL.App.DTO >= 1.0.0",
       "Contracts.DAL.App >= 1.0.0",
       "Domain >= 1.0.0",
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 3.1.5",
@@ -7538,6 +7560,9 @@
       "frameworks": {
         "netstandard2.1": {
           "projectReferences": {
+            "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\BLL.App.DTO\\BLL.App.DTO.csproj": {
+              "projectPath": "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\BLL.App.DTO\\BLL.App.DTO.csproj"
+            },
             "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\Contracts.DAL.App\\Contracts.DAL.App.csproj": {
               "projectPath": "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\Contracts.DAL.App\\Contracts.DAL.App.csproj"
             },

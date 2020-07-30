@@ -5,15 +5,12 @@ using ee.itcollege.sisavi.Domain.Base;
 
 namespace Domain.App
 {
-    public class ProductInBasket : DomainEntityIdMetadataUser<AppUser>
+    public class Basket : DomainEntityIdMetadataUser<AppUser>
     {
-        public ICollection<Product>? Products { get; set; }
-        
-        public ICollection<Quantity>? Quantities { get; set; }
-        
+        public ICollection<ProductInBasket>? ProductInBaskets { get; set; }
+
         public Order? Order { get; set; }
         public Guid? OrderId { get; set; }
         
-        public bool? isActive { get; set; }
     }
 }

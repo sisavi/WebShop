@@ -8,19 +8,15 @@ namespace Domain.App
 {
     public class Order : DomainEntityIdMetadataUser<AppUser>
     {
-
-        public Guid ProductInBasketId { get; set; }
         
-        public ProductInBasket? ProductInBasket { get; set; }
-
         public int OrderStatus { get; set; }
 
-        public string DeliveryType { get; set; } = default!;
+        public DeliveryType DeliveryType { get; set; } = default!;
+
+        public Guid DeliveryTypeId { get; set; } = default!;
         
         [MaxLength(256)]
         public string Adress { get; set; } = default!;
-
-        public string OrderNumber { get; set; } = default!;
         
         public ICollection<Payment>? Payments { get; set; }
 

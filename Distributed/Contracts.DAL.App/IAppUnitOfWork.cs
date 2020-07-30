@@ -10,11 +10,12 @@ namespace Contracts.DAL.App
         ILangStrTranslationRepository LangStrTranslations { get; }
         ICampaignRepository Campaigns { get; }
         ICategoryRepository Categories { get; }
-        ICommentRepository Comments { get; }
+        IDeliveryTypeRepository DeliveryTypes { get; }
         IOrderRepository Orders { get; }
         IPaymentRepository Payments { get; }
         IPictureRepository Pictures { get; }
-        IProductInBasketRepository ProductsInBaskets { get; }
+        IBasketRepository Baskets { get; }
+        IProductInBasketRepository ProductInBasket { get; }
         IProductInWarehouseRepository ProductsInWarehouse { get; }
         IProductRepository Products { get; }
         IWarehouseRepository Warehouses { get; }

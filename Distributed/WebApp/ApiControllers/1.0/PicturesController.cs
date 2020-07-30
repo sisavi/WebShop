@@ -3,11 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Contracts.BLL.App;
-using DAL.App.EF;
-using Domain;
-using Domain.App;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using PublicApi.DTO.v2.Mappers;
 using V2DTO=PublicApi.DTO.v2;
 

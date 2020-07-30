@@ -38,7 +38,7 @@ namespace Extensions
 
         }
         
-        public static Guid UserGuidId(this ClaimsPrincipal user)
+        public static Guid UserId(this ClaimsPrincipal user)
         {
             return user.UserId<Guid>();
         }

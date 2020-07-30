@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Extensions;
@@ -9,6 +10,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using PublicApi.DTO.v2;
 using PublicApi.DTO.v2.Identity;
+using Order = Domain.App.Order;
+using Product = Domain.App.Product;
 
 namespace WebApp.ApiControllers._1._0.Identity
 {
@@ -110,6 +113,12 @@ namespace WebApp.ApiControllers._1._0.Identity
                 UserName = dto.Email,
                 FirstName = dto.FirstName,
                 LastName = dto.LastName,
+                ProductsInBasket = new[]
+                {
+                    new Domain.App.Basket()
+                    {
+                    }
+                }
             };
             var result = await _userManager.CreateAsync(appUser, dto.Password);
             if (result.Succeeded)

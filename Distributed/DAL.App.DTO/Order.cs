@@ -11,9 +11,9 @@ namespace DAL.App.DTO
         public Guid AppUserId { get; set; }
         public AppUser? AppUser { get; set; }
 
-        public int ProductInBasketId { get; set; }
+        public int BasketId { get; set; }
         
-        public ProductInBasket? ProductInBasket { get; set; }
+        public Basket? Basket { get; set; }
 
         public string OrderNumber { get; set; } = default!;
 

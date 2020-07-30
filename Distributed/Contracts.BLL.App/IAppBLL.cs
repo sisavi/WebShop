@@ -8,13 +8,14 @@ namespace Contracts.BLL.App
     {
         ICampaignService Campaigns { get; }
         ICategoryService Categories { get; }
-        ICommentService Comments { get; }
         IOrderService Orders { get; }
         IPaymentService Payments { get; }
         IPictureService Pictures { get; }
-        IProductInBasketService ProductsInBaskets { get; }
+        IBasketService Baskets { get; }
         IProductInWarehouseService ProductsInWarehouse { get; }
+        IProductInBasketService ProductInBasket { get; }
         IProductService Products { get; }
+        IDeliveryTypeService DeliveryTypes { get; }
         IWarehouseService Warehouses { get; }
         ILangStrService LangStrs { get; }
         ILangStrTranslationService LangStrTranslation { get; }

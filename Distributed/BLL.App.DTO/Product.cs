@@ -19,18 +19,13 @@ namespace BLL.App.DTO
 
         public string ProductName { get; set; } = default!;
         public string Description { get; set; } = default!;
-
-        public string ProductCode { get; set; } = default!;
+        
         public double ProductPrice { get; set; }
         
         
         public ICollection<ProductInWarehouse>? ProductsInWarehouse { get; set; }
         
-        public ICollection<Comment>? Comments { get; set; }
-        
         public ICollection<Picture>? Pictures { get; set; }
-
-        public ICollection<ProductInBasket>? ProductInBaskets { get; set; }
 
         public Guid Id { get; set; }
     }

@@ -32,3 +32,5 @@ C:\Users\Simo\icd0009-2019s\Distributed\DAL.App.EF\bin\Debug\netstandard2.1\ee.i
 C:\Users\Simo\icd0009-2019s\Distributed\DAL.App.EF\bin\Debug\netstandard2.1\ee.itcollege.sisavi.Contracts.Domain.pdb
 C:\Users\Simo\icd0009-2019s\Distributed\DAL.App.EF\bin\Debug\netstandard2.1\ee.itcollege.sisavi.DAL.Base.pdb
 C:\Users\Simo\icd0009-2019s\Distributed\DAL.App.EF\bin\Debug\netstandard2.1\ee.itcollege.sisavi.Domain.Base.pdb
+C:\Users\Simo\icd0009-2019s\Distributed\DAL.App.EF\bin\Debug\netstandard2.1\BLL.App.DTO.dll
+C:\Users\Simo\icd0009-2019s\Distributed\DAL.App.EF\bin\Debug\netstandard2.1\BLL.App.DTO.pdb

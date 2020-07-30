@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Contracts.BLL.App;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using PublicApi.DTO.v2.Mappers;
 using V2DTO=PublicApi.DTO.v2;
 
@@ -28,6 +28,19 @@ namespace WebApp.ApiControllers._1._0
         public async Task<ActionResult<IEnumerable<V2DTO.ProductInWarehouse>>> GetProductInWarehouses()
         {
             return Ok((await _bll.ProductsInWarehouse.GetAllAsync()).Select(e => _mapper.Map(e)));
+        }
+        
+        // GET: api/Categories/{id}
+        /// <summary>
+        /// Finds Specific Products from given Category
+        /// </summary>
+        /// <returns>returns Products</returns>
+        [HttpGet("WarehouseProducts/{id}")]
+        [AllowAnonymous]
+        [Produces("application/json")]
+        public async Task<ActionResult<IEnumerable<V2DTO.ProductInWarehouse>>> GetProductsInWarehouse(Guid id)
+        {
+            return Ok((await _bll.ProductsInWarehouse.GetProductsInWarehouse(id)).Select(e => _mapper.Map(e)));
         }
 
         // GET: api/ProductInWarehouses/5

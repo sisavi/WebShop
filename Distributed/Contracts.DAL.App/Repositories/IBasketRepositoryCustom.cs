@@ -2,11 +2,11 @@
 
 namespace Contracts.DAL.App.Repositories
 {
-    public interface IProductInBasketRepositoryCustom: IProductInBasketRepositoryCustom<Basket>
+    public interface IBasketRepositoryCustom: IBasketRepositoryCustom<Basket>
     {
         
     }
-    public interface IProductInBasketRepositoryCustom<TProductInBasket>
+    public interface IBasketRepositoryCustom<TBasket>
     {
         
     }

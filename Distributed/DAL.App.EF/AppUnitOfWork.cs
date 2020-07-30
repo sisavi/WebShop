@@ -11,6 +11,7 @@ using Domain;
 
 namespace DAL.App.EF
 {
+    
     public class AppUnitOfWork : EFBaseUnitOfWork<Guid, AppDbContext>, IAppUnitOfWork
     {
         public AppUnitOfWork(AppDbContext uowDbContext) : base(uowDbContext)
@@ -26,20 +27,26 @@ namespace DAL.App.EF
             GetRepository<ICampaignRepository>(() => new CampaignRepository(UOWDbContext));
         public ICategoryRepository Categories =>
             GetRepository<ICategoryRepository>((() => new CategoryRepository(UOWDbContext)));
-        public ICommentRepository Comments =>
-            GetRepository<ICommentRepository>((() => new CommentRepository(UOWDbContext)));
+        
+        public IDeliveryTypeRepository DeliveryTypes =>
+            GetRepository<IDeliveryTypeRepository>((() => new DeliveryTypeRepository(UOWDbContext)));
+        
         public IOrderRepository Orders =>
             GetRepository<IOrderRepository>(() => new OrderRepository(UOWDbContext));
         public IPaymentRepository Payments =>
             GetRepository<IPaymentRepository>((() => new PaymentRepository(UOWDbContext)));
         public IPictureRepository Pictures =>
             GetRepository<IPictureRepository>((() => new PictureRepository(UOWDbContext)));
-        public IProductInBasketRepository ProductsInBaskets =>
-            GetRepository<IProductInBasketRepository>((() => new ProductInBasketRepository(UOWDbContext)));
+        public IBasketRepository Baskets =>
+            GetRepository<IBasketRepository>((() => new BasketRepository(UOWDbContext)));
+
         public IProductInWarehouseRepository ProductsInWarehouse =>
             GetRepository<IProductInWarehouseRepository>((() => new ProductInWarehouseRepository(UOWDbContext)));
         public IProductRepository Products =>
             GetRepository<IProductRepository>(() => new ProductRepository(UOWDbContext));
+        
+        public IProductInBasketRepository ProductInBasket =>
+            GetRepository<IProductInBasketRepository>(() => new ProductInBasketRepository(UOWDbContext));
         public IWarehouseRepository Warehouses =>
             GetRepository<IWarehouseRepository>(() => new WarehouseRepository(UOWDbContext));
     }

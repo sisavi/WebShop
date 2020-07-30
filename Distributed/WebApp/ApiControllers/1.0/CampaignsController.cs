@@ -2,10 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using BLL.App.DTO;
 using Contracts.BLL.App;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using V2DTO=PublicApi.DTO.v2;
 using PublicApi.DTO.v2.Mappers;
 
@@ -66,9 +64,10 @@ namespace WebApp.ApiControllers._1._0
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPost]
-        public async Task<ActionResult<V2DTO.Campaign>> PostCampaign(Campaign campaign)
+        public async Task<ActionResult<V2DTO.Campaign>> PostCampaign(V2DTO.Campaign campaign)
         {
-            _bll.Campaigns.Add(campaign);
+            
+            _bll.Campaigns.Add(_mapper.Map(campaign));
             await _bll.SaveChangesAsync();
 
             return CreatedAtAction("GetCampaign", new { id = campaign.Id }, campaign);

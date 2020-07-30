@@ -13,6 +13,7 @@ namespace BLL.App.DTO
         
         public string Name { get; set; } = default!;
         public string? PictureName { get; set; } = default!;
+        public string? ImagePath { get; set; }
         public IFormFile ImageFail { get; set; }  = default!;
         public Guid Id { get; set; }
     }

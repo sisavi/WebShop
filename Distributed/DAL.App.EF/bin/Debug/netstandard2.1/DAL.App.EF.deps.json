@@ -9,6 +9,7 @@
     ".NETStandard,Version=v2.1/": {
       "DAL.App.EF/1.0.0": {
         "dependencies": {
+          "BLL.App.DTO": "1.0.0",
           "Contracts.DAL.App": "1.0.0",
           "Domain": "1.0.0",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "3.1.5",
@@ -1580,8 +1581,18 @@
           }
         }
       },
+      "BLL.App.DTO/1.0.0": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Http.Features": "2.2.0",
+          "ee.itcollege.sisavi.Contracts.DAL.Base": "1.0.0"
+        },
+        "runtime": {
+          "BLL.App.DTO.dll": {}
+        }
+      },
       "Contracts.DAL.App/1.0.0": {
         "dependencies": {
+          "BLL.App.DTO": "1.0.0",
           "DAL.App.DTO": "1.0.0",
           "Domain": "1.0.0",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "3.1.5",
@@ -1594,6 +1605,7 @@
       },
       "DAL.App.DTO/1.0.0": {
         "dependencies": {
+          "Domain.App": "1.0.0",
           "Microsoft.AspNetCore.Http.Features": "2.2.0",
           "ee.itcollege.sisavi.Contracts.DAL.Base": "1.0.0",
           "ee.itcollege.sisavi.Contracts.Domain": "1.0.0",
@@ -2667,6 +2679,11 @@
       "sha512": "sha512-MYoTCP7EZ98RrANESW05J5ZwskKDoN0AuZ06ZflnowE50LTpbR5yRg3tHckTVm5j/m47stuGgCrCHWePyHS70Q==",
       "path": "system.xml.xmlserializer/4.3.0",
       "hashPath": "system.xml.xmlserializer.4.3.0.nupkg.sha512"
+    },
+    "BLL.App.DTO/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     },
     "Contracts.DAL.App/1.0.0": {
       "type": "project",

@@ -14,12 +14,14 @@ namespace BLL.App
 
         public ICampaignService Campaigns => GetService<ICampaignService>(() => new CampaignService(UOW));
         public ICategoryService Categories => GetService<ICategoryService>(() => new CategoryService(UOW));
-        public ICommentService Comments  => GetService<ICommentService>(() => new CommentService(UOW));
         public IOrderService Orders => GetService<IOrderService>(() => new OrderService(UOW));
         public IPaymentService Payments => GetService<IPaymentService>(() => new PaymentService(UOW));
         public IPictureService Pictures => GetService<IPictureService>(() => new PictureService(UOW));
-        public IProductInBasketService ProductsInBaskets  => GetService<IProductInBasketService>(() => new ProductInBasketService(UOW));
+        public IDeliveryTypeService DeliveryTypes => GetService<IDeliveryTypeService>(() => new DeliveryTypeService(UOW));
+        public IBasketService Baskets  => GetService<IBasketService>(() => new BasketService(UOW));
+        
         public IProductInWarehouseService ProductsInWarehouse => GetService<IProductInWarehouseService>(() => new ProductInWarehouseService(UOW));
+        public IProductInBasketService ProductInBasket => GetService<IProductInBasketService>(() => new ProductInBasketService(UOW));
         public IProductService Products => GetService<IProductService>(() => new ProductService(UOW));
         public IWarehouseService Warehouses => GetService<IWarehouseService>(() => new WarehouseService(UOW));
         

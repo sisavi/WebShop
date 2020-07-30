@@ -6,7 +6,6 @@ using Contracts.BLL.App;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using V2DTO = PublicApi.DTO.v2;
 using PublicApi.DTO.v2.Mappers;
 
@@ -78,7 +77,7 @@ namespace WebApp.ApiControllers._1._0
         }
 
         // DELETE: api/Categories/5
-        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "admin")]
+        //[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "admin")]
         [HttpDelete("{id}")]
         public async Task<ActionResult<V2DTO.Category>> DeleteCategory(Guid id)
         {
