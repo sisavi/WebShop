@@ -1,3 +1,4 @@
+// @ts-ignore
 import { NPM } from 'aurelia-cli';
 import * as kill from 'tree-kill';
 import { platform } from '../aurelia.json';
@@ -12,7 +13,7 @@ function run() {
 
 // Cleanup --env prod to --env.production
 // for backwards compatibility
-function cleanArgs(args) {
+function cleanArgs(args: string | any[]) {
   let host;
   const cleaned = [];
 

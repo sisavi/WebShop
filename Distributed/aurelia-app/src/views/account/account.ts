@@ -13,7 +13,7 @@ export class AccountEdit {
     _email = "";
     _firstName = "";
     _lastName = "";
-    _phoneNumber = "";
+    //_phoneNumber = "";
 
     private _account?: IAccount;
 
@@ -29,10 +29,10 @@ export class AccountEdit {
                if (response.statusCode >= 200 && response.statusCode < 300) {
                    this._alert = null;
                    this._account = response.data!;
-                   this._email = this._account.email;
+                   this._email = this._account.eMail;
                    this._firstName = this._account.firstName;
                    this._lastName = this._account.lastName;
-                   this._phoneNumber = this._account.phoneNumber;
+                   //this._phoneNumber = this._account.phoneNumber;
                } else {
                    // show error message
                    this._alert = {
@@ -46,10 +46,10 @@ export class AccountEdit {
     }
 
     onSubmit(event: Event) {
-        this._account!.email = this._email
+        this._account!.eMail = this._email
         this._account!.firstName = this._firstName
         this._account!.lastName = this._lastName
-        this._account!.phoneNumber = this._phoneNumber
+        //this._account!.phoneNumber = this._phoneNumber
         this.accountService
             .updateAccount(this._account!)
             .then(

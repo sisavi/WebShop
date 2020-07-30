@@ -4,25 +4,29 @@
 <p>
     <a route-href="route: warehouses-create; params.bind: {}">Create New</a>
 </p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                warehouse code
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr repeat.for="warehouse of _warehouses"></tr>
-        <td>
-            ${warehouse.warehouseCode}
-        </td>
-        <td>
+    <div class="row">
+
+        <div repeat.for="warehouse of _warehouses" class="col-lg-4 col-md-6 mb-4">
+            <div class="card h-100">
+                <a route-href="route: productInWarehouses-details; params.bind: { id: warehouse.id }">
+                    <img class="card-img-top" src="https://lh3.googleusercontent.com/proxy/mi2sBnF-SB3flH9PBtAL5Y9K_CXfIayAul09s_RyW2TFT7X3dfpZYkyrxeM4WhfBl3I0aUUaWIDX5hmMGuai9MrOfeuQUR6Qb3J9kgw" alt="">
+                </a>
+                <div class="card-body">
+                    <h4 class="card-title">
+                        <a route-href="route: productInWarehouses-details; params.bind: { id: warehouse.id }">${warehouse.warehouseCode}</a>
+                    </h4>
+                    <h5></h5>
+                    <p class="card-text"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
             <a route-href="route: warehouses-edit; params.bind: { id: warehouse.id }">Edit</a> |
             <a route-href="route: warehouses-details; params.bind: { id: warehouse.id }">Details</a> |
             <a route-href="route: warehouses-delete; params.bind: { id: warehouse.id }">Delete</a>
-        </td>
-    </tbody>
-</table>
+
+
 </template>

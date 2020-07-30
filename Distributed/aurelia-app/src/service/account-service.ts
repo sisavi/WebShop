@@ -1,80 +1,20 @@
-import { autoinject } from 'aurelia-framework';
+import { autoinject, LogManager } from 'aurelia-framework';
 import { AppState } from 'state/app-state';
-import { HttpClient } from 'aurelia-fetch-client';
-import { IAccount } from 'domain/IAccount';
+import { HttpClient, json } from 'aurelia-fetch-client';
 import { IFetchResponse } from 'types/IFetchResponse';
-import { IAccountCreate } from 'domain/IAccountCreate';
+import { ILoginResponse } from 'domain/ILoginResponse';
+import {IAccount} from "../domain/IAccount";
 
+export var log = LogManager.getLogger('IdentityService');
 
 @autoinject
 export class AccountService {
-    constructor(private appState: AppState, private httpClient: HttpClient) {
+    constructor(
+        private appState: AppState,
+        private httpClient: HttpClient) {
         this.httpClient.baseUrl = this.appState.baseUrl;
     }
-    private readonly _baseUrl = "https://localhost:5001/api/Accounts";
-    async getAccounts(): Promise<IFetchResponse<IAccount[]>> {
-        try {
-            const response = await this.httpClient
-                .fetch(this._baseUrl, {
-                    cache: "no-store",
-                    headers: {
-                        authorization: "Bearer " + this.appState.jwt
-                    }
-                });
-            // happy case
-            if (response.status >= 200 && response.status < 300) {
-                const data = (await response.json()) as IAccount[];
-                return {
-                    statusCode: response.status,
-                    data: data
-                }
-            }
-
-            // something went wrong
-            return {
-                statusCode: response.status,
-                errorMessage: response.statusText
-            }
-
-        } catch (reason) {
-            return {
-                statusCode: 0,
-                errorMessage: JSON.stringify(reason)
-            }
-        }
-    }
-
-
-    async getAccount(id: string): Promise<IFetchResponse<IAccount>> {
-        try {
-            const response = await this.httpClient
-                .fetch(this._baseUrl + '/' + id, {
-                    cache: "no-store",
-                    headers: {
-                        authorization: "Bearer " + this.appState.jwt
-                    }
-                });
-
-            if (response.status >= 200 && response.status < 300) {
-                const data = (await response.json()) as IAccount;
-                return {
-                    statusCode: response.status,
-                    data: data
-                }
-            }
-
-            return {
-                statusCode: response.status,
-                errorMessage: response.statusText
-            }
-
-        } catch (reason) {
-            return {
-                statusCode: 0,
-                errorMessage: JSON.stringify(reason)
-            }
-        }
-    }
+    private readonly _baseUrl = 'appusers';
 
     async updateAccount(account: IAccount): Promise<IFetchResponse<string>> {
         try {
@@ -105,21 +45,22 @@ export class AccountService {
         }
     }
 
-
-    async createAccount(account: IAccountCreate): Promise<IFetchResponse<string>> {
+    async getUser(): Promise<IFetchResponse<IAccount>> {
         try {
             const response = await this.httpClient
-                .post(this._baseUrl, JSON.stringify(account), {
-                    cache: 'no-store',
+                .fetch(this._baseUrl + '/appuser', {
+                    cache: "no-store",
                     headers: {
                         authorization: "Bearer " + this.appState.jwt
                     }
-                })
+                });
 
             if (response.status >= 200 && response.status < 300) {
+                const data = (await response.json()) as IAccount;
                 return {
-                    statusCode: response.status
-                    // no data
+
+                    statusCode: response.status,
+                    data: data
                 }
             }
 
@@ -127,8 +68,8 @@ export class AccountService {
                 statusCode: response.status,
                 errorMessage: response.statusText
             }
-        }
-        catch (reason) {
+
+        } catch (reason) {
             return {
                 statusCode: 0,
                 errorMessage: JSON.stringify(reason)
@@ -136,23 +77,25 @@ export class AccountService {
         }
     }
 
-    async deleteAccount(id: string): Promise<IFetchResponse<string>> {
-
+    async login(email: string, password: string): Promise<IFetchResponse<ILoginResponse>> {
         try {
-            const response = await this.httpClient
-            .delete(this._baseUrl + '/' + id, null, {
-                cache: 'no-store',
-                headers: {
-                    authorization: "Bearer " + this.appState.jwt
-                }
+            const response = await this.httpClient.post('account/login', JSON.stringify({
+                email: email,
+                password: password,
+            }), {
+                cache: 'no-store'
             });
 
-            if (response.status >= 200 && response.status < 300) {
+            // happy case
+            if (response.status >= 200 && response.status < 300){
+                const data = (await response.json()) as ILoginResponse;
                 return {
-                    statusCode: response.status
-                    // no data
+                    statusCode: response.status,
+                    data: data
                 }
             }
+
+            // something went wrong
             return {
                 statusCode: response.status,
                 errorMessage: response.statusText
@@ -165,4 +108,26 @@ export class AccountService {
             }
         }
     }
+
+    async register(user: string, password: string, firstname: string, lastname:string): Promise<any> {
+        let url = "account/register";
+        console.log(this.httpClient)
+        let registerDTO = {
+            email: user,
+            password: password,
+            firstname: firstname,
+            lastname: lastname,
+            //phoneNumber: phoneNumber,
+        }
+
+        try {
+            const response = await this.httpClient.post(url, JSON.stringify(registerDTO), { cache: 'no-store' });
+            log.debug('response', response);
+            return response.json();
+        }
+        catch (reason) {
+            log.debug('catch reason', reason);
+        }
+    }
+
 }

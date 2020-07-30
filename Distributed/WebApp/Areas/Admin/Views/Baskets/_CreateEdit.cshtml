@@ -1,0 +1,28 @@
+﻿@model WebApp.ViewModels.BasketCreateEditViewModel
+
+<div asp-validation-summary="All" class="text-danger"></div>
+<div class="form-group">
+                <label asp-for="Basket.ProductId" class="control-label"></label>
+                <input asp-for="Basket.ProductId" class="form-control" />
+                <span asp-validation-for="Basket.ProductId" class="text-danger"></span>
+            </div>
+<div class="form-group">
+                <label asp-for="Basket.CreatedBy" class="control-label"></label>
+                <input asp-for="Basket.CreatedBy" class="form-control" />
+                <span asp-validation-for="Basket.CreatedBy" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Basket.CreatedAt" class="control-label"></label>
+                <input asp-for="Basket.CreatedAt" class="form-control" />
+                <span asp-validation-for="Basket.CreatedAt" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Basket.ChangedBy" class="control-label"></label>
+                <input asp-for="Basket.ChangedBy" class="form-control" />
+                <span asp-validation-for="Basket.ChangedBy" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Basket.ChangedAt" class="control-label"></label>
+                <input asp-for="Basket.ChangedAt" class="form-control" />
+                <span asp-validation-for="Basket.ChangedAt" class="text-danger"></span>
+            </div>

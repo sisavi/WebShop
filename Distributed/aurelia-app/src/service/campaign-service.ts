@@ -5,6 +5,7 @@ import { ICampaign } from 'domain/ICampaign';
 import { IFetchResponse } from 'types/IFetchResponse';
 import { ICampaignCreate } from 'domain/ICampaignCreate';
 import { AppState } from 'state/app-state';
+import {IProduct} from "../domain/IProduct";
 
 @autoinject
 export class CampaignService {
@@ -13,7 +14,7 @@ export class CampaignService {
     }
 
     //private readonly _baseUrl = 'Owners';
-    private readonly _baseUrl = 'https://localhost:5001/api/Campaigns'
+    private readonly _baseUrl = 'campaigns'
 
 
     async getCampaigns(): Promise<IFetchResponse<ICampaign[]>> {

@@ -1,17 +1,17 @@
 import { autoinject } from 'aurelia-framework';
 import { RouteConfig, NavigationInstruction, Router } from 'aurelia-router';
 import { CategoryService } from 'service/Category-service';
-import { ICategory } from 'domain/ICategory';
 import { IAlertData } from 'types/IAlertData';
 import { AlertType } from 'types/AlertType';
+import {ICategoryEdit} from "../../domain/ICategoryEdit";
 
 @autoinject
 export class CarsEdit {
     private _alert: IAlertData | null = null;
 
-    private _category?: ICategory;
+    private _category?: ICategoryEdit;
 
-    constructor(private carService: CategoryService, private router: Router) {
+    constructor(private categoryService: CategoryService, private router: Router) {
     }
 
     attached() {
@@ -20,7 +20,7 @@ export class CarsEdit {
     activate(params: any, routeConfig: RouteConfig, navigationInstruction: NavigationInstruction) {
         console.log(params);
         if (params.id && typeof (params.id) == 'string') {
-            this.carService.getCategory(params.id).then(
+            this.categoryService.getCategory(params.id).then(
                 response => {
                     if (response.statusCode >= 200 && response.statusCode < 300) {
                         this._alert = null;
@@ -40,7 +40,7 @@ export class CarsEdit {
 
     onSubmit(event: Event) {
         console.log(event);
-        this.carService
+        this.categoryService
             .updateCategory(this._category!)
             .then(
                 response => {

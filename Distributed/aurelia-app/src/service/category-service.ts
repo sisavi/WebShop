@@ -13,7 +13,7 @@ export class CategoryService {
     }
 
     //private readonly _baseUrl = 'Owners';
-    private readonly _baseUrl = "https://localhost:5001/api/Categories";
+    private readonly _baseUrl = "categories";
 
 
     async getCategories(): Promise<IFetchResponse<ICategory[]>> {
@@ -80,10 +80,13 @@ export class CategoryService {
         }
     }
 
-    async updateCategory(carType: ICategoryEdit): Promise<IFetchResponse<string>> {
+    async updateCategory(category: ICategoryEdit): Promise<IFetchResponse<string>> {
+        console.log("....................")
+        console.log(this._baseUrl)
+        console.log("....................")
         try {
             const response = await this.httpClient
-                .put(this._baseUrl + '/' + carType.id, JSON.stringify(carType), {
+                .put(this._baseUrl + '/' + category.id, JSON.stringify(category), {
                     cache: 'no-store',
                     headers: {
                         authorization: "Bearer " + this.appState.jwt
@@ -108,12 +111,10 @@ export class CategoryService {
             }
         }
     }
-
-
-    async createCategory(carType: ICategoryCreate): Promise<IFetchResponse<string>> {
+    async createCategory(category: ICategoryCreate): Promise<IFetchResponse<string>> {
         try {
             const response = await this.httpClient
-                .post(this._baseUrl, JSON.stringify(carType), {
+                .post(this._baseUrl, JSON.stringify(category), {
                     cache: 'no-store',
                     headers: {
                         authorization: "Bearer " + this.appState.jwt

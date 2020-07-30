@@ -25,38 +25,13 @@
                             <input class="form-control" type="lastname" id="lastname" name="lastname" value.bind="_lastname" />
                             <span id="popupLastName" style="display: none; color: red">${lastNameError}</span>
                         </div>
+                        <!----
                         <div class="form-group">
                             <label style="font-weight: 600;" for="phoneNr">Phone Number</label>
                             <input class="form-control" type="lastname" id="phoneNr" name="phoneNr" value.bind="_phoneNr" />
                             <span id="popupPhoneNr" style="display: none; color: red">${phoneNrError}</span>
                         </div>
-                        <p>
-                            <label style="font-weight: 600;" >
-                                Select Mark:<br>
-                                <select style="border-radius: 25px;" value.bind="selectedMark" change.delegate="getModels(selectedMark.mark)">
-                                    <option model.bind="null">Choose...</option>
-                                    <option repeat.for="mark of _marks"
-                                            model.bind="mark">
-                                        ${mark.mark}
-                                    </option>
-                                </select>
-                                <span id="popupMark" style="display: none; color: red">${markError}</span>
-                            </label>
-                        </p>
-                        <p>
-                            <label style="font-weight: 600;" >
-                                Select Model:<br>
-                                <select style="border-radius: 25px;" value.bind="selectedModel" change.delegate="createModel(selectedModel.model)">
-                                    <option model.bind="null">Choose...</option>
-                                    <option repeat.for="model of _models"
-                                            model.bind="model">
-                                        ${model.model}
-                                    </option>
-                                </select>
-                                <span id="popupModel" style="display: none; color: red">${modelError}</span>
-                            </label>
-                        </p>
-
+                        --->
                         <div class="form-group">
                             <label style="font-weight: 600;" for="password">Password</label>
                             <input class="form-control" type="password" id="password"  name="password"

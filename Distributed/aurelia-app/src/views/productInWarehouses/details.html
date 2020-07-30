@@ -1,0 +1,30 @@
+<template>
+    <h1>${_warehouse.warehouseCode}</h1>
+
+    <p>
+        <a route-href="route: campaigns-create; params.bind: {}">Create New</a>
+    </p>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>
+                products
+            </th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr repeat.for="product of _warehouseIndex">
+            <td>
+                <a>${product.productName}  --- ${product.quantity}</a>
+            </td>
+            <td>
+                <a route-href="route: campaigns-edit; params.bind: { id: campaign.id }">Edit</a> |
+                <a route-href="route: campaigns-details; params.bind: { id: campaign.id }">Details</a> |
+                <a route-href="route: campaigns-delete; params.bind: { id: campaign.id }">Delete</a>
+            </td>
+
+        </tr>
+        </tbody>
+    </table>
+</template>

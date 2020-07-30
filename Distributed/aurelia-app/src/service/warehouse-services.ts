@@ -13,7 +13,7 @@ export class WarehouseService {
     }
 
     //private readonly _baseUrl = 'Owners';
-    private readonly _baseUrl = "https://localhost:5001/api/Warehouses";
+    private readonly _baseUrl = "Warehouses";
 
 
     async getWarehouses(): Promise<IFetchResponse<IWarehouse[]>> {
@@ -110,10 +110,10 @@ export class WarehouseService {
     }
 
 
-    async createWarehouse(carType: IWarehouseCreate): Promise<IFetchResponse<string>> {
+    async createWarehouse(warehouse: IWarehouseCreate): Promise<IFetchResponse<string>> {
         try {
             const response = await this.httpClient
-                .post(this._baseUrl, JSON.stringify(carType), {
+                .post(this._baseUrl, JSON.stringify(warehouse), {
                     cache: 'no-store',
                     headers: {
                         authorization: "Bearer " + this.appState.jwt

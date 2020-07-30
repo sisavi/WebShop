@@ -14,9 +14,7 @@ export class CampaignsDelete {
     constructor(private CategoryService: CategoryService, private router: Router) {
 
     }
-
     attached() {
-
     }
 
     activate(params: any, routeConfig: RouteConfig, navigationInstruction: NavigationInstruction) {

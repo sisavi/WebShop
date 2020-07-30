@@ -2,7 +2,7 @@ import { Router } from 'aurelia-router';
 import { AppState } from './../../state/app-state';
 import { autoinject } from 'aurelia-framework';
 import { AccountService } from 'service/account-service';
-import jwt_decode from 'jwt-decode';
+
 
 @autoinject
 export class AccountLogin {
@@ -39,7 +39,7 @@ export class AccountLogin {
             response => {
                 if (response.statusCode == 200) {
                     this.appState.jwt = response.data!.token;
-                    this.router!.navigateToRoute('Services');
+                    this.router!.navigateToRoute('Home');
                 } else {
                     this._errorMessage = response.statusCode.toString()
                         + ' '
