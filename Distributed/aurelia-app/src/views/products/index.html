@@ -8,6 +8,9 @@
 
                 <h1 class="my-4">Kaselehe</h1>
                 <div class="list-group">
+                    <p>
+                        <a route-href="route: products-create; params.bind: {}">Create New</a>
+                    </p>
                     <a repeat.for="category of _categories" class="list-group-item" route-href="route: categories-details; params.bind: { id: category.id }">${category.categoryName}</a>
                 </div>
 

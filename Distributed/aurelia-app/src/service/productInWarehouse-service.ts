@@ -4,6 +4,7 @@ import { IFetchResponse } from 'types/IFetchResponse';
 import { AppState } from 'state/app-state';
 //import { IWarehouseEdit } from 'domain/IWarehouseEdit';
 import { IProductInWarehouse} from 'domain/IProductInWarehouse';
+import {IProductEdit} from "../domain/IProductEdit";
 //import { IWarehouseCreate } from 'domain/IWarehouseCreate';
 
 @autoinject
@@ -116,15 +117,19 @@ export class ProductInWarehouseService {
     }
 
     async updateProductInWarehouse(productInWarehouse: IProductInWarehouse): Promise<IFetchResponse<string>> {
+        console.log("....................")
+        console.log(this._baseUrl)
+        console.log("....................")
         try {
             const response = await this.httpClient
-                .put(this._baseUrl + '/' + productInWarehouse.id, JSON.stringify(productInWarehouse), {
+                .put(this._baseUrl + '/UpdatedWarehouseProduct/' + productInWarehouse.id, JSON.stringify(productInWarehouse), {
                     cache: 'no-store',
                     headers: {
                         authorization: "Bearer " + this.appState.jwt
                     }
                 });
 
+            console.log(response.status)
             if (response.status >= 200 && response.status < 300) {
                 return {
                     statusCode: response.status

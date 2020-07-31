@@ -49,7 +49,13 @@ namespace WebApp.ApiControllers._1._0
         [Produces("application/json")]
         public async Task<ActionResult<IEnumerable<V2DTO.Product>>> GetProductsByCategory(Guid id)
         {
-            return Ok((await _bll.Products.GetProductsByCategory(id)).Select(e => _mapper.Map(e)));
+            var dicounted = await _bll.Products.GetProductsByCategory(id);
+            var returnList = new List<Product>();
+            foreach (var product in dicounted)
+            {
+                returnList.Add(await _bll.Products.ApplyDiscount(product));
+            }
+            return Ok((returnList.Select(e => _mapper.Map(e))));
         }
 
         // GET: api/Products/5
@@ -70,6 +76,7 @@ namespace WebApp.ApiControllers._1._0
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPut("{id}")]
+        [Produces("application/json")]
         public async Task<IActionResult> PutProduct(Guid id, V2DTO.Product product)
         {
             if (id != product.Id)

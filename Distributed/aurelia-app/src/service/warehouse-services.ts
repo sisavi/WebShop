@@ -5,6 +5,7 @@ import { AppState } from 'state/app-state';
 import { IWarehouseEdit } from 'domain/IWarehouseEdit';
 import { IWarehouse} from 'domain/IWarehouse';
 import { IWarehouseCreate } from 'domain/IWarehouseCreate';
+import {IProductInWarehouse} from "../domain/IProductInWarehouse";
 
 @autoinject
 export class WarehouseService {
@@ -35,6 +36,68 @@ export class WarehouseService {
             }
 
             // something went wrong
+            return {
+                statusCode: response.status,
+                errorMessage: response.statusText
+            }
+
+        } catch (reason) {
+            return {
+                statusCode: 0,
+                errorMessage: JSON.stringify(reason)
+            }
+        }
+    }
+
+    async getProductsInWarehouse(id: string): Promise<IFetchResponse<IProductInWarehouse[]>> {
+        try {
+            const response = await this.httpClient
+                .fetch('ProductInWarehouses/WarehouseProducts/' + id, {
+                    cache: "no-store",
+                    headers: {
+                        authorization: "Bearer " + this.appState.jwt
+                    }
+                });
+
+            if (response.status >= 200 && response.status < 300) {
+                const data = (await response.json()) as IProductInWarehouse[];
+                return {
+                    statusCode: response.status,
+                    data: data
+                }
+            }
+
+            return {
+                statusCode: response.status,
+                errorMessage: response.statusText
+            }
+
+        } catch (reason) {
+            return {
+                statusCode: 0,
+                errorMessage: JSON.stringify(reason)
+            }
+        }
+    }
+
+    async getProductInWarehouse(id: string): Promise<IFetchResponse<IProductInWarehouse>> {
+        try {
+            const response = await this.httpClient
+                .fetch('ProductInWarehouses/' + id, {
+                    cache: "no-store",
+                    headers: {
+                        authorization: "Bearer " + this.appState.jwt
+                    }
+                });
+
+            if (response.status >= 200 && response.status < 300) {
+                const data = (await response.json()) as IProductInWarehouse;
+                return {
+                    statusCode: response.status,
+                    data: data
+                }
+            }
+
             return {
                 statusCode: response.status,
                 errorMessage: response.statusText

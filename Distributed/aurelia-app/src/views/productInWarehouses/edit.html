@@ -5,32 +5,16 @@
     
     <h1>Edit</h1>
 
-    <h4>Product</h4>
+    <h4>${_productDTO.productName}</h4>
     <hr />
     <div class="row">
         <div class="col-md-4">
             <form submit.trigger="onSubmit($event)">
                 <div class="form-group">
-                    <label class="control-label" for="campaignId">categoryName</label>
-                    <input class="form-control" type="text" id="campaignId" maxlength="64" value.bind="_campaignId" />
+                    <label class="control-label" for="quantity">Quantity</label>
+                    <input class="form-control" type="number" id="quantity" value="${_productDTO.quantity}" maxlength="64" value.bind="_quantity" />
                 </div>
-                <div class="form-group">
-                    <label class="control-label" for="categoryId">categoryName</label>
-                    <input class="form-control" type="text" id="categoryId" maxlength="64" value.bind="_categoryId" />
-                </div>
-                <div class="form-group">
-                    <label class="control-label" for="productName">categoryName</label>
-                    <input class="form-control" type="text" id="productName" maxlength="64" value.bind="_productName" />
-                </div>
-                <div class="form-group">
-                    <label class="control-label" for="description">categoryName</label>
-                    <input class="form-control" type="text" id="description" maxlength="64" value.bind="_description" />
-                </div>
-                <div class="form-group">
-                    <label class="control-label" for="productPrice">categoryName</label>
-                    <input class="form-control" type="number" id="productPrice" maxlength="64" value.bind="_productPrice" />
-                </div>
-                <div class="form-group">
+                <div>
                     <input type="submit" value="Submit" class="btn btn-primary" />
                 </div>
             </form>
@@ -38,6 +22,7 @@
     </div>
 
     <div>
-        <a route-href="route: products-index; params.bind: { }">Back to List</a>
+        <a route-href="route: productInWarehouses-details; params.bind: {id: _productInWarehouse.id}">Back to List</a>
     </div>
 
+</template>

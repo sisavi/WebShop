@@ -29,5 +29,14 @@ namespace DAL.App.EF.Repositories
             return Mapper.Map(basket);
         }
         **/
+        public DAL.App.DTO.Basket GetByAppUserId(Guid userId)
+        {
+            var basket = RepoDbSet.AsNoTracking()
+                .FirstOrDefaultAsync(a => a.AppUserId == userId).Result;
+            
+            
+            
+            return Mapper.Map(basket);
+        }
     }
 }

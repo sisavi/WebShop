@@ -10,18 +10,23 @@
             <th>
                 products
             </th>
-            <th></th>
+            <th>
+                Quantity
+            </th>
         </tr>
         </thead>
         <tbody>
-        <tr repeat.for="product of _warehouseIndex">
+        <tr repeat.for="product of _products">
             <td>
-                <a>${product.productName}  --- ${product.quantity}</a>
+                <a>${product.productName}</a>
             </td>
             <td>
-                <a route-href="route: campaigns-edit; params.bind: { id: campaign.id }">Edit</a> |
-                <a route-href="route: campaigns-details; params.bind: { id: campaign.id }">Details</a> |
-                <a route-href="route: campaigns-delete; params.bind: { id: campaign.id }">Delete</a>
+                <a>${product.quantity}</a>
+            </td>
+            <td>
+                <a route-href="route: productInWarehouses-edit; params.bind: { id: product.id }">Edit</a> |
+                <a route-href="route: productInWarehouses-details; params.bind: { id: product.id }">Details</a> |
+                <a route-href="route: productInWarehouses-delete; params.bind: { id: product.id }">Delete</a>
             </td>
 
         </tr>

@@ -12,6 +12,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DAL.App.EF.Repositories
 {
+    
     public class ProductInBasketRepository : EFBaseRepository<AppDbContext, AppUser, ProductInBasket, DTO.ProductInBasket>, IProductInBasketRepository
     {
         public ProductInBasketRepository(AppDbContext dbContext) : base(dbContext, new DALMapper<ProductInBasket, DTO.ProductInBasket>())
@@ -32,5 +33,31 @@ namespace DAL.App.EF.Repositories
             var result = domainItems.Select(e => Mapper.Map(e));
             return result;
         }
+        
+
+
+        public override async Task<IEnumerable<DTO.ProductInBasket>> GetAllAsync(object? userId = null, bool noTracking = true)
+        {
+            var query = PrepareQuery(userId, noTracking);
+            query = query
+                .Include(pib => pib.Product).ThenInclude(p => p!.ProductName)//.ThenInclude(ls => ls!.Translations)
+                .Include(pib => pib.Product).ThenInclude(p => p!.Description)//.ThenInclude(ls => ls!.Translations)
+                .Include(pib => pib.Product).ThenInclude(p => p!.ProductPrice);
+
+            var domainItems = await query.ToListAsync();
+            var result = domainItems.Select(e => Mapper.Map(e));
+            
+            return result;
+        }
+
+        
+
+        public DTO.ProductInBasket? ProductAlreadyInBasket(Guid shoppingCartId, Guid productId)
+        {
+            // There should always be 1 or 0
+            return Mapper.Map(PrepareQuery().Where(pil => pil.BasketId.Equals(shoppingCartId) && pil.ProductId.Equals(productId)).FirstOrDefaultAsync().Result)?? null;
+        }
+        
+        
     }
 }

@@ -9,12 +9,14 @@ import {WarehouseService} from "../../service/warehouse-services";
 import {IProductInWarehouse} from "domain/IProductInWarehouse";
 import {ProductInWarehouseService} from "service/productInWarehouse-service";
 import {IWarehouseIndex} from "../../domain/IWarehouseIndex";
+import {IProductWarehouseDTO} from "../../domain/IProductWarehouseDTO";
 
 @autoinject
 export class ProductInWarehouseDetails {
     private _warehouse?: IWarehouse;
     private _product?: IProduct;
     private _productsInWarehouse: IProductInWarehouse[] = [];
+    private _products: IProductWarehouseDTO[] = [];
     private _warehouseIndex: IWarehouseIndex[] = [];
     private _alert: IAlertData | null = null;
 
@@ -24,14 +26,48 @@ export class ProductInWarehouseDetails {
     }
 
     activate(params: any, routeConfig: RouteConfig, navigationInstruction: NavigationInstruction) {
-        if (params.id) {
+        console.log("activate")
+        if (params.id && typeof (params.id) == 'string') {
             this.warehouseService.getWarehouse(params.id).then(
                 response => {
                     if (response.statusCode >= 200 && response.statusCode < 300) {
                         this._alert = null;
                         this._warehouse = response.data!;
-                        this.getProductsInWarehouse(response.data!.id)
-
+                        this.warehouseService.getProductsInWarehouse(response.data!.id).then(
+                            response => {
+                                if (response.statusCode >= 200 && response.statusCode < 300) {
+                                    this._alert = null;
+                                    this._productsInWarehouse! = response.data!;
+                                    for (let i = 0; i < this._productsInWarehouse.length; i++) {
+                                        this.productService.getProduct(this._productsInWarehouse[i].productId).then(
+                                            response => {
+                                                if (response.statusCode >= 200 && response.statusCode < 300) {
+                                                    this._alert = null;
+                                                    let product = <IProductWarehouseDTO>response.data;
+                                                    product!.quantity = this._productsInWarehouse[i].quantity
+                                                    this._products.push(<IProductWarehouseDTO>product)
+                                                    console.log(this._products)
+                                                } else {
+                                                    // show error message
+                                                    this._alert = {
+                                                        message: response.statusCode.toString() + ' - ' + response.errorMessage,
+                                                        type: AlertType.Danger,
+                                                        dismissable: true,
+                                                    }
+                                                }
+                                            }
+                                        )
+                                    }
+                                } else {
+                                    // show error message
+                                    this._alert = {
+                                        message: response.statusCode.toString() + ' - ' + response.errorMessage,
+                                        type: AlertType.Danger,
+                                        dismissable: true,
+                                    }
+                                }
+                            }
+                        )
 
                     } else {
                         // show error message
@@ -44,80 +80,10 @@ export class ProductInWarehouseDetails {
                 }
             );
         }
-        this.getIndexView()
     }
 
     attached() {
 
-        //console.log(this._warehouseIndex)
-
-        //console.log(this._warehouseIndex)
-
-
     }
 
-    getIndexView() {
-        console.log(this._productsInWarehouse)
-        for (let item of this._productsInWarehouse) {
-            console.log("------------------------------------------------------")
-            console.log(item.productId)
-            console.log("name:  " + this.getProductName(item.productId))
-            var name = this.getProductName(item.productId)
-            console.log(name)
-            let itemToPush: IWarehouseIndex = {
-
-                productName: name,
-                productId: item.productId,
-                warehouseId: item.warehouseId,
-                quantity: item.quantity
-
-            }
-            console.log(itemToPush)
-            this._warehouseIndex.push(itemToPush)
-
-        }
-
-    }
-
-    getProductName(id: string): string {
-        //console.log(id)
-
-        let name: string
-        this.productService.getProductName(id).then(response => {
-
-                if (response.statusCode >= 200 && response.statusCode < 300) {
-                    this._alert = null;
-                    console.log("--------------------")
-                    console.log(response.data)
-                    name = response.data!
-                    return response.data!
-                    console.log()
-                }
-            }
-        );
-        return name!;
-    }
-
-
-    getProductsInWarehouse(id: string) {
-        this.productInWarehouseService.getProductsInWarehouse(id).then(
-            response => {
-                if (response.statusCode >= 200 && response.statusCode < 300) {
-                    this._alert = null;
-                    this._productsInWarehouse = response.data!;
-                    this.getIndexView();
-                    console.log(response.data)
-
-                } else {
-                    // show error message
-                    this._alert = {
-                        message: response.statusCode.toString() + ' - ' + response.errorMessage,
-                        type: AlertType.Danger,
-                        dismissable: true,
-                    }
-                }
-            }
-        );
-        console.log(this._productsInWarehouse)
-    }
 }

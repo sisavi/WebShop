@@ -9,5 +9,6 @@ namespace Contracts.DAL.App.Repositories
     public interface IBasketRepository : IBaseRepository<Basket>, IBasketRepositoryCustom
     {
         //Task<Basket> AddProduct(Guid basketId, Domain.App.Product product, bool noTracking = true);
+        Basket GetByAppUserId(Guid userId);
     }
 }

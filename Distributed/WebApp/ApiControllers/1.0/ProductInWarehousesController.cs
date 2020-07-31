@@ -14,7 +14,8 @@ namespace WebApp.ApiControllers._1._0
     [Route("api/v{version:apiVersion}/[controller]")]
     [ApiVersion("1.0")]
     [ApiController]
-    public class ProductInWarehousesController : ControllerBase
+    public class 
+        ProductInWarehousesController : ControllerBase
     {
         private readonly IAppBLL _bll;
         private readonly ProductInWarehouseMapper _mapper = new ProductInWarehouseMapper();
@@ -60,7 +61,7 @@ namespace WebApp.ApiControllers._1._0
         // PUT: api/ProductInWarehouses/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
-        [HttpPut("{id}")]
+        [HttpPut("UpdatedWarehouseProduct/{id}")]
         public async Task<IActionResult> PutProductInWarehouse(Guid id, V2DTO.ProductInWarehouse productInWarehouse)
         {
             if (id != productInWarehouse.Id)
