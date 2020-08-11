@@ -9,6 +9,7 @@ namespace DAL.App.DTO
     public class Category : IDomainEntityId
     {
         public string CategoryName { get; set; } = default!;
+        public Guid CategoryNameId { get; set; }
         
         public ICollection<Product>? Products { get; set; }
         public Guid Id { get; set; }

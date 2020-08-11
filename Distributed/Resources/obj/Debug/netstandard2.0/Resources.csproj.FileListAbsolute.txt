@@ -24,5 +24,17 @@ C:\Users\Simo\icd0009-2019s\Distributed\Resources\obj\Debug\netstandard2.0\Resou
 C:\Users\Simo\icd0009-2019s\Distributed\Resources\obj\Debug\netstandard2.0\Resources.Domain.Warehouse.resources
 C:\Users\Simo\icd0009-2019s\Distributed\Resources\obj\Debug\netstandard2.0\Resources.Views.Shared._Layout.resources
 C:\Users\Simo\icd0009-2019s\Distributed\Resources\obj\Debug\netstandard2.0\Resources.Views.Shared._LoginPartial.resources
+C:\Users\Simo\icd0009-2019s\Distributed\Resources\obj\Debug\netstandard2.0\Resources.Domain.Campaign.resources
+C:\Users\Simo\icd0009-2019s\Distributed\Resources\obj\Debug\netstandard2.0\Resources.Domain.Order.resources
+C:\Users\Simo\icd0009-2019s\Distributed\Resources\obj\Debug\netstandard2.0\Resources.Domain.Product.resources
+C:\Users\Simo\icd0009-2019s\Distributed\Resources\obj\Debug\netstandard2.0\Resources.Domain.ProductInBasket.resources
+C:\Users\Simo\icd0009-2019s\Distributed\Resources\obj\Debug\netstandard2.0\Resources.Domain.Campaign.en.resources
+C:\Users\Simo\icd0009-2019s\Distributed\Resources\obj\Debug\netstandard2.0\Resources.Domain.Campaign.et.resources
+C:\Users\Simo\icd0009-2019s\Distributed\Resources\obj\Debug\netstandard2.0\Resources.Domain.Order.en.resources
+C:\Users\Simo\icd0009-2019s\Distributed\Resources\obj\Debug\netstandard2.0\Resources.Domain.Order.et.resources
+C:\Users\Simo\icd0009-2019s\Distributed\Resources\obj\Debug\netstandard2.0\Resources.Domain.Product.en.resources
+C:\Users\Simo\icd0009-2019s\Distributed\Resources\obj\Debug\netstandard2.0\Resources.Domain.Product.et.resources
+C:\Users\Simo\icd0009-2019s\Distributed\Resources\obj\Debug\netstandard2.0\Resources.Domain.ProductInBasket.en.resources
+C:\Users\Simo\icd0009-2019s\Distributed\Resources\obj\Debug\netstandard2.0\Resources.Domain.ProductInBasket.et.resources
 C:\Users\Simo\icd0009-2019s\Distributed\Resources\obj\Debug\netstandard2.0\en\Resources.resources.cs
 C:\Users\Simo\icd0009-2019s\Distributed\Resources\obj\Debug\netstandard2.0\et\Resources.resources.cs

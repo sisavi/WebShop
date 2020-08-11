@@ -9,12 +9,12 @@ import {IProductEdit} from "../../domain/IProductEdit";
 export class ProductEdit {
     private _alert: IAlertData | null = null;
 
-    private _product?: IProductEdit;
-    _categoryId="";
-    _campaignId="";
+    private _product: IProductEdit = {id: "", campaignId: undefined, categoryId: "", description: "", productName: "", productPrice: 0};
+    _categoryId= "";
+    _campaignId?: string;
     _productName="";
     _description="";
-    _productPrice="";
+    _productPrice=0;
 
     constructor(private productService: ProductService, private router: Router) {
     }
@@ -45,13 +45,20 @@ export class ProductEdit {
 
     onSubmit(event: Event) {
         console.log(event);
+        this._product.productName = this._productName;
+        this._product.campaignId = this._campaignId;
+        this._product.categoryId = this._categoryId;
+        this._product.description = this._description;
+        this._product.productPrice = Number(this._productPrice);
+
+
         this.productService
             .updateProduct(this._product!)
             .then(
                 response => {
                     if (response.statusCode >= 200 && response.statusCode < 300) {
                         this._alert = null;
-                        this.router.navigateToRoute('product-index', {});
+                        this.router.navigateToRoute('products-index', {});
                     } else {
                         // show error message
                         this._alert = {

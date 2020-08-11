@@ -3,6 +3,7 @@ using System;
 using System.Threading.Tasks;
 using BLL.App.DTO;
 using Contracts.BLL.App;
+using Extensions;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -65,6 +66,7 @@ namespace WebApp.Controllers
 
             return View(vm);
         }
+        /*
 
         [Authorize(Roles = "admin")]
         // GET: Products/Create
@@ -81,6 +83,7 @@ namespace WebApp.Controllers
             
             return View(vm);
         }
+        
 
         // POST: Products/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
@@ -114,7 +117,7 @@ namespace WebApp.Controllers
             
             return View(vm);
         }
-
+        */
         
         // GET: Products/Edit/5
         public async Task<IActionResult> Edit(Guid? id)
@@ -187,6 +190,17 @@ namespace WebApp.Controllers
         {
             var product = await _bll.Products.RemoveAsync(id);
             await _bll.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
+        
+        [Authorize]
+        public async Task<IActionResult> AddToShoppingCart(Guid? id)
+        {
+            if (id != null)
+            {
+                await _bll.ProductInBasket.AddToShoppingCart(id.Value, User.UserId());
+            }
+
             return RedirectToAction(nameof(Index));
         }
     }

@@ -5,7 +5,6 @@ using System.Threading.Tasks;
 using Contracts.DAL.App.Repositories;
 using DAL.App.EF.Mappers;
 using ee.itcollege.sisavi.DAL.Base.EF.Repositories;
-using Domain;
 using Domain.App;
 using Domain.App.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -24,12 +23,11 @@ namespace DAL.App.EF.Repositories
             var query = PrepareQuery(userId, noTracking);
 
             query = query
-                .Include(pib => pib.Product).ThenInclude(p => p!.ProductName)
-                .Include(pib => pib.Product).ThenInclude(p => p!.Description)
-                .Include(pib => pib.Product).ThenInclude(p => p!.ProductPrice)
+                .Include(pib => pib.Product).ThenInclude(p=>p!.Description).ThenInclude(t=>t!.Translations)
+                .Include(pib => pib.Product).ThenInclude(p=>p!.ProductName).ThenInclude(t=>t!.Translations)
                 .Where(pib => pib.BasketId.Equals(basId));
             
-            var domainItems = await query.ToListAsync();
+            var domainItems = await query.AsNoTracking().ToListAsync();
             var result = domainItems.Select(e => Mapper.Map(e));
             return result;
         }
@@ -40,16 +38,32 @@ namespace DAL.App.EF.Repositories
         {
             var query = PrepareQuery(userId, noTracking);
             query = query
-                .Include(pib => pib.Product).ThenInclude(p => p!.ProductName)//.ThenInclude(ls => ls!.Translations)
-                .Include(pib => pib.Product).ThenInclude(p => p!.Description)//.ThenInclude(ls => ls!.Translations)
-                .Include(pib => pib.Product).ThenInclude(p => p!.ProductPrice);
+                .Include(pib => pib.Product);
 
             var domainItems = await query.ToListAsync();
             var result = domainItems.Select(e => Mapper.Map(e));
             
             return result;
         }
+        
+        public DTO.ProductInBasket GetPibByAppUserId(Guid id)
+        {
+            return Mapper.Map((PrepareQuery().FirstOrDefaultAsync(pil => pil.Id.Equals(id)).Result));
+        }
 
+        public async Task<IEnumerable<DTO.ProductInBasket>> GetProductsForOrderAsync(Guid orderId, object? userId = null, bool noTracking = true)
+        {
+            var query = PrepareQuery(userId, noTracking);
+ 
+            query = query
+                .Include(pil => pil.Product).ThenInclude(p => p!.ProductName).ThenInclude(ls => ls!.Translations)
+                .Include(pil => pil.Product).ThenInclude(p => p!.Description).ThenInclude(ls => ls!.Translations)
+                .Where(pil => pil.OrderId.Equals(orderId));
+ 
+            var domainItems = await query.ToListAsync();
+            var result = domainItems.Select(e => Mapper.Map(e));
+            return result;
+        }
         
 
         public DTO.ProductInBasket? ProductAlreadyInBasket(Guid shoppingCartId, Guid productId)
@@ -57,7 +71,5 @@ namespace DAL.App.EF.Repositories
             // There should always be 1 or 0
             return Mapper.Map(PrepareQuery().Where(pil => pil.BasketId.Equals(shoppingCartId) && pil.ProductId.Equals(productId)).FirstOrDefaultAsync().Result)?? null;
         }
-        
-        
     }
 }

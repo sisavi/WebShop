@@ -8,6 +8,8 @@ namespace BLL.App.DTO
     {
         public string CategoryName { get; set; } = default!;
         
+        public Guid CategoryNameId { get; set; }
+        
         public Guid Id { get; set; }
         
         

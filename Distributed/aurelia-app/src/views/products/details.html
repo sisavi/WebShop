@@ -1,20 +1,13 @@
 <template>
     <div class="container">
-
         <div class="row">
-
             <div class="col-lg-3">
-
                 <h1 class="my-4">Kaselehe</h1>
                 <div class="list-group">
-                    <a repeat.for="category of _categories" class="list-group-item" route-href="route: categories-Details; params.bind: { id: categoryId }">${category.categoryName}</a>
+                    <a repeat.for="category of _categories" class="list-group-item" route-href="route: categories-details; params.bind: { id: category.id }">${category.categoryName}</a>
                 </div>
-
             </div>
-            <!-- /.col-lg-3 -->
-
             <div class="col-lg-9">
-
                 <div class="card mt-4">
                     <img class="card-img-top img-fluid" src="http://placehold.it/900x400" alt="">
                     <div class="card-body">
@@ -23,14 +16,13 @@
                         <p class="card-text">${_Product.description}</p>
                     </div>
                     <div class="col-xs-4">
-                        <input type="text" class="form-control input-sm" value="1">
-                    </div>
-                    <div class="col-xs-2">
-                        <button type="button" class="btn btn-link btn-xs">
-                            <span class="glyphicon glyphicon-trash"> </span>
-                        </button>
+                        <a if.bind="appState.jwt != null" click.delegate="onSubmit($event)" class="btn btn-primary text-white" role="button">${langResources[state.selectedCulture.code].addToBasket}</a>
+                        <a if.bind="appState.jwt == null" route-href="route: account-login; params.bind: {}" class="btn btn-primary text-white" role="button">${langResources[state.selectedCulture.code].addToBasket}</a>
+                        <a href="index.html" class="btn btn-primary text-white" role="button">${langResources[state.selectedCulture.code].backToProducts}</a>
+                        <a if.bind="appState.jwt.token()" route-href="route: products-delete; params.bind: {id: _Product.id }">Back to List</a>
                     </div>
                 </div>
+                <a if.bind="jwt.token" route-href="route: products-edit; params.bind: { id: _Product.id }">Edit</a>
                 <!-- /.card -->
             </div>
             <!-- /.col-lg-9 -->

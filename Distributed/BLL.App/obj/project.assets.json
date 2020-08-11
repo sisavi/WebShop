@@ -511,6 +511,7 @@
         "dependencies": {
           "BLL.App.DTO": "1.0.0",
           "Contracts.DAL.App": "1.0.0",
+          "PublicApi.DTO.v2": "1.0.0",
           "ee.itcollege.sisavi.Contracts.BLL.Base": "1.0.0"
         },
         "compile": {
@@ -688,6 +689,24 @@
         },
         "runtime": {
           "bin/placeholder/PublicApi.DTO.v1.dll": {}
+        }
+      },
+      "PublicApi.DTO.v2/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.1",
+        "dependencies": {
+          "BLL.App.DTO": "1.0.0",
+          "Domain.App": "1.0.0",
+          "Microsoft.AspNetCore.Http.Features": "2.2.0",
+          "System.ComponentModel.Annotations": "4.7.0",
+          "ee.itcollege.sisavi.Contracts.Domain": "1.0.0",
+          "ee.itcollege.sisavi.DAL.Base": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/PublicApi.DTO.v2.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/PublicApi.DTO.v2.dll": {}
         }
       },
       "Resources/1.0.0": {
@@ -1711,6 +1730,11 @@
       "path": "../PublicApi.DTO.v1/PublicApi.DTO.v1.csproj",
       "msbuildProject": "../PublicApi.DTO.v1/PublicApi.DTO.v1.csproj"
     },
+    "PublicApi.DTO.v2/1.0.0": {
+      "type": "project",
+      "path": "../PublicApi.DTO.v2/PublicApi.DTO.v2.csproj",
+      "msbuildProject": "../PublicApi.DTO.v2/PublicApi.DTO.v2.csproj"
+    },
     "Resources/1.0.0": {
       "type": "project",
       "path": "../Resources/Resources.csproj",
@@ -1721,6 +1745,7 @@
     ".NETStandard,Version=v2.1": [
       "Contracts.BLL.App >= 1.0.0",
       "Contracts.DAL.App >= 1.0.0",
+      "PublicApi.DTO.v2 >= 1.0.0",
       "ee.itcollege.sisavi.BLL.Base >= 1.0.0"
     ]
   },
@@ -1758,6 +1783,9 @@
             },
             "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\Contracts.DAL.App\\Contracts.DAL.App.csproj": {
               "projectPath": "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\Contracts.DAL.App\\Contracts.DAL.App.csproj"
+            },
+            "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\PublicApi.DTO.v2\\PublicApi.DTO.v2.csproj": {
+              "projectPath": "C:\\Users\\Simo\\icd0009-2019s\\Distributed\\PublicApi.DTO.v2\\PublicApi.DTO.v2.csproj"
             }
           }
         }

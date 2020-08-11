@@ -9,6 +9,9 @@ using V2DTO=PublicApi.DTO.v2;
 
 namespace WebApp.ApiControllers._1._0
 {
+    /// <summary>
+    /// 
+    /// </summary>
     [Route("api/v{version:apiVersion}/[controller]")]
     [ApiVersion("1.0")]
     [ApiController]
@@ -17,12 +20,20 @@ namespace WebApp.ApiControllers._1._0
         private readonly IAppBLL _bll;
         private readonly WarehouseMapper _mapper = new WarehouseMapper();
 
+        /// <summary>
+        /// constructor
+        /// </summary>
+        /// <param name="bll"></param>
         public WarehousesController(IAppBLL bll)
         {
             _bll = bll;
         }
 
         // GET: api/Warehouses
+        /// <summary>
+        /// get All warehouses
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public async Task<ActionResult<IEnumerable<V2DTO.Warehouse>>> GetWarehouses()
         {
@@ -30,6 +41,11 @@ namespace WebApp.ApiControllers._1._0
         }
 
         // GET: api/Warehouses/5
+        /// <summary>
+        /// get warehouse with id
+        /// </summary>
+        /// <param name="id">id</param>
+        /// <returns></returns>
         [HttpGet("{id}")]
         public async Task<ActionResult<V2DTO.Warehouse>> GetWarehouse(Guid id)
         {
@@ -46,6 +62,12 @@ namespace WebApp.ApiControllers._1._0
         // PUT: api/Warehouses/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
+        /// <summary>
+        /// eidt warehouse
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="warehouse"></param>
+        /// <returns></returns>
         [HttpPut("{id}")]
         public async Task<IActionResult> PutWarehouse(Guid id, V2DTO.Warehouse warehouse)
         {
@@ -62,6 +84,11 @@ namespace WebApp.ApiControllers._1._0
         // POST: api/Warehouses
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
+        /// <summary>
+        /// create new warehouse
+        /// </summary>
+        /// <param name="warehouse"></param>
+        /// <returns></returns>
         [HttpPost]
         public async Task<ActionResult<V2DTO.Warehouse>> PostWarehouse(V2DTO.Warehouse warehouse)
         {
@@ -74,6 +101,11 @@ namespace WebApp.ApiControllers._1._0
         }
 
         // DELETE: api/Warehouses/5
+        /// <summary>
+        /// delete warehouse
+        /// </summary>
+        /// <param name="id">id</param>
+        /// <returns></returns>
         [HttpDelete("{id}")]
         public async Task<ActionResult<V2DTO.Warehouse>> DeleteWarehouse(Guid id)
         {

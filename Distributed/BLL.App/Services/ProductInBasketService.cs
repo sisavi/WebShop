@@ -22,22 +22,106 @@ namespace BLL.App.Services
         
         public async Task<IEnumerable<ProductInBasket>> GetProductsForBasketAsync(Guid scId, object? userId = null, bool noTracking = true)
         {
-            return (await Repository.GetProductsForBasketAsync(scId)).Select(e => Mapper.Map(e));
-        }
+            var productsInList = await Repository.GetProductsForBasketAsync(scId);
+            var priceFix = new List<DAL.App.DTO.ProductInBasket>();
+            foreach (var pil in productsInList)
+            {
+                if (pil != null)
+                {
+                    var fixing= await ApplyDiscount(pil.Product);
+                    pil.Product = fixing;
+                    priceFix.Add(pil);
+                }
 
-        Task<IEnumerable<DAL.App.DTO.ProductInBasket>> IProductInBasketRepositoryCustom<ProductInBasket>.GetProductsForBasketAsync(Guid scId, object? userId, bool noTracking)
-        {
-            throw new NotImplementedException();
+            }
+            
+            
+            return priceFix.Select(e => Mapper.Map(e));
         }
+        
+        public async Task<DAL.App.DTO.Product> ApplyDiscount(DAL.App.DTO.Product product)
+        {
+            DAL.App.DTO.Campaign? campaign = null;
+            if (product.CampaignId != null)
+            {
+                campaign = await UOW.Campaigns.FirstOrDefaultAsync((Guid)product.CampaignId);
+            }
 
-        public DAL.App.DTO.ProductInBasket? ProductAlreadyInBasket(Guid shoppingCartId, Guid productId)
-        {
-            throw new NotImplementedException();
+            if (campaign == null)
+            {
+                return (product);
+            }
+            
+            Math.Round((product.ProductPrice *= ((100 - campaign.Discount) / 100)), 2);
+            
+            return product;
         }
+        
+        public async Task<IEnumerable<ProductInBasket>> GetProductsForOrderAsync(Guid orderId)
+        {
+            return (await Repository.GetProductsForOrderAsync(orderId)).Select(e => Mapper.Map(e));
+        }
+        
+        public async Task AddToBasketApi(Guid productId, Guid basketId, int quantity = 1)
+        {
+            var product = UOW.Products.FirstOrDefaultAsync(productId).Result;
+            
+            // check if product already in cart
+            var pil = UOW.ProductInBasket.ProductAlreadyInBasket(basketId, productId);
+
+            if (pil == null)
+            {
+                var connection = new ProductInBasket()
+                {
+                    Id = Guid.NewGuid(),
+                    ProductId = productId,
+                    Quantity = quantity,
+                    TotalCost = product.ProductPrice,
+                    BasketId = basketId
+                };
+                
+                UOW.ProductInBasket.Add(Mapper.Map(connection));
+                await UOW.SaveChangesAsync();                
+            }
+            else
+            {
+                pil.Quantity++;
+                pil.TotalCost = product.ProductPrice * pil.Quantity;
+                await UOW.ProductInBasket.UpdateAsync(pil);
+                await UOW.SaveChangesAsync();
+            }
+
+        }
+        
+        public async Task DecreaseQuantity(ProductInBasket pil)
+        {
+            var dalPil = await UOW.ProductInBasket.FirstOrDefaultAsync(pil.Id);
+            var productPrice = dalPil.TotalCost / dalPil.Quantity;
+            dalPil.TotalCost = Math.Round(dalPil.TotalCost - productPrice,  2, MidpointRounding.ToEven);
+            dalPil.Quantity--;
+            await UOW.ProductInBasket.UpdateAsync(dalPil);
+
+        }
+        
+        
 
         public async Task<double> GetTotalCost(Guid scId)
         {
-            return Repository.GetProductsForBasketAsync(scId).Result.Sum(a => a.TotalCost);
+            var productsInList = await Repository.GetProductsForBasketAsync(scId);
+            var priceFix = new List<DAL.App.DTO.ProductInBasket>();
+            foreach (var pil in productsInList)
+            {
+                if (pil != null)
+                {
+                    var fixing= await ApplyDiscount(pil.Product);
+                    pil.Product = fixing;
+                    priceFix.Add(pil);
+                }
+
+            }
+            
+            
+            return Math.Round(priceFix.Sum(a =>a.TotalCost), 2);
         }
 
         public async Task AddToShoppingCart(Guid id, Guid userId)
@@ -71,20 +155,19 @@ namespace BLL.App.Services
             }
 
         }
-        /*
-
+        
         public async Task RemoveFromShoppingCart(Guid id, Guid userId)
         {
-            var connection = UOW.ProductInBasket.GetPilByAppUserId(id);
+            var connection = UOW.ProductInBasket.GetPibByAppUserId(id);
             var basket = UOW.Baskets.GetByAppUserId(userId);
 
-            if (basket.Id.Equals(connection.ShoppingCartId))
+            if (basket.Id.Equals(connection.Id))
             {
                 await UOW.ProductInBasket.RemoveAsync(id);
             }
 
         }
-        */
+        
 
         
     }

@@ -11,6 +11,7 @@ namespace Contracts.BLL.App.Services
 {
     public interface IBasketService : IBaseEntityService<Basket>, IBasketRepositoryCustom<Basket>
     {
-        //Task<basket> AddProduct(Guid basketId, Domain.App.Product product);
+        public Basket GetByAppUserId(Guid userId);
+        Task ClearBasket(Guid basketId);
     }
 }

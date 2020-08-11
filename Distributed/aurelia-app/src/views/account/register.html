@@ -45,7 +45,9 @@
                             <span id="popupPasswordConfirm" style="display: none; color: red">${passwordConfirmError}</span>
                         </div>
 
-                        <button style="font-weight: 600;" id="submitbtn" type="submit" class="btn btn-primary">Register</button>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary">${langResources[state.selectedCulture.code].login}</button>
+                        </div>
                     </form>
                 </div>
             </div>

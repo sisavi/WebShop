@@ -16,6 +16,10 @@ namespace PublicApi.DTO.v2
         public int Quantity { get; set; }
 
         public double TotalCost { get; set; }
+        
+        public Guid? OrderId { get; set; }
+
+        public Order? Order { get; set; }
         public Guid Id { get; set; }
     }
     

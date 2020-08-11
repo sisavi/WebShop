@@ -14,6 +14,15 @@ namespace Domain.App
 
         public ICollection<LangStrTranslation>? Translations { get; set; }
 
+        [InverseProperty(nameof(Category.CategoryName))]
+        public ICollection<Category>? CategoryNames { get; set; }
+        
+        [InverseProperty(nameof(Product.ProductName))]
+        public ICollection<Product>? ProductNames { get; set; }
+        
+        [InverseProperty(nameof(Product.Description))]
+        public ICollection<Product>? Descriptions { get; set; }
+
         #region Constructors
 
         public LangStr()

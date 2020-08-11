@@ -11,24 +11,24 @@
         <div class="col-md-4">
             <form submit.trigger="onSubmit($event)">
                 <div class="form-group">
-                    <label class="control-label" for="campaignId">categoryName</label>
-                    <input class="form-control" type="text" id="campaignId" maxlength="64" value.bind="_campaignId" />
+                    <label class="control-label" for="campaignId">campaignId</label>
+                    <input class="form-control" type="text" id="campaignId" value="${_product.campaignId}" maxlength="64" value.bind="_campaignId" />
                 </div>
                 <div class="form-group">
-                    <label class="control-label" for="categoryId">categoryName</label>
-                    <input class="form-control" type="text" id="categoryId" maxlength="64" value.bind="_categoryId" />
+                    <label class="control-label" for="categoryId">categoryId</label>
+                    <input class="form-control" type="text" id="categoryId" value="${_product.categoryId}" maxlength="64" value.bind="_categoryId" />
                 </div>
                 <div class="form-group">
                     <label class="control-label" for="productName">categoryName</label>
-                    <input class="form-control" type="text" id="productName" maxlength="64" value.bind="_productName" />
+                    <input class="form-control" type="text" id="productName" value="${_product.productName}" maxlength="64" value.bind="_productName" />
                 </div>
                 <div class="form-group">
-                    <label class="control-label" for="description">categoryName</label>
-                    <input class="form-control" type="text" id="description" maxlength="64" value.bind="_description" />
+                    <label class="control-label" for="description">Description</label>
+                    <input class="form-control" type="text" id="description" value="${_product.description}" maxlength="64" value.bind="_description" />
                 </div>
                 <div class="form-group">
-                    <label class="control-label" for="productPrice">categoryName</label>
-                    <input class="form-control" type="number" id="productPrice" maxlength="64" value.bind="_productPrice" />
+                    <label class="control-label" for="productPrice">Price</label>
+                    <input class="form-control" type="number" id="productPrice" value="${_product.productPrice}" maxlength="64" value.bind="_productPrice" />
                 </div>
                 <div class="form-group">
                     <input type="submit" value="Submit" class="btn btn-primary" />

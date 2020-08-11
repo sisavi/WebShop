@@ -7,10 +7,10 @@ namespace Domain.App
 {
     public class Basket : DomainEntityIdMetadataUser<AppUser>
     {
+        
         public ICollection<ProductInBasket>? ProductInBaskets { get; set; }
-
-        public Order? Order { get; set; }
-        public Guid? OrderId { get; set; }
+        
+        
         
     }
 }

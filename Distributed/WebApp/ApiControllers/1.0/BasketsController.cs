@@ -28,7 +28,7 @@ namespace WebApp.ApiControllers._1._0
 
         // GET: api/Baskets
         [HttpGet("baskets")]
-        [Authorize()]
+        [AllowAnonymous]
         public async Task<ActionResult<IEnumerable<V2DTO.Basket>>> GetBaskets()
         {
             return Ok((await _bll.Baskets.GetAllAsync()).Select(e => _mapper.Map(e)).Where(e => e.AppUserId == User.UserId()));
@@ -47,6 +47,21 @@ namespace WebApp.ApiControllers._1._0
             }
 
             return Ok(Basket);
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id">App UserId</param>
+        /// <returns></returns>
+        [HttpGet("userBasket/{id}")]
+        [AllowAnonymous]
+        [Produces("application/json")]
+
+        public async Task<V2DTO.Basket> GetBasketByAppUser(Guid id)
+        {
+            var basket = _bll.Baskets.GetByAppUserId(id);
+
+            return _mapper.Map(basket);
         }
 
         // PUT: api/Baskets/5

@@ -1,6 +1,6 @@
 import { autoinject } from 'aurelia-framework';
 import { RouteConfig, NavigationInstruction, Router } from 'aurelia-router';
-import { CategoryService } from 'service/Category-service';
+import { CategoryService } from 'service/category-service';
 import { ICategory } from 'domain/ICategory';
 import { ProductService } from 'service/product-service';
 import { IProduct } from 'domain/IProduct';

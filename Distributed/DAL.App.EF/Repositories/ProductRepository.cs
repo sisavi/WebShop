@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Contracts.DAL.App.Repositories;
@@ -16,18 +17,28 @@ namespace DAL.App.EF.Repositories
         public ProductRepository(AppDbContext dbContext) : base(dbContext, new DALMapper<Product, DTO.Product>())
         {
         }
-        /**
-        public override async Task<IEnumerable<DTO.Product>> GetAllAsync(object userId = null, bool noTracking = true)
+        
+        public override async Task<IEnumerable<DTO.Product>> GetAllAsync(object? userId = null, bool noTracking = true)
         {
             var query = PrepareQuery(userId, noTracking);
             query = query
-                .Include(p => p.Category);
-                //.Include(p => p.Price);
+                .Include(p => p.Description).ThenInclude(t=>t!.Translations)
+                .Include(p => p.ProductName).ThenInclude(t=>t!.Translations);
             var domainItems = await query.ToListAsync();
             var result = domainItems.Select(e => Mapper.Map(e));
             return result;
         }
-        **/
         
+
+        public override async Task<DTO.Product> FirstOrDefaultAsync(Guid id, object? userId = null, bool noTracking = true)
+        {
+            var query = PrepareQuery(userId, noTracking);
+            var domainEntity = await query.Include(p => p.Description).ThenInclude(t => t!.Translations)
+                .Include(p => p.ProductName).ThenInclude(t => t!.Translations)
+                .FirstOrDefaultAsync(e => e.Id.Equals(id));
+
+            var result = Mapper.Map(domainEntity);
+            return result;
+        }
     }
 }

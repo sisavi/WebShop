@@ -51,5 +51,5 @@ export class ProductIndex {
         );
     }
 
-
 }
+

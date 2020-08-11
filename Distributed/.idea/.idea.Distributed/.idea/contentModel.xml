@@ -281,8 +281,8 @@
           <e p="DALMapper.cs" t="Include" />
         </e>
         <e p="Migrations" t="Include">
-          <e p="20200729223840_InitialDbCreation.cs" t="Include" />
-          <e p="20200729223840_InitialDbCreation.Designer.cs" t="Include" />
+          <e p="20200811062140_InitialDbCreation.cs" t="Include" />
+          <e p="20200811062140_InitialDbCreation.Designer.cs" t="Include" />
           <e p="AppDbContextModelSnapshot.cs" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive">
@@ -400,14 +400,12 @@
         </e>
       </e>
       <e p="packages" t="ExcludeRecursive" />
-      <e p="PublicApi.DTO.v1" t="IncludeRecursive">
-        <e p="PublicApi.DTO.v1.csproj" t="IncludeRecursive" />
-      </e>
       <e p="PublicApi.DTO.v2" t="IncludeRecursive">
         <e p="Basket.cs" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="Campaign.cs" t="Include" />
         <e p="Category.cs" t="Include" />
+        <e p="CultureDTO.cs" t="Include" />
         <e p="DeliveryType.cs" t="Include" />
         <e p="Identity" t="Include">
           <e p="AppRole.cs" t="Include" />
@@ -456,10 +454,26 @@
           <e p="Account.en.resx" t="Include" />
           <e p="Account.et.resx" t="Include" />
           <e p="Account.resx" t="Include" />
+          <e p="Campaign.Designer.cs" t="Include" />
+          <e p="Campaign.en.resx" t="Include" />
+          <e p="Campaign.et.resx" t="Include" />
+          <e p="Campaign.resx" t="Include" />
           <e p="Category.Designer.cs" t="Include" />
           <e p="Category.en.resx" t="Include" />
           <e p="Category.et.resx" t="Include" />
           <e p="Category.resx" t="Include" />
+          <e p="Order.Designer.cs" t="Include" />
+          <e p="Order.en.resx" t="Include" />
+          <e p="Order.et.resx" t="Include" />
+          <e p="Order.resx" t="Include" />
+          <e p="Product.Designer.cs" t="Include" />
+          <e p="Product.en.resx" t="Include" />
+          <e p="Product.et.resx" t="Include" />
+          <e p="Product.resx" t="Include" />
+          <e p="ProductInBasket.Designer.cs" t="Include" />
+          <e p="ProductInBasket.en.resx" t="Include" />
+          <e p="ProductInBasket.et.resx" t="Include" />
+          <e p="ProductInBasket.resx" t="Include" />
           <e p="Warehouse.Designer.cs" t="Include" />
           <e p="Warehouse.en.resx" t="Include" />
           <e p="Warehouse.et.resx" t="Include" />
@@ -492,9 +506,11 @@
       <e p="WebApp" t="IncludeRecursive">
         <e p="ApiControllers" t="Include">
           <e p="1.0" t="Include">
+            <e p="AppUserController.cs" t="Include" />
             <e p="BasketsController.cs" t="Include" />
             <e p="CampaignsController.cs" t="Include" />
             <e p="CategoriesController.cs" t="Include" />
+            <e p="CulturesController.cs" t="Include" />
             <e p="DeliveryTypeController.cs" t="Include" />
             <e p="Identity" t="Include">
               <e p="AccountController.cs" t="Include" />
@@ -514,10 +530,7 @@
         <e p="Areas" t="Include">
           <e p="Admin" t="Include">
             <e p="Controllers" t="Include">
-              <e p="BasketsController.cs" t="Include" />
               <e p="CampaignsController.cs" t="Include" />
-              <e p="CategoriesController.cs" t="Include" />
-              <e p="OrdersController.cs" t="Include" />
               <e p="PaymentsController.cs" t="Include" />
               <e p="PicturesController.cs" t="Include" />
               <e p="ProductInWarehousesController.cs" t="Include" />
@@ -531,36 +544,9 @@
             <e p="Views" t="Include">
               <e p="_ViewImports.cshtml" t="Include" />
               <e p="_ViewStart.cshtml" t="Include" />
-              <e p="Baskets" t="Include">
-                <e p="_CreateEdit.cshtml" t="Include" />
-                <e p="_DetailsDelete.cshtml" t="Include" />
-                <e p="Create.cshtml" t="Include" />
-                <e p="Delete.cshtml" t="Include" />
-                <e p="Details.cshtml" t="Include" />
-                <e p="Edit.cshtml" t="Include" />
-                <e p="Index.cshtml" t="Include" />
-              </e>
               <e p="Campaigns" t="Include">
                 <e p="_CreateEdit.cshtml" t="Include" />
                 <e p="_DeleteDetails.cshtml" t="Include" />
-                <e p="Create.cshtml" t="Include" />
-                <e p="Delete.cshtml" t="Include" />
-                <e p="Details.cshtml" t="Include" />
-                <e p="Edit.cshtml" t="Include" />
-                <e p="Index.cshtml" t="Include" />
-              </e>
-              <e p="Categories" t="Include">
-                <e p="_CreateEdit.cshtml" t="Include" />
-                <e p="_DeleteDetails.cshtml" t="Include" />
-                <e p="Create.cshtml" t="Include" />
-                <e p="Delete.cshtml" t="Include" />
-                <e p="Details.cshtml" t="Include" />
-                <e p="Edit.cshtml" t="Include" />
-                <e p="Index.cshtml" t="Include" />
-              </e>
-              <e p="Orders" t="Include">
-                <e p="_CreateEdit.cshtml" t="Include" />
-                <e p="_DetailsDelete.cshtml" t="Include" />
                 <e p="Create.cshtml" t="Include" />
                 <e p="Delete.cshtml" t="Include" />
                 <e p="Details.cshtml" t="Include" />
@@ -697,7 +683,10 @@
         <e p="bin" t="ExcludeRecursive" />
         <e p="ConfigureSwaggerOptions.cs" t="Include" />
         <e p="Controllers" t="Include">
+          <e p="BasketsController.cs" t="Include" />
+          <e p="CategoriesController.cs" t="Include" />
           <e p="HomeController.cs" t="Include" />
+          <e p="OrdersController.cs" t="Include" />
           <e p="ProductsController.cs" t="Include" />
         </e>
         <e p="Helpers" t="Include">
@@ -718,6 +707,7 @@
         <e p="ScaffoldingReadMe.txt" t="Include" />
         <e p="Startup.cs" t="Include" />
         <e p="ViewModels" t="Include">
+          <e p="BasketViewModel.cs" t="Include" />
           <e p="CampaignCreateEditViewModel.cs" t="Include" />
           <e p="CategoriesCreateEditViewModel.cs" t="Include" />
           <e p="ErrorViewModel.cs" t="Include" />
@@ -737,9 +727,32 @@
           <e p="Administration" t="Include">
             <e p="ListRoles.cshtml" t="Include" />
           </e>
+          <e p="Baskets" t="Include">
+            <e p="_CreateEdit.cshtml" t="Include" />
+            <e p="_DetailsDelete.cshtml" t="Include" />
+            <e p="Create.cshtml" t="Include" />
+            <e p="Delete.cshtml" t="Include" />
+            <e p="Details.cshtml" t="Include" />
+            <e p="Edit.cshtml" t="Include" />
+            <e p="Index.cshtml" t="Include" />
+          </e>
+          <e p="Categories" t="Include">
+            <e p="_CreateEdit.cshtml" t="Include" />
+            <e p="_DeleteDetails.cshtml" t="Include" />
+            <e p="Create.cshtml" t="Include" />
+            <e p="Delete.cshtml" t="Include" />
+            <e p="Details.cshtml" t="Include" />
+            <e p="Edit.cshtml" t="Include" />
+            <e p="Index.cshtml" t="Include" />
+          </e>
           <e p="Home" t="Include">
             <e p="Index.cshtml" t="Include" />
             <e p="Privacy.cshtml" t="Include" />
+          </e>
+          <e p="Orders" t="Include">
+            <e p="_CreateEdit.cshtml" t="Include" />
+            <e p="_DetailsDelete.cshtml" t="Include" />
+            <e p="Details.cshtml" t="Include" />
           </e>
           <e p="Products" t="Include">
             <e p="_CreateEdit.cshtml" t="Include" />
@@ -771,6 +784,35 @@
             <e p="site.js" t="Include" />
           </e>
           <e p="lib" t="Include">
+            <e p="bootstrap" t="Include">
+              <e p="dist" t="Include">
+                <e p="css" t="Include">
+                  <e p="bootstrap-grid.css" t="Include" />
+                  <e p="bootstrap-grid.css.map" t="Include" />
+                  <e p="bootstrap-grid.min.css" t="Include" />
+                  <e p="bootstrap-grid.min.css.map" t="Include" />
+                  <e p="bootstrap-reboot.css" t="Include" />
+                  <e p="bootstrap-reboot.css.map" t="Include" />
+                  <e p="bootstrap-reboot.min.css" t="Include" />
+                  <e p="bootstrap-reboot.min.css.map" t="Include" />
+                  <e p="bootstrap.css" t="Include" />
+                  <e p="bootstrap.css.map" t="Include" />
+                  <e p="bootstrap.min.css" t="Include" />
+                  <e p="bootstrap.min.css.map" t="Include" />
+                </e>
+                <e p="js" t="Include">
+                  <e p="bootstrap.bundle.js" t="Include" />
+                  <e p="bootstrap.bundle.js.map" t="Include" />
+                  <e p="bootstrap.bundle.min.js" t="Include" />
+                  <e p="bootstrap.bundle.min.js.map" t="Include" />
+                  <e p="bootstrap.js" t="Include" />
+                  <e p="bootstrap.js.map" t="Include" />
+                  <e p="bootstrap.min.js" t="Include" />
+                  <e p="bootstrap.min.js.map" t="Include" />
+                </e>
+              </e>
+              <e p="LICENSE" t="Include" />
+            </e>
             <e p="jquery" t="Include">
               <e p="dist" t="Include">
                 <e p="jquery.js" t="Include" />

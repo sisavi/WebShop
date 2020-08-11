@@ -10,6 +10,6 @@ namespace Domain.App
         [MaxLength(10240)] public string Value { get; set; } = default!;
 
         public Guid LangStrId { get; set; } = default!;
-        public LangStr LangStr { get; set; } = default!;
+        public LangStr? LangStr { get; set; } = default!;
     }
 }

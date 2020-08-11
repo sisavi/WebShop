@@ -2711,6 +2711,7 @@
         "dependencies": {
           "Contracts.BLL.App": "1.0.0",
           "Contracts.DAL.App": "1.0.0",
+          "PublicApi.DTO.v2": "1.0.0",
           "ee.itcollege.sisavi.BLL.Base": "1.0.0"
         },
         "runtime": {
@@ -2736,6 +2737,7 @@
         "dependencies": {
           "BLL.App.DTO": "1.0.0",
           "Contracts.DAL.App": "1.0.0",
+          "PublicApi.DTO.v2": "1.0.0",
           "ee.itcollege.sisavi.Contracts.BLL.Base": "1.0.0"
         },
         "runtime": {

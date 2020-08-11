@@ -1,5 +1,11 @@
+import {IProduct} from "./IProduct";
+
 export interface IProductInBasket {
-    productIdList: string[]
+    appUserId: string
+    productId: string
     quantity: number
-    Id: string
+    totalCost: number
+    basketId: string
+    id:string
+    product: IProduct;
 }

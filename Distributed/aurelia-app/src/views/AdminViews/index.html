@@ -1,0 +1,39 @@
+<template>
+    <h1>${_warehouse.warehouseCode}</h1>
+
+    <p>
+        <a route-href="route: campaigns-create; params.bind: {}">Create New</a>
+    </p>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>
+                Time
+            </th>
+            <th>
+                Address
+            </th>
+            <th>
+                Time
+            </th>
+            <th>
+                Address
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr repeat.for="product of _orders">
+            <td>
+                <a>${product.dateTime}</a>
+            </td>
+            <td>
+                <a>${product.address}</a>
+            </td>
+            <td>
+                <a route-href="route: adminviews-details; params.bind: { id: product.id }">Details</a>
+            </td>
+
+        </tr>
+        </tbody>
+    </table>
+</template>

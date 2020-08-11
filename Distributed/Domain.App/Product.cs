@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using ee.itcollege.sisavi.Domain.Base;
 
 namespace Domain.App
@@ -13,11 +14,16 @@ namespace Domain.App
         public Guid? CampaignId { get; set; }
         
         public Campaign? Campaign { get; set; }
-
-        public string ProductName { get; set; } = default!;
+        [Display(Name = nameof(ProductName), ResourceType = typeof(Resources.Domain.Product))]
+        public LangStr? ProductName { get; set; }
+        public Guid ProductNameId { get; set; }
         
-        public string Description { get; set; } = default!;
+        
+        [Display(Name = nameof(Description), ResourceType = typeof(Resources.Domain.Product))]
+        public LangStr? Description { get; set; }
+        public Guid DescriptionId { get; set; }
 
+        [Display(Name = nameof(ProductPrice), ResourceType = typeof(Resources.Domain.Product))]
         public double ProductPrice { get; set; } = default!;
         
         public string? ImagePath { get; set; }

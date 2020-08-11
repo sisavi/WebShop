@@ -1,6 +1,6 @@
 import { autoinject } from 'aurelia-framework';
 import { RouteConfig, NavigationInstruction, Router } from 'aurelia-router';
-import { CategoryService } from 'service/Category-service';
+import { CategoryService } from 'service/category-service';
 import { IAlertData } from 'types/IAlertData';
 import { AlertType } from 'types/AlertType';
 import {ICategoryEdit} from "../../domain/ICategoryEdit";

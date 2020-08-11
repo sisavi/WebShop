@@ -9,10 +9,17 @@ namespace Contracts.BLL.App.Services
 {
     public interface IProductInBasketService : IBaseEntityService<ProductInBasket>, IProductInBasketRepositoryCustom<ProductInBasket>
     {
-        public Task<IEnumerable<ProductInBasket>> GetProductsForBasketAsync(Guid scId, object? userId = null, bool noTracking = true);
+        Task<IEnumerable<ProductInBasket>> GetProductsForBasketAsync(Guid scId, object? userId = null,
+            bool noTracking = true);
         Task<double> GetTotalCost(Guid scId);
         Task AddToShoppingCart(Guid id, Guid userId);
+        Task<IEnumerable<ProductInBasket>> GetProductsForOrderAsync(Guid orderId);
+        Task RemoveFromShoppingCart(Guid id, Guid userId);
+
+        Task AddToBasketApi(Guid productId, Guid basketId, int quantity = 1);
         
+        Task DecreaseQuantity(ProductInBasket pil);
+
 
     }
 }

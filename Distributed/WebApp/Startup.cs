@@ -45,12 +45,14 @@ namespace WebApp
         {
             services.AddDbContext<AppDbContext>(options =>
                 options.UseSqlServer(
-                    Configuration.GetConnectionString("MsSqlConnection")));
+                    Configuration.GetConnectionString("MsSqlConnection")).EnableSensitiveDataLogging());
 
             // add as a scoped dependency
             services.AddScoped<IUserNameProvider, UserNameProvider>();
             services.AddScoped<IAppUnitOfWork, AppUnitOfWork>();
             services.AddScoped<IAppBLL, AppBLL>();
+            
+            
 
 
             services.AddIdentity<Domain.App.Identity.AppUser, Domain.App.Identity.AppRole>(options => options.SignIn.RequireConfirmedAccount = false)
@@ -109,7 +111,7 @@ namespace WebApp
                 // UI translated strings
                 options.SupportedUICultures = supportedCultures;
                 // if nothing is found, use this
-                options.DefaultRequestCulture = new RequestCulture("et","et");
+                options.DefaultRequestCulture = new RequestCulture("en-GB","en-GB");
             });
 
             services.AddApiVersioning(options => { options.ReportApiVersions = true; });

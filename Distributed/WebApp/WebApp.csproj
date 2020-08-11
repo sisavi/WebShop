@@ -170,6 +170,20 @@
       <_ContentIncludedByDefault Remove="Areas\Admin\Views\Prices\Index.cshtml" />
       <_ContentIncludedByDefault Remove="Areas\Admin\Views\Prices\_CreateEdit.cshtml" />
       <_ContentIncludedByDefault Remove="Areas\Admin\Views\Prices\_DetailsDelete.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Admin\Views\Categories\Create.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Admin\Views\Categories\Delete.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Admin\Views\Categories\Details.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Admin\Views\Categories\Edit.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Admin\Views\Categories\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Admin\Views\Categories\_CreateEdit.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Admin\Views\Categories\_DeleteDetails.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Admin\Views\Baskets\Create.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Admin\Views\Baskets\Delete.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Admin\Views\Baskets\Details.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Admin\Views\Baskets\Edit.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Admin\Views\Baskets\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Admin\Views\Baskets\_CreateEdit.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Admin\Views\Baskets\_DetailsDelete.cshtml" />
     </ItemGroup>
 
     <ItemGroup>
@@ -244,6 +258,13 @@
 
     <ItemGroup>
       <Folder Include="wwwroot\image" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Update="wwwroot\lib\bootstrap\LICENSE">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
     </ItemGroup>
 
 </Project>

@@ -7,7 +7,7 @@ namespace WebApp.ViewModels
     {
         
         public IEnumerable<Product>? Products { get; set; }
-        public IEnumerable<Category>? Categories { get; set; }
+        public IEnumerable<Category> Categories { get; set; } = default!;
         
         public IEnumerable<Campaign>? Campaigns { get; set; }
         

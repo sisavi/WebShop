@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Contracts.DAL.App.Repositories;
@@ -18,25 +19,24 @@ namespace DAL.App.EF.Repositories
         {
         }
 
-        /*
-        public async Task<DTO.Basket> AddProduct(Guid basketId, Domain.App.Product product, bool noTracking = true)
+        public override async Task<IEnumerable<DTO.Basket>> GetAllAsync(object? userId = null, bool noTracking = true)
         {
-            var basket = await RepoDbSet.AsNoTracking()
-                .FirstOrDefaultAsync(a => a.Id == basketId);
-            
-            basket.Products?.Add(product);
-            
-            return Mapper.Map(basket);
+            var query = PrepareQuery(userId, noTracking);
+ 
+            query = query
+                .Include(sc => sc.AppUser);
+ 
+            var domainItems = await query.ToListAsync();
+            var result = domainItems.Select(e => Mapper.Map(e));
+ 
+            return result;
         }
-        **/
-        public DAL.App.DTO.Basket GetByAppUserId(Guid userId)
+ 
+        public DTO.Basket GetByAppUserId(Guid userId)
         {
-            var basket = RepoDbSet.AsNoTracking()
-                .FirstOrDefaultAsync(a => a.AppUserId == userId).Result;
-            
-            
-            
-            return Mapper.Map(basket);
+            var query = PrepareQuery().Where(sc => sc.AppUserId == userId);
+            return Mapper.Map(query.FirstOrDefault(sc => sc.AppUserId == userId));
         }
+
     }
 }

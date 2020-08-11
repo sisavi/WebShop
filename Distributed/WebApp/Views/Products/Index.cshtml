@@ -21,7 +21,7 @@
             <div class="list-group">
                 @foreach (var item in Model.Categories)
                 {
-                    <a asp-action="Details" asp-route-id="@item.Id" class="list-group-item">@Html.DisplayFor(modelItem => item.CategoryName)</a>
+                    <a asp-controller="Categories" asp-action="Details" asp-route-id="@item.Id" class="list-group-item">@Html.DisplayFor(modelItem => item.CategoryName)</a>
                 }
                 
             </div>

@@ -1,7 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using Contracts.BLL.App;
 using Extensions;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
@@ -27,6 +29,7 @@ namespace WebApp.ApiControllers._1._0.Identity
         private readonly UserManager<Domain.App.Identity.AppUser> _userManager;
         private readonly SignInManager<Domain.App.Identity.AppUser> _signInManager;
         private readonly ILogger<AccountController> _logger;
+        private readonly IAppBLL _bll;
 
         /// <summary>
         /// Constructor
@@ -35,13 +38,15 @@ namespace WebApp.ApiControllers._1._0.Identity
         /// <param name="userManager"></param>
         /// <param name="signInManager"></param>
         /// <param name="logger"></param>
+        /// <param name="bll"></param>
         public AccountController(IConfiguration configuration, UserManager<Domain.App.Identity.AppUser> userManager,
-            SignInManager<Domain.App.Identity.AppUser> signInManager, ILogger<AccountController> logger)
+            SignInManager<Domain.App.Identity.AppUser> signInManager, ILogger<AccountController> logger, IAppBLL bll)
         {
             _configuration = configuration;
             _userManager = userManager;
             _signInManager = signInManager;
             _logger = logger;
+            _bll = bll;
         }
 
         /// <summary>
@@ -113,14 +118,20 @@ namespace WebApp.ApiControllers._1._0.Identity
                 UserName = dto.Email,
                 FirstName = dto.FirstName,
                 LastName = dto.LastName,
-                ProductsInBasket = new[]
-                {
-                    new Domain.App.Basket()
-                    {
-                    }
-                }
+                
             };
+
+
             var result = await _userManager.CreateAsync(appUser, dto.Password);
+            var basket = new BLL.App.DTO.Basket()
+            {
+                Id = new Guid(),
+                AppUserId = appUser.Id
+            };
+            _bll.Baskets.Add(basket);
+            await _bll.SaveChangesAsync();
+            _logger.LogInformation($"basket made to user, Basket id = {basket.Id} l.");
+            
             if (result.Succeeded)
             {
                 _logger.LogInformation($"User {appUser.Email} created a new account with password.");

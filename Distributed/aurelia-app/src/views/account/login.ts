@@ -1,7 +1,9 @@
 import { Router } from 'aurelia-router';
-import { AppState } from './../../state/app-state';
+import { AppState } from '../../state/app-state';
 import { autoinject } from 'aurelia-framework';
 import { AccountService } from 'service/account-service';
+import {IndexResources} from "../../lang/IndexResources";
+import {LayoutResources} from "../../lang/LayoutResources";
 
 
 @autoinject
@@ -12,6 +14,7 @@ export class AccountLogin {
     private _errorMessage: string | null = null;
     private emailError = "";
     private passwordError = "";
+    private langResources = LayoutResources;
 
     constructor(private accountService: AccountService, private appState: AppState, private router: Router) {
 
@@ -39,7 +42,7 @@ export class AccountLogin {
             response => {
                 if (response.statusCode == 200) {
                     this.appState.jwt = response.data!.token;
-                    this.router!.navigateToRoute('Home');
+                    this.router.navigateToRoute('products-index');
                 } else {
                     this._errorMessage = response.statusCode.toString()
                         + ' '

@@ -2,9 +2,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using BLL.App.DTO;
 using Contracts.BLL.App;
 using Microsoft.AspNetCore.Mvc;
+using PublicApi.DTO.v2.Identity;
 using PublicApi.DTO.v2.Mappers;
+using AppUser = BLL.App.DTO.Identity.AppUser;
 using V2DTO=PublicApi.DTO.v2;
 
 namespace WebApp.ApiControllers._1._0
@@ -16,6 +19,7 @@ namespace WebApp.ApiControllers._1._0
     {
         private readonly IAppBLL _bll;
         private readonly OrderMapper _mapper = new OrderMapper();
+        private readonly ProductInBasketMapper _pibMapper = new ProductInBasketMapper();
         public OrdersController(IAppBLL bll)
         {
             _bll = bll;
@@ -41,6 +45,18 @@ namespace WebApp.ApiControllers._1._0
 
             return Ok(_mapper.Map(order));
         }
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id">order id</param>
+        /// <returns></returns>
+        [HttpGet("orderProducts/{id}")]
+        
+        public async Task<ActionResult<V2DTO.ProductInBasket>> GetOrderProducts(Guid id)
+        {
+            return Ok((await _bll.ProductInBasket.GetProductsForOrderAsync(id)).Select(e =>_pibMapper.Map(e)));
+        }
 
         // PUT: api/Orders/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
@@ -64,16 +80,23 @@ namespace WebApp.ApiControllers._1._0
         [HttpPost]
         public async Task<ActionResult<V2DTO.Order>> PostOrder(V2DTO.Order order)
         {
-            var bllEntity = _mapper.Map(order);
-            _bll.Orders.Add(bllEntity);
-            
-            await _bll.SaveChangesAsync();
-            order.Id = bllEntity.Id;
+            var orderId = _bll.Orders.PlaceOrderForApi(order).Result;
+            await _bll.Orders.CopyBasket(order.BasketId, orderId);
+            await _bll.Baskets.ClearBasket(order.BasketId);
 
-            return CreatedAtAction("GetOrder", new { id = order.Id }, order);
+            await _bll.SaveChangesAsync();
+            
+            
+            
+            return NoContent();
         }
 
         // DELETE: api/Orders/5
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpDelete("{id}")]
         public async Task<ActionResult<V2DTO.Order>> DeleteOrder(Guid id)
         {

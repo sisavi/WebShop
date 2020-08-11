@@ -18,10 +18,14 @@ namespace BLL.App.DTO
         public Campaign? Campaign { get; set; }
 
         public string ProductName { get; set; } = default!;
+        public Guid ProductNameId { get; set; }
+        
         public string Description { get; set; } = default!;
+        public Guid DescriptionId { get; set; }
+
+        public double ProductPrice { get; set; } = default!;
         
-        public double ProductPrice { get; set; }
-        
+        public string? ImagePath { get; set; }
         
         public ICollection<ProductInWarehouse>? ProductsInWarehouse { get; set; }
         

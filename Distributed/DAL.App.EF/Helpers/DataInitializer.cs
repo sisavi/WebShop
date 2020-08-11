@@ -209,6 +209,38 @@ namespace DAL.App.EF.Helpers
             }
 
             context.SaveChanges();
+            
+            
+            var deliveryTypes = new DeliveryType[]
+            {
+                new DeliveryType()
+                {
+                    Price = 25,
+                    DeliveryTypeName = "DPD Kojuvedu",
+                    Id = new Guid("00000000-0000-0000-0000-000000000001"),
+                },
+                new DeliveryType()
+                {
+                    Price = 50,
+                    DeliveryTypeName = "UPS kojuvedu",
+                    Id = new Guid("00000000-0000-0000-0000-000000000002"),
+                },
+                new DeliveryType()
+                {
+                    Price = 10,
+                    DeliveryTypeName = "Pakiautomaat",
+                    Id = new Guid("00000000-0000-0000-0000-000000000003"),
+                },
+            };
+            foreach (var delivery in deliveryTypes)
+            {
+                if (!context.DeliveryTypes.Any(l => l.Id == delivery.Id))
+                {
+                    context.DeliveryTypes.Add(delivery);
+                }
+            }
+
+            context.SaveChanges();
 
         }
 

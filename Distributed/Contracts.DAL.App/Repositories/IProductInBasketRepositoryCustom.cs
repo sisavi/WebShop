@@ -11,8 +11,9 @@ namespace Contracts.DAL.App.Repositories
     }
     public interface IProductInBasketRepositoryCustom<TProductInBasket>
     {
-        Task<IEnumerable<ProductInBasket>> GetProductsForBasketAsync(Guid scId, object? userId = null, bool noTracking = true);
-        ProductInBasket? ProductAlreadyInBasket(Guid shoppingCartId, Guid productId);
         
+
+
+
     }
 }

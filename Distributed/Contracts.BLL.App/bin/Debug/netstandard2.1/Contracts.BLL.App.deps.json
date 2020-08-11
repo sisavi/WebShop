@@ -11,6 +11,7 @@
         "dependencies": {
           "BLL.App.DTO": "1.0.0",
           "Contracts.DAL.App": "1.0.0",
+          "PublicApi.DTO.v2": "1.0.0",
           "ee.itcollege.sisavi.Contracts.BLL.Base": "1.0.0"
         },
         "runtime": {
@@ -566,6 +567,19 @@
           "PublicApi.DTO.v1.dll": {}
         }
       },
+      "PublicApi.DTO.v2/1.0.0": {
+        "dependencies": {
+          "BLL.App.DTO": "1.0.0",
+          "Domain.App": "1.0.0",
+          "Microsoft.AspNetCore.Http.Features": "2.2.0",
+          "System.ComponentModel.Annotations": "4.7.0",
+          "ee.itcollege.sisavi.Contracts.Domain": "1.0.0",
+          "ee.itcollege.sisavi.DAL.Base": "1.0.0"
+        },
+        "runtime": {
+          "PublicApi.DTO.v2.dll": {}
+        }
+      },
       "Resources/1.0.0": {
         "runtime": {
           "Resources.dll": {}
@@ -925,6 +939,11 @@
       "sha512": ""
     },
     "PublicApi.DTO.v1/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "PublicApi.DTO.v2/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

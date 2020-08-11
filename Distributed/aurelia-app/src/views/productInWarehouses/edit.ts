@@ -7,11 +7,16 @@ import {IProductEdit} from "../../domain/IProductEdit";
 import {IProductWarehouseDTO} from "../../domain/IProductWarehouseDTO";
 import {ProductInWarehouseService} from "../../service/productInWarehouse-service";
 import {WarehouseService} from "../../service/warehouse-services";
-import {IProduct} from "../../domain/Iproduct";
+import {IProduct} from "../../domain/IProduct";
 import {IProductInWarehouse} from "../../domain/IProductInWarehouse";
 
 @autoinject
 export class ProductInWarehouseEdit {
+    //we need:
+    //productId
+    //warehouseId
+    //quantity
+    //id
     private _alert: IAlertData | null = null;
     private _product?: IProduct;
     private _productInWarehouse: IProductInWarehouse = {id: "", quantity: 0 , warehouseId:"", productId: ""}
@@ -68,14 +73,9 @@ export class ProductInWarehouseEdit {
 
                     }
 
-
-
-
     onSubmit(event: Event) {
-        console.log(event);
-        this._productInWarehouse.quantity = this._quantity
+        this._productInWarehouse.quantity = Number(this._quantity)
         console.log(this._productInWarehouse)
-
         this.productInWarehouseService
             .updateProductInWarehouse(this._productInWarehouse)
             .then(

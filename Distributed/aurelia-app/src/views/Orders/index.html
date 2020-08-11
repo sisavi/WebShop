@@ -1,0 +1,77 @@
+<template>
+    <body class="index">
+    <require from="./index.css"></require>
+        <div class="col-75">
+            <div class="active">
+                <table class="table table-bordered">
+                    <div class="row">
+                        <div class="col-50">
+                            <h3>Order List</h3>
+                            <thead>
+                            <tr class="order">
+                                <th>
+                                    Product
+                                </th>
+                                <th>
+                                    Price
+                                </th>
+                                <th>
+                                    Quantity
+                                </th>
+                                <th>
+                                    Total
+                                </th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr class="order" repeat.for="product of _productsInBasket">
+                                <td>
+                                    ${product.product.productName}
+                                </td>
+                                <td>
+                                    ${product.product.productPrice}€
+                                </td>
+                                <td>
+                                    ${product.quantity}
+                                </td>
+                                <td>
+                                    ${getPrice(product.product.productPrice, product.quantity)}
+                                </td>
+                            </tr>
+                            </tbody>
+                            <tr class="order">
+                                <td>Total</td>
+                                <td align="right">${getDecimals(_total)}€</td>
+
+                            </tr>
+                        </div>
+                    </div>
+                </table>
+            </div>
+            <h4>Payment</h4>
+            <hr />
+            <div class="row">
+                <div class="col-md-4">
+                    <form submit.trigger="onSubmit($event)">
+                        <label class="control-label" for="deliverType">DeliveryType</label>
+                        <select class="form-control" type="text" id="deliverType" maxlength="64" value.bind="_deliveryTypeId">
+                            <option value="">---------</option>
+                            <option repeat.for="deliveryType of _deliveryTypes" value="${deliveryType.id}">${deliveryType.deliveryTypeName}</option>
+                        </select>
+                        <div class="form-group">
+                            <label class="control-label" for="address">Address</label>
+                            <input class="form-control" type="text" id="address" maxlength="64" value.bind="_address" />
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="phone">Phone Number</label>
+                            <input class="form-control" type="text" id="phone" maxlength="12" value.bind="_phone" />
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" value="Create" class="btn btn-primary" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+    </div>
+    </body>
+</template>

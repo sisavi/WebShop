@@ -1,42 +1,40 @@
 <template>
-    <body>
 
-    <require from="./create.css"></require>
 
-    <div class="create">
-        <div class="row">
-            <div class="col-75">
-                <div class="orderContainer">
-                    <h2 style="font-weight: 600;">Login</h2>
-                    <section>
-                        <form id="account" method="post" submit.trigger="onSubmit($event)">
-                            <h4 if.bind="_errorMessage != null" style="color:red;">${_errorMessage}</h4>
-                            <hr />
-                            <div class="form-group">
-                                <label style="font-weight: 600;"  for="email">Email</label>
-                                <input class="form-control" id="email" type="email" value.bind="_email" />
-                                <span id="popupEmail" style="display: none; color: red">${emailError}</span>
-                            </div>
-                            <div class="form-group">
-                                <label style="font-weight: 600;" for="Input_Password">Password</label>
-                                <input class="form-control" id="Input_Password" type="password" value.bind="_password" />
-                                <span id="popupPassword" style="display: none; color: red">${passwordError}</span>
-                            </div>
+    <h1>${langResources[state.selectedCulture.code].login}</h1>
+    <div class="row">
+        <div class="col-md-6">
+            <section>
+                <form id="account" method="post" submit.trigger="onSubmit($event)">
+                    <h4 if.bind="_errorMessage != null" style="color:red;">${_errorMessage}</h4>
+                    <hr />
+                    <div class="form-group">
+                        <label for="email">${langResources[state.selectedCulture.code].email}</label>
+                        <input class="form-control" id="email" type="email" value.bind="_email" />
+                    </div>
+                    <div class="form-group">
+                        <label for="_password">${langResources[state.selectedCulture.code].password}</label>
+                        <input class="form-control" id="_password" type="password" value.bind="_password" />
+                    </div>
 
-                            <div class="form-group">
-                                <button style="font-weight: 600;" id="submitbtn" type="submit" class="btn btn-primary">Log in</button>
-                            </div>
-                            <div class="form-group">
-                                <p>
-                                    <a route-href="route: account-register; params.bind: {}">Register as a new user</a>
-                                </p>
-                            </div>
-                        </form>
-                    </section>
-                </div>
-            </div>
+                    <!--
+                    <div class="form-group">
+                        <div class="checkbox">
+                            <label for="Input_RememberMe">
+                                <input type="checkbox" id="Input_RememberMe"
+                                    name="Input.RememberMe" value="true" />
+                                Remember me?
+                            </label>
+                        </div>
+                    </div>
+                    -->
+
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary">${langResources[state.selectedCulture.code].login}</button>
+                    </div>
+                </form>
+            </section>
         </div>
-    </div>
-    </body>
 
+    </div>
 </template>

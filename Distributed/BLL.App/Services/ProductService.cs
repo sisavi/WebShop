@@ -32,7 +32,7 @@ namespace BLL.App.Services
                 return product;
             }
             
-            product.ProductPrice *= ((100 - campaign.Discount) / 100);
+            Math.Round((product.ProductPrice *= ((100 - campaign.Discount) / 100)), 2);
             
             return product;
         }

@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Threading.Tasks;
+using BLL.App.DTO;
 using BLL.App.Mappers;
 using ee.itcollege.sisavi.BLL.Base.Services;
 using Contracts.BLL.App.Mappers;
 using Contracts.BLL.App.Services;
 using Contracts.DAL.App;
 using Contracts.DAL.App.Repositories;
-using Domain.App;
-using Basket = DAL.App.DTO.Basket;
 
 namespace BLL.App.Services
 {
@@ -18,14 +17,20 @@ namespace BLL.App.Services
         public BasketService(IAppUnitOfWork uow) : base(uow, uow.Baskets, new BasketServiceMapper())
         {
         }
-        /*
-        public async Task<Basket> AddProduct(Guid basketId, Product product)
+        public Basket GetByAppUserId(Guid userId)
         {
-            var basket = await UOW.ProductsInBaskets.AddProduct(basketId, product);
-
-            return basket;
+            return Mapper.Map(UOW.Baskets.GetByAppUserId(userId));
         }
-        */
+ 
+        public async Task ClearBasket(Guid basketId)
+        {
+            foreach (var productInBasket in UOW.ProductInBasket.GetProductsForBasketAsync(basketId).Result)
+            {
+                await UOW.ProductInBasket.RemoveAsync(productInBasket.Id);
+            }
+ 
+            await UOW.SaveChangesAsync();
+        }
         
     }
 }

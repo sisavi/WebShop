@@ -4,12 +4,67 @@
         <name>WebApp</name>
     </assembly>
     <members>
+        <member name="T:WebApp.ApiControllers._1._0.AppUsersController">
+            <summary>
+            Appuser Controller
+            </summary>
+        </member>
+        <member name="M:WebApp.ApiControllers._1._0.AppUsersController.#ctor(DAL.App.EF.AppDbContext,Microsoft.AspNetCore.Identity.UserManager{Domain.App.Identity.AppUser})">
+            <summary>
+            Constructor
+            </summary>
+            <param name="context"></param>
+            <param name="userManager"></param>
+        </member>
+        <member name="M:WebApp.ApiControllers._1._0.AppUsersController.GetAppUser">
+            <summary>
+            GetAppuser
+            </summary>
+        </member>
+        <member name="M:WebApp.ApiControllers._1._0.AppUsersController.PutAppUser(System.Guid,PublicApi.DTO.v2.Identity.AppUser)">
+            <summary>
+            update AppUser
+            </summary>
+            <param name="id"></param>
+            <param name="appUser"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApp.ApiControllers._1._0.BasketsController.GetBasketByAppUser(System.Guid)">
+            <summary>
+            
+            </summary>
+            <param name="id">App UserId</param>
+            <returns></returns>
+        </member>
+        <member name="T:WebApp.ApiControllers._1._0.CulturesController">
+            <summary>
+            Culture info
+            </summary>
+        </member>
+        <member name="M:WebApp.ApiControllers._1._0.CulturesController.#ctor(Microsoft.Extensions.Options.IOptions{Microsoft.AspNetCore.Builder.RequestLocalizationOptions})">
+            <summary>
+            Constructor
+            </summary>
+            <param name="localizationOptions"></param>
+        </member>
+        <member name="M:WebApp.ApiControllers._1._0.CulturesController.GetCultures">
+            <summary>
+            Get the list of supported cultures
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WebApp.ApiControllers._1._0.CulturesController.GetResources">
+            <summary>
+            Get the resource strings and keys
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:WebApp.ApiControllers._1._0.Identity.AccountController">
             <summary>
             Api endpoint for registering new user and user log-in (jwt token generation)
             </summary>
         </member>
-        <member name="M:WebApp.ApiControllers._1._0.Identity.AccountController.#ctor(Microsoft.Extensions.Configuration.IConfiguration,Microsoft.AspNetCore.Identity.UserManager{Domain.App.Identity.AppUser},Microsoft.AspNetCore.Identity.SignInManager{Domain.App.Identity.AppUser},Microsoft.Extensions.Logging.ILogger{WebApp.ApiControllers._1._0.Identity.AccountController})">
+        <member name="M:WebApp.ApiControllers._1._0.Identity.AccountController.#ctor(Microsoft.Extensions.Configuration.IConfiguration,Microsoft.AspNetCore.Identity.UserManager{Domain.App.Identity.AppUser},Microsoft.AspNetCore.Identity.SignInManager{Domain.App.Identity.AppUser},Microsoft.Extensions.Logging.ILogger{WebApp.ApiControllers._1._0.Identity.AccountController},Contracts.BLL.App.IAppBLL)">
             <summary>
             Constructor
             </summary>
@@ -17,6 +72,7 @@
             <param name="userManager"></param>
             <param name="signInManager"></param>
             <param name="logger"></param>
+            <param name="bll"></param>
         </member>
         <member name="M:WebApp.ApiControllers._1._0.Identity.AccountController.Login(PublicApi.DTO.v2.Identity.LoginDTO)">
             <summary>
@@ -32,11 +88,148 @@
             <param name="dto">user data</param>
             <returns></returns>
         </member>
+        <member name="M:WebApp.ApiControllers._1._0.OrdersController.GetOrderProducts(System.Guid)">
+            <summary>
+            
+            </summary>
+            <param name="id">order id</param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApp.ApiControllers._1._0.OrdersController.DeleteOrder(System.Guid)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:WebApp.ApiControllers._1._0.ProductInBasketsController">
+            <summary>
+            products in basket controller
+            </summary>
+        </member>
+        <member name="M:WebApp.ApiControllers._1._0.ProductInBasketsController.#ctor(Contracts.BLL.App.IAppBLL)">
+            <summary>
+            constructor
+            </summary>
+            <param name="bll"></param>
+        </member>
+        <member name="M:WebApp.ApiControllers._1._0.ProductInBasketsController.GetProductInBaskets">
+            <summary>
+            get all user products in basket
+            </summary>
+            <returns>all users products in basket</returns>
+        </member>
+        <member name="M:WebApp.ApiControllers._1._0.ProductInBasketsController.GetUserProductInBaskets(System.Guid)">
+            <summary>
+            get user product that has been added to product user basket
+            </summary>
+            <param name="id">basket id</param>
+            <returns>user products</returns>
+        </member>
+        <member name="M:WebApp.ApiControllers._1._0.ProductInBasketsController.GetUserProductInBasketsTotal(System.Guid)">
+            <summary>
+            get certain user products from basket total Price
+            </summary>
+            <param name="id">user basket id</param>
+            <returns>user products</returns>
+        </member>
+        <member name="M:WebApp.ApiControllers._1._0.ProductInBasketsController.GetProductInBasket(System.Guid)">
+            <summary>
+            get product in basket with correct id
+            </summary>
+            <param name="id">id</param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApp.ApiControllers._1._0.ProductInBasketsController.PutProductInBasket(System.Guid,PublicApi.DTO.v2.ProductInBasket)">
+            <summary>
+            edit products in basket
+            </summary>
+            <param name="id">id</param>
+            <param name="productInBasket">product in basket</param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApp.ApiControllers._1._0.ProductInBasketsController.PostProductInBasket(PublicApi.DTO.v2.ProductInBasket)">
+            <summary>
+            put product to basket
+            </summary>
+            <param name="productInBasket">product to add to basket</param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApp.ApiControllers._1._0.ProductInBasketsController.DeleteProductInBasket(System.Guid)">
+            <summary>
+            delete product from basket
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:WebApp.ApiControllers._1._0.ProductInWarehousesController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:WebApp.ApiControllers._1._0.ProductInWarehousesController.#ctor(Contracts.BLL.App.IAppBLL)">
+            <summary>
+            
+            </summary>
+            <param name="bll"></param>
+        </member>
+        <member name="M:WebApp.ApiControllers._1._0.ProductInWarehousesController.GetProductInWarehouses">
+            <summary>
+            gets all products in all warehouses
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:WebApp.ApiControllers._1._0.ProductInWarehousesController.GetProductsInWarehouse(System.Guid)">
             <summary>
-            Finds Specific Products from given Category
+            Finds Specific Products from given warehouse
             </summary>
             <returns>returns Products</returns>
+        </member>
+        <member name="M:WebApp.ApiControllers._1._0.ProductInWarehousesController.GetProductInWarehouse(System.Guid)">
+            <summary>
+            get product in warehouse that has given Id
+            </summary>
+            <param name="id">id</param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApp.ApiControllers._1._0.ProductInWarehousesController.PutProductInWarehouse(System.Guid,PublicApi.DTO.v2.ProductInWarehouse)">
+            <summary>
+            edit product in warehouse
+            </summary>
+            <param name="id"></param>
+            <param name="productInWarehouse"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApp.ApiControllers._1._0.ProductInWarehousesController.PostProductInWarehouse(PublicApi.DTO.v2.ProductInWarehouse)">
+            <summary>
+            add new product to warehouse
+            </summary>
+            <param name="productInWarehouse"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApp.ApiControllers._1._0.ProductInWarehousesController.DeleteProductInWarehouse(System.Guid)">
+            <summary>
+            delete product In warehouse
+            </summary>
+            <param name="id">id</param>
+            <returns></returns>
+        </member>
+        <member name="T:WebApp.ApiControllers._1._0.ProductsController">
+            <summary>
+            Products
+            </summary>
+        </member>
+        <member name="M:WebApp.ApiControllers._1._0.ProductsController.#ctor(Contracts.BLL.App.IAppBLL)">
+            <summary>
+            constructor
+            </summary>
+            <param name="bll"></param>
+        </member>
+        <member name="M:WebApp.ApiControllers._1._0.ProductsController.GetProducts">
+            <summary>
+            Get all Products
+            </summary>
+            <returns></returns>
         </member>
         <member name="M:WebApp.ApiControllers._1._0.ProductsController.GetProductsByCategory(System.Guid)">
             <summary>
@@ -44,6 +237,81 @@
             </summary>
             <param name="id"></param>
             <returns>returns Products</returns>
+        </member>
+        <member name="M:WebApp.ApiControllers._1._0.ProductsController.GetProduct(System.Guid)">
+            <summary>
+            Get Specific Product
+            </summary>
+            <param name="id">Id of the product</param>
+            <returns>product with correct price</returns>
+        </member>
+        <member name="M:WebApp.ApiControllers._1._0.ProductsController.PutProduct(System.Guid,PublicApi.DTO.v2.Product)">
+            <summary>
+            Update product
+            </summary>
+            <param name="id"></param>
+            <param name="product"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApp.ApiControllers._1._0.ProductsController.PostProduct(PublicApi.DTO.v2.Product)">
+            <summary>
+            Create new Product
+            </summary>
+            <param name="product"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApp.ApiControllers._1._0.ProductsController.DeleteProduct(System.Guid)">
+            <summary>
+            delete product
+            </summary>
+            <param name="id">id of product</param>
+            <returns></returns>
+        </member>
+        <member name="T:WebApp.ApiControllers._1._0.WarehousesController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:WebApp.ApiControllers._1._0.WarehousesController.#ctor(Contracts.BLL.App.IAppBLL)">
+            <summary>
+            constructor
+            </summary>
+            <param name="bll"></param>
+        </member>
+        <member name="M:WebApp.ApiControllers._1._0.WarehousesController.GetWarehouses">
+            <summary>
+            get All warehouses
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WebApp.ApiControllers._1._0.WarehousesController.GetWarehouse(System.Guid)">
+            <summary>
+            get warehouse with id
+            </summary>
+            <param name="id">id</param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApp.ApiControllers._1._0.WarehousesController.PutWarehouse(System.Guid,PublicApi.DTO.v2.Warehouse)">
+            <summary>
+            eidt warehouse
+            </summary>
+            <param name="id"></param>
+            <param name="warehouse"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApp.ApiControllers._1._0.WarehousesController.PostWarehouse(PublicApi.DTO.v2.Warehouse)">
+            <summary>
+            create new warehouse
+            </summary>
+            <param name="warehouse"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApp.ApiControllers._1._0.WarehousesController.DeleteWarehouse(System.Guid)">
+            <summary>
+            delete warehouse
+            </summary>
+            <param name="id">id</param>
+            <returns></returns>
         </member>
     </members>
 </doc>

@@ -12,11 +12,11 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionFolder1", "SolutionFolder1", "{4A7DFBFF-F196-4740-AD22-1554778EF1DA}"
 	ProjectSection(SolutionItems) = preProject
 	README.md = README.md
-    	.gitignore = .gitignore
-    	.dockerignore = .dockerignore
-    	Directory.Build.props = Directory.Build.props
-    	.gitlab-ci.yml = .gitlab-ci.yml
-    	Dockerfile = Dockerfile
+					.gitignore = .gitignore
+					.dockerignore = .dockerignore
+					Directory.Build.props = Directory.Build.props
+					.gitlab-ci.yml = .gitlab-ci.yml
+					Dockerfile = Dockerfile
 		..\..\Desktop\Directory.Build .props = ..\..\Desktop\Directory.Build .props
 	EndProjectSection
 EndProject
@@ -27,8 +27,6 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Contracts.DAL.App", "Contracts.DAL.App\Contracts.DAL.App.csproj", "{11772A90-5F72-4316-AC17-E7B8762D8EFA}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Extensions", "Extensions\Extensions.csproj", "{B8F965B1-BBF6-4914-8E91-4211D85A96C7}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PublicApi.DTO.v1", "PublicApi.DTO.v1\PublicApi.DTO.v1.csproj", "{2EF57513-4E01-4FD3-A205-22D5EC8AEF45}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Resources", "Resources\Resources.csproj", "{5E4A09BF-D359-4805-A2C6-E38930165367}"
 EndProject
@@ -99,10 +97,6 @@ Global
 		{B8F965B1-BBF6-4914-8E91-4211D85A96C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B8F965B1-BBF6-4914-8E91-4211D85A96C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B8F965B1-BBF6-4914-8E91-4211D85A96C7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2EF57513-4E01-4FD3-A205-22D5EC8AEF45}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2EF57513-4E01-4FD3-A205-22D5EC8AEF45}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2EF57513-4E01-4FD3-A205-22D5EC8AEF45}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2EF57513-4E01-4FD3-A205-22D5EC8AEF45}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5E4A09BF-D359-4805-A2C6-E38930165367}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{5E4A09BF-D359-4805-A2C6-E38930165367}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5E4A09BF-D359-4805-A2C6-E38930165367}.Release|Any CPU.ActiveCfg = Release|Any CPU

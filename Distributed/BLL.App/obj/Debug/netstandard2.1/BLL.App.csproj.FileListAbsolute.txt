@@ -38,3 +38,5 @@ C:\Users\Simo\icd0009-2019s\Distributed\BLL.App\bin\Debug\netstandard2.1\ee.itco
 C:\Users\Simo\icd0009-2019s\Distributed\BLL.App\bin\Debug\netstandard2.1\ee.itcollege.sisavi.Contracts.Domain.pdb
 C:\Users\Simo\icd0009-2019s\Distributed\BLL.App\bin\Debug\netstandard2.1\ee.itcollege.sisavi.DAL.Base.pdb
 C:\Users\Simo\icd0009-2019s\Distributed\BLL.App\bin\Debug\netstandard2.1\ee.itcollege.sisavi.Domain.Base.pdb
+C:\Users\Simo\icd0009-2019s\Distributed\BLL.App\bin\Debug\netstandard2.1\PublicApi.DTO.v2.dll
+C:\Users\Simo\icd0009-2019s\Distributed\BLL.App\bin\Debug\netstandard2.1\PublicApi.DTO.v2.pdb

@@ -1,4 +1,4 @@
-import { ICampaignEdit } from './../domain/ICampaignEdit';
+import { ICampaignEdit } from '../domain/ICampaignEdit';
 import { autoinject } from 'aurelia-framework';
 import { HttpClient } from 'aurelia-fetch-client';
 import { ICampaign } from 'domain/ICampaign';

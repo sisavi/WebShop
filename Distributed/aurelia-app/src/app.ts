@@ -1,15 +1,106 @@
 import {AppState} from './state/app-state';
-import {autoinject, PLATFORM} from 'aurelia-framework';
+import {autoinject, PLATFORM, LogManager, View} from 'aurelia-framework';
 import {RouterConfiguration, Router} from 'aurelia-router';
 import 'bootstrap';
+import * as environment from '../config/environment.json';
+import {IState} from "./state/State";
+import {ICulture} from "./domain/ICulture";
+import {CultureService} from "./service/culture-service";
+import {connectTo, Store} from "aurelia-store";
+import {LayoutResources} from 'lang/LayoutResources';
+import {HttpClient} from "aurelia-fetch-client";
+export const log = LogManager.getLogger('app.App');
+import { EventAggregator, Subscription } from 'aurelia-event-aggregator';
+import {IndexResources} from "./lang/IndexResources";
 
+@connectTo()
 @autoinject
 export class App {
     router?: Router;
+    private subscriptions: Subscription[] = [];
 
-    constructor(private appState: AppState) {
+    private langResources = LayoutResources;
+    private indexResources = IndexResources;
+    public state!: IState;
+    private userFirstName = this.appState.userFirstName;
+
+    constructor(private appState: AppState,private httpClient: HttpClient, private store: Store<IState>, private cultureService: CultureService) {
+        this.httpClient.configure(config => {
+            config
+                .withBaseUrl(environment.backendUrl)
+                .withDefaults({
+                    credentials: 'same-origin',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json',
+                        'X-Requested-With': 'Fetch'
+                    }
+                })
+                .withInterceptor({
+                    request(request) {
+                        console.log(`Requesting ${request.method} ${request.url}`);
+                        return request;
+                    },
+                    response(response) {
+                        console.log(`Received ${response.status} ${response.url}`);
+                        return response;
+                    }
+                });
+        });
+
+        this.store.registerAction('stateUpdateCultures', this.stateUpdateCultures);
+        this.store.registerAction('stateUpdateSelectedCulture', this.stateUpdateSelectedCulture);
+
 
     }
+    created(owningView: View, myView: View): void {
+        log.debug("created");
+
+    }
+
+    bind(bindingContext: Record<string, any>, overrideContext: Record<string, any>): void {
+        log.debug("bind");
+    }
+
+    async attached(): Promise<void> {
+        log.debug("attached");
+
+        // get the languages from backend
+        const result = await this.cultureService.getAll();
+        if (result.statusCode >= 200 && result.statusCode < 300) {
+            log.debug('data', result.data);
+            if (result.data) {
+                this.store.dispatch(this.stateUpdateCultures, result.data);
+            }
+        }
+
+
+    }
+
+    detached(): void {
+        log.debug("detached");
+        this.subscriptions.forEach(subscription => {
+            subscription.dispose();
+        });
+        this.subscriptions = [];
+    }
+
+    setCulture(culture: ICulture): void {
+        this.store.dispatch(this.stateUpdateSelectedCulture, culture);
+    }
+
+    stateUpdateCultures(state: IState, cultures: ICulture[]): IState {
+        const newState = Object.assign({}, state);
+        newState.cultures = cultures;
+        return newState;
+    }
+
+    stateUpdateSelectedCulture(state: IState, culture: ICulture): IState {
+        const newState = Object.assign({}, state);
+        newState.selectedCulture = culture;
+        return newState;
+    }
+
 
     configureRouter(config: RouterConfiguration, router: Router): void {
         this.router = router;
@@ -24,6 +115,21 @@ export class App {
                     nav: true,
                     title: 'Home'
                 },
+                {
+                    route: ['AdminViews/index'],
+                    name: 'adminviews-index',
+                    moduleId: PLATFORM.moduleName('views/AdminViews/index'),
+                    nav: false,
+                    title: 'Admin View'
+                },
+                {
+                    route: ['AdminViews/details/:id?'],
+                    name: 'adminviews-details',
+                    moduleId: PLATFORM.moduleName('views/AdminViews/details'),
+                    nav: false,
+                    title: 'admin Details'
+                },
+
 
                 {
                     route: ['account/login'],
@@ -211,6 +317,13 @@ export class App {
                     moduleId: PLATFORM.moduleName('views/products/index'),
                     nav: true,
                     title: 'products'
+                },
+                {
+                    route: ['orders', 'orders/index'],
+                    name: 'orders-index',
+                    moduleId: PLATFORM.moduleName('views/orders/index'),
+                    nav: true,
+                    title: 'orders'
                 },
                 {
                     route: ['products/details/:id?'],

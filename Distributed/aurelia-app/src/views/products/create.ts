@@ -27,10 +27,11 @@ export class ProductCreate {
     }
 
     attached() {
-
+        console.log("see prst")
     }
 
     activate(params: any, routeConfig: RouteConfig, navigationInstruction: NavigationInstruction) {
+        console.log("see enne")
         this.campaignService.getCampaigns().then(
             response => {
                 if (response.statusCode >= 200 && response.statusCode < 300) {
@@ -67,14 +68,15 @@ export class ProductCreate {
 
     onSubmit(event: Event) {
         console.log(event);
-        var product: IProductCreate = {productName: this._productName, campaignId: this._campaignId, description: this._description,productPrice: parseInt(this._productPrice), categoryId: this._categoryId}
+        let product: IProductCreate = {productName: this._productName, campaignId: this._campaignId, description: this._description,productPrice: parseInt(this._productPrice), categoryId: this._categoryId}
+        console.log(product)
         this.productService
             .createProduct(product)
             .then(
                 response => {
                     if (response.statusCode >= 200 && response.statusCode < 300) {
                         this._alert = null;
-                        this.router.navigateToRoute('product-index', {});
+                        this.router.navigateToRoute('products-index', {});
                     } else {
                         // show error message
                         this._alert = {
@@ -83,7 +85,7 @@ export class ProductCreate {
                             dismissable: true,
                         }
                     }
-                }   
+                }
             );
 
         event.preventDefault();

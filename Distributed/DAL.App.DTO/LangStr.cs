@@ -14,6 +14,13 @@ namespace DAL.App.DTO
         public Guid Id { get; set; }
 
         public ICollection<LangStrTranslation>? Translations { get; set; }
+        
+        [InverseProperty(nameof(Category.CategoryName))]
+        public ICollection<Category>? CategoryNames { get; set; }
+        
+        
+        [InverseProperty(nameof(Product.Description))]
+        public ICollection<Product>? Descriptions { get; set; }
 
         [InverseProperty(nameof(Product.ProductName))]
         [JsonIgnore]
